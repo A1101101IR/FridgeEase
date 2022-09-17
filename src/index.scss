@@ -1,0 +1,27 @@
+
+* {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 375px;
+  max-height: 812px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.navbar {
+  min-height: 50px;
+  background-color: rgb(91, 172, 244);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+.main {
+  height: calc(812px - 50px);
+}
