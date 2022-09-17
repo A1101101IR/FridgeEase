@@ -1,5 +1,11 @@
+import Login from "./welcome/login";
+
 const Account = () => {
-  return <h1>min sida</h1>;
+  return (
+    <>
+      <Login />
+    </>
+  );
 };
 
 export default Account;

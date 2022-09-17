@@ -2,6 +2,9 @@
 * {
   margin: 0;
   padding: 0;
+  background-color: #A0C4FF;
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+  
 }
 .container {
   max-width: 375px;
@@ -9,10 +12,20 @@
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
+  font-family: 'Oswald', sans-serif;
+}
+.header {
+  height: 140px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    font-size: 34px;
+    font-weight: 700;
+  }
 }
 .navbar {
   min-height: 50px;
-  background-color: rgb(91, 172, 244);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,4 +37,46 @@
 }
 .main {
   height: calc(812px - 50px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.login {
+  margin-top: 150px;
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 330px;
+    input {
+      height: 45px;
+      margin-bottom: 15px;
+      border: 3px solid black;
+      border-radius: 45px;
+      background-color: white;
+      padding-left: 15px;
+    }
+  }
+  .orBox {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 50px;
+    margin-bottom: 10px;
+    div {
+      height: 1px;
+      width: 50px;
+      background-color: black;
+    }
+  }
+}
+
+.bigBTN {
+  width: 330px;
+  height: 45px;
+  margin-bottom: 15px;
+  border: 1px solid black;
+  border-radius: 45px;
+  background-color: white;
 }
