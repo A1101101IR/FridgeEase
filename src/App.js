@@ -1,12 +1,11 @@
 import { Routes, Route } from "react-router-dom";
-import Account from "./components/account";
-import Fridge from "./components/fridge";
-import Header from "./components/header";
 import Navigation from "./components/navigation";
 import OrderList from "./components/orderList";
+import Account from "./components/account";
 import Recipe from "./components/recipe";
+import Fridge from "./components/fridge";
+import Header from "./components/header";
 import Main from "./main";
-
 function App() {
   return (
     <div className="container">
