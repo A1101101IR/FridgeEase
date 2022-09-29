@@ -1,0 +1,19 @@
+{
+    "products": [
+        {
+            "id" : 0,
+            "name" : "Potatis",
+            "icon" : "potatis.png"
+        },
+        {
+            "id" : 1,
+            "name" : "Banan",
+            "icon" : "banan.png"
+        },
+        {
+            "id" : 2,
+            "name" : "Fisk",
+            "icon" : "fisk.png"
+        }
+    ]
+}

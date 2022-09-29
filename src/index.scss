@@ -44,7 +44,6 @@
       img {
         width: 40px;
       }
-
     }
   }
 }
@@ -127,8 +126,39 @@
     background-color: white;
     margin-left: 15px;
     margin-top: 2px;
+    font-weight: 300;
   }
   p {
     margin-top: 50px;
+    font-weight: 300;
   }
+}
+
+
+
+.product-cart-small {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 350px;
+  border: 1px solid black;
+  height: 50px;
+  background-color: white;
+  border-radius: 25px;
+  margin-bottom: 10px;
+  .product-icon {
+    width: 40px;
+    height: 40px;
+  }
+  h4 {
+    background-color: white;
+  }
+  img {
+    width: 35px;
+    height: 35px;
+    background-color: white;
+    margin: 0px 10px;
+  }
+  
+
 }

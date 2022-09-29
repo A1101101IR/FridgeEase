@@ -6,6 +6,7 @@ import Recipe from "./components/recipe";
 import Fridge from "./components/fridge";
 import Header from "./components/header";
 import Main from "./main";
+import ProductList from "./components/product/product-list";
 function App() {
   return (
     <div className="container">
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />}></Route>
           <Route path="/fridge" element={<Fridge />}></Route>
+          <Route path="/productlist" element={<ProductList />}></Route>
           <Route path="/account" element={<Account />}></Route>
           <Route path="/orderList" element={<OrderList />}></Route>
           <Route path="/recipe" element={<Recipe />}></Route>
