@@ -12,8 +12,69 @@
         },
         {
             "id" : 2,
-            "name" : "Fisk",
-            "icon" : "fisk.png"
+            "name" : "Bacon",
+            "icon" : "bacon.png"
+        },
+        {
+            "id" : 3,
+            "name" : "Cheese",
+            "icon" : "cheese.png"
+        },
+        {
+            "id" : 4,
+            "name" : "Banan",
+            "icon" : "banan.png"
+        },
+        {
+            "id" : 5,
+            "name" : "Fish",
+            "icon" : "fish.png"
+        },
+        {
+            "id" : 6,
+            "name" : "Milk",
+            "icon" : "milk.png"
+        },
+        {
+            "id" : 7,
+            "name" : "Crab",
+            "icon" : "crab.png"
+        },
+        {
+            "id" : 8,
+            "name" : "Cake",
+            "icon" : "cake.png"
+        },
+        {
+            "id" : 9,
+            "name" : "Sausage",
+            "icon" : "sausage.png"
+        }
+    ],
+    "fridge": [
+        {
+            "id" : 0,
+            "quantity" : 1,
+            "weight" : 1000,
+            "product_type" : [
+                {
+                    "id" : 2,
+                    "name" : "Fisk",
+                    "icon" : "fisk.png"  
+                }
+            ]
+        },
+        {
+            "id" : 0,
+            "quantity" : 1,
+            "weight" : 1000,
+            "product_type" : [
+                {
+                    "id" : 1,
+                    "name" : "Banan",
+                    "icon" : "banan.png"
+                }
+            ]
         }
     ]
 }

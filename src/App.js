@@ -8,6 +8,7 @@ import Header from "./components/header";
 import Main from "./main";
 import ProductList from "./components/product/product-list";
 import Product from "./components/product/product";
+import RecipeSearch from "./components/recipe/recipeSearch";
 function App() {
   return (
     <div className="container">
@@ -21,6 +22,7 @@ function App() {
           <Route path="/account" element={<Account />}></Route>
           <Route path="/orderList" element={<OrderList />}></Route>
           <Route path="/recipe" element={<Recipe />}></Route>
+          <Route path="/recipe/:id" element={<RecipeSearch />}></Route>
         </Routes>
       </section>
       <Navigation />
