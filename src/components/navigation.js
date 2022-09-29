@@ -15,7 +15,7 @@ const Navigation = () => {
           <img src={Recipe} alt="" />
           Recipe
         </Link>
-        <Link to="/fridge" className="link">
+        <Link to="/" className="link">
           <img src={Fridge} alt="" />
           Fridge
         </Link>

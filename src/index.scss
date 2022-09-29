@@ -124,6 +124,8 @@
     border: 1px solid black;
     border-radius: 45px;
     background-color: white;
+    text-decoration: none;
+    color: black;
   }
   img {
     width: 35px;
@@ -155,9 +157,11 @@
   background-color: white;
   border-radius: 25px;
   margin-bottom: 10px;
+  text-decoration: none;
+  color: black;
   .product-icon {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
   }
   h4 {
     background-color: white;
@@ -173,21 +177,26 @@
 }
 .product-cart {
   width: 330px;
-  height: 530px;
   background-color: white;
-  border-radius: 20px;
+  border-radius: 10px;
   padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    margin-bottom: 15px;
     div {
       display: flex;
       align-items: center;
+      margin-left: 10px;
       .product-icon {
         width: 40px;
         height: 40px;
+        
       }
       h4 {
         margin-left: 10px;
@@ -195,12 +204,53 @@
         font-size: 20px;
       }
     }
-    img {
-      width: 35px;
-      height: 35px;
-      transform: rotate(-90deg);
+    .closeBTN {
+      width: 45px;
+      height: 45px;
       background-color: white;
       margin: 0px 10px;
+    }
+  }
+  form {
+    width: 310px;
+    display: flex;
+    flex-direction: column;
+    label {
+      font-size: 14px;
+      margin-left: 5px;
+      margin-bottom: 5px;
+    }
+    input {
+      height: 40px;
+      border: none;
+      background-color: #e3e3e3;
+      margin-bottom: 10px;
+      padding: 0 10px;
+      border-radius: 5px;
+    }
+    select {
+      height: 40px;
+      border: none;
+      background-color: #e3e3e3;
+      margin-bottom: 10px;
+      padding: 0 10px;
+      border-radius: 5px;
+    }
+    option {
+      height: 40px;
+      border: none;
+      background-color: #e3e3e3;
+      margin-bottom: 10px;
+      padding: 0 10px;
+      border-radius: 5px;
+    }
+    textarea {
+      height: 120px;
+      border: none;
+      padding: 10px;
+      background-color: #e3e3e3;
+      border-radius: 5px;
+      margin-bottom: 10px;
     }
   }
 }

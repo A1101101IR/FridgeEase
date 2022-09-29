@@ -14,8 +14,8 @@ function App() {
       <section className="main">
         <Header />
         <Routes>
-          <Route path="/" element={<Main />}></Route>
-          <Route path="/fridge" element={<Fridge />}></Route>
+          {/* <Route path="/" element={<Main />}></Route> */}
+          <Route path="/" element={<Fridge />}></Route>
           <Route path="/productlist" element={<ProductList />}></Route>
           <Route path="/productlist/:id" element={<Product />}></Route>
           <Route path="/account" element={<Account />}></Route>

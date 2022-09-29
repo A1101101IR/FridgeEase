@@ -1,9 +1,11 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import useFatch from "../customHooks/useFetch";
 import Plus from "../../img/plus.png";
+import Close from "../../img/close.png";
 const Product = () => {
   const { id } = useParams();
   const { data: product } = useFatch(`http://localhost:8000/products/${id}`);
+  const navigate = useNavigate();
   return (
     <div>
       {product && (
@@ -16,9 +18,33 @@ const Product = () => {
               />
               <h4>{product.name}</h4>
             </div>
-            <img src={Plus} alt="" />
+            <img
+              className="closeBTN"
+              src={Close}
+              alt=""
+              onClick={() => navigate(-1)}
+            />
           </header>
-          <section></section>
+          <form action="">
+            <label>Quantity</label>
+            <input type="number" placeholder="1" />
+            <label>Weight</label>
+            <input type="number" placeholder="100KG" />
+            <label>Production type</label>
+            <select>
+              <option selected="selected">ECO</option>
+              <option>Locally produced</option>
+            </select>
+            <label>Climate impact</label>
+            <select>
+              <option selected="selected">A</option>
+              <option>B</option>
+              <option>C</option>
+            </select>
+            <label>Note</label>
+            <textarea placeholder="Note"></textarea>
+            <input type="submit" value="Add to Fridge" />
+          </form>
           <footer></footer>
         </article>
       )}
