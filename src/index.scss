@@ -2,17 +2,26 @@
 * {
   margin: 0;
   padding: 0;
-  background-color: #A0C4FF;
+  
   @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
   
 }
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 .container {
-  max-width: 375px;
+  max-width: 380px;
   max-height: 812px;
+  min-width: 380px;
+  min-height: 812px;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
   font-family: 'Oswald', sans-serif;
+  background-color: #A0C4FF;
 }
 .header {
   height: 140px;
@@ -140,9 +149,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 350px;
   border: 1px solid black;
-  height: 50px;
+  width: 330px;
+  height: 45px;
   background-color: white;
   border-radius: 25px;
   margin-bottom: 10px;
@@ -161,4 +170,37 @@
   }
   
 
+}
+.product-cart {
+  width: 330px;
+  height: 530px;
+  background-color: white;
+  border-radius: 20px;
+  padding-top: 10px;
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    div {
+      display: flex;
+      align-items: center;
+      .product-icon {
+        width: 40px;
+        height: 40px;
+      }
+      h4 {
+        margin-left: 10px;
+        background-color: white;
+        font-size: 20px;
+      }
+    }
+    img {
+      width: 35px;
+      height: 35px;
+      transform: rotate(-90deg);
+      background-color: white;
+      margin: 0px 10px;
+    }
+  }
 }
