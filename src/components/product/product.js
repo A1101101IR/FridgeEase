@@ -7,16 +7,16 @@ const Product = () => {
   const { data: product } = useFatch(`http://localhost:8000/products/${id}`);
   const navigate = useNavigate();
   return (
-    <div>
+    <div className="product-cart-container">
       {product && (
         <article className="product-cart">
           <header>
-            <div>
+            <div className="flex-center">
               <img
                 src={require(`../../img/icons8/${product.icon}`)}
                 className="product-icon"
               />
-              <h4>{product.name}</h4>
+              <h4 className="cart-headline-bold">{product.name}</h4>
             </div>
             <img
               className="closeBTN"

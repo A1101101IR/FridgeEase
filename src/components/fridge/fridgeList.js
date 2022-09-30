@@ -16,16 +16,20 @@ const FridgeList = () => {
                   key={product.id}
                   className="product-cart-small"
                 >
-                  <div className="icon-item-name">
+                  <div className="flex-center">
                     <img
                       src={require(`../../img/icons8/${product.icon}`)}
                       className="product-icon"
                     />
-                    <h4>{product.name}</h4>
+                    <h4 className="cart-headline-bold">{product.name}</h4>
                   </div>
-                  <div className="date-notfication-recipe-btn">
+                  <div className="flex-center">
                     <span className="expiration-date">1 day</span>
-                    <img src={PecipeIcon} alt="recipe icon" />
+                    <img
+                      src={PecipeIcon}
+                      className="recipeBTN"
+                      alt="recipe icon"
+                    />
                   </div>
                 </Link>
               </>

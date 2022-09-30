@@ -9,7 +9,7 @@ const Fridge = () => {
       <section className="fridge">
         <Link to="/productlist" className="fakeBTN">
           <h4>Add Products</h4>
-          <img src={Plus} alt="" />
+          <img src={Plus} className="plusBTN" alt="" />
         </Link>
 
         {!fridgeData && <p>Your fridge is empty! add products!</p>}

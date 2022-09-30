@@ -59,7 +59,7 @@
             "product_type" : [
                 {
                     "id" : 2,
-                    "name" : "Fisk",
+                    "name" : "Fish",
                     "icon" : "fisk.png"  
                 }
             ]

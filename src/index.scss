@@ -28,9 +28,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  h1 {
+  .logo {
     font-size: 34px;
     font-weight: 700;
+    text-decoration: none;
+    color: black;
   }
 }
 .navbar {
@@ -62,8 +64,6 @@
   flex-direction: column;
   align-items: center;
 }
-
-
 .login {
   margin-top: 150px;
   form {
@@ -99,7 +99,6 @@
     }
   }
 }
-
 .bigBTN {
   width: 330px;
   height: 45px;
@@ -127,17 +126,9 @@
     text-decoration: none;
     color: black;
   }
-  img {
-    width: 35px;
-    height: 35px;
-    background-color: white;
-    margin-right: 12px;
-  }
   h4 {
-    background-color: white;
     margin-left: 15px;
     margin-top: 2px;
-    font-weight: 300;
   }
   p {
     margin-top: 50px;
@@ -159,117 +150,138 @@
   margin-bottom: 10px;
   text-decoration: none;
   color: black;
-  .product-icon {
-    width: 35px;
-    height: 35px;
-  }
-  h4 {
+}
+.product-cart-container {
+  .product-cart {
+    width: 330px;
     background-color: white;
-  }
-  img {
-    width: 30px;
-    height: 30px;
-    background-color: white;
-    margin: 0px 10px;
+    border-radius: 10px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 15px;
+    }
+    form {
+      width: 310px;
+      display: flex;
+      flex-direction: column;
+      label {
+        font-size: 14px;
+        margin-left: 5px;
+        margin-bottom: 5px;
+      }
+      input {
+        height: 40px;
+        border: none;
+        background-color: #e3e3e3;
+        margin-bottom: 10px;
+        padding: 0 10px;
+        border-radius: 5px;
+      }
+      select {
+        height: 40px;
+        border: none;
+        background-color: #e3e3e3;
+        margin-bottom: 10px;
+        padding: 0 10px;
+        border-radius: 5px;
+      }
+      option {
+        height: 40px;
+        border: none;
+        background-color: #e3e3e3;
+        margin-bottom: 10px;
+        padding: 0 10px;
+        border-radius: 5px;
+      }
+      textarea {
+        height: 120px;
+        border: none;
+        padding: 10px;
+        background-color: #e3e3e3;
+        border-radius: 5px;
+        margin-bottom: 10px;
+      }
+    }
   }
 }
 
-.product-cart {
+
+.FridgeItem {
+  .expiration-date {
+    background-color: red;
+    border: 1px solid black;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    color: white;
+  }
+}
+
+
+
+.recipe-container {
+  height: 600px;
+  overflow: scroll;
+}
+.recipe-cart-small {
+  height: 200px;
   width: 330px;
-  background-color: white;
+  margin-bottom: 15px;
   border-radius: 10px;
-  padding-top: 10px;
+  background-color: white;
   display: flex;
   flex-direction: column;
-  align-items: center;
   header {
+    height: 50px;
+    margin-top: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    margin-bottom: 15px;
-    div {
-      display: flex;
-      align-items: center;
-      margin-left: 10px;
-      .product-icon {
-        width: 40px;
-        height: 40px;
-      }
-      h4 {
-        margin-left: 10px;
-        background-color: white;
-        font-size: 20px;
-      }
-    }
-    .closeBTN {
-      width: 45px;
-      height: 45px;
-      background-color: white;
-      margin: 0px 10px;
-    }
-  }
-  form {
-    width: 310px;
-    display: flex;
-    flex-direction: column;
-    label {
-      font-size: 14px;
-      margin-left: 5px;
-      margin-bottom: 5px;
-    }
-    input {
-      height: 40px;
-      border: none;
-      background-color: #e3e3e3;
-      margin-bottom: 10px;
-      padding: 0 10px;
-      border-radius: 5px;
-    }
-    select {
-      height: 40px;
-      border: none;
-      background-color: #e3e3e3;
-      margin-bottom: 10px;
-      padding: 0 10px;
-      border-radius: 5px;
-    }
-    option {
-      height: 40px;
-      border: none;
-      background-color: #e3e3e3;
-      margin-bottom: 10px;
-      padding: 0 10px;
-      border-radius: 5px;
-    }
-    textarea {
-      height: 120px;
-      border: none;
-      padding: 10px;
-      background-color: #e3e3e3;
-      border-radius: 5px;
-      margin-bottom: 10px;
-    }
   }
 }
 
-.FridgeItem {
-  .icon-item-name {
-    display: flex;
-    align-items: center;
-  }
-  .date-notfication-recipe-btn {
-    display: flex;
-    align-items: center;
-    .expiration-date {
-      background-color: red;
-      border: 1px solid black;
-      padding: 5px 15px;
-      border-radius: 15px;
-      font-size: 12px;
-      display: flex;
-      align-items: center;
-      color: white;
-    }
-  }
+/* Global styles */
+.closeBTN {
+  width: 45px;
+  height: 45px;
+  margin-right: 10px;
+}
+.plusBTN {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+.recipeBTN {
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+  margin-left: 10PX;
+}
+.product-icon {
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 35px;
+  height: 35px;
+}
+.cart-headline {
+  background-color: white;
+  font-size: 16px;
+  color: wheat;
+}
+.cart-headline-bold {
+  font-size: 16px;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
 }

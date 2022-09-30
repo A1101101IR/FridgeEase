@@ -19,8 +19,8 @@ const ProductList = () => {
               src={require(`../../img/icons8/${product.icon}`)}
               className="product-icon"
             />
-            <h4>{product.name}</h4>
-            <img src={Plus} alt="" />
+            <h4 className="cart-headline-bold">{product.name}</h4>
+            <img src={Plus} className="plusBTN" alt="" />
           </Link>
         ))}
     </section>
