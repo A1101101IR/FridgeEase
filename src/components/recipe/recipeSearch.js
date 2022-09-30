@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import useFatch from "../customHooks/useFetch";
 import Recipe from "../recipe";
-import Close from "../../img/close.png";
+import Favorite from "../../img/favorite.png";
 
 const RecipeSearch = () => {
   const { id } = useParams();
@@ -57,9 +57,14 @@ const RecipeSearch = () => {
               <h4 className="cart-headline-bold">BACON BLABLA</h4>
             </div>
             <div className="flex-center">
-              <img className="closeBTN" src={Close} />
+              <img className="favoriteBTN" src={Favorite} />
             </div>
           </header>
+          <div className="recipe-cart-body">
+            <div className="fakeIMG"></div>
+            <div className="info1"></div>
+            <div className="info2"></div>
+          </div>
         </article>
       )}
     </div>

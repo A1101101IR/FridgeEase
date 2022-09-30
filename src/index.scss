@@ -266,6 +266,11 @@
   margin-right: 10px;
   margin-left: 10PX;
 }
+.favoriteBTN {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
 .product-icon {
   margin-left: 10px;
   margin-right: 10px;
@@ -278,10 +283,13 @@
   color: wheat;
 }
 .cart-headline-bold {
+  margin-top: 2px;
   font-size: 16px;
 }
 
 .flex-center {
   display: flex;
   align-items: center;
+  height: 40px;
+  margin-right: 3px;
 }
