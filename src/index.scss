@@ -233,7 +233,6 @@
   overflow: scroll;
 }
 .recipe-cart-small {
-  height: 200px;
   width: 330px;
   margin-bottom: 15px;
   border-radius: 10px;
@@ -242,10 +241,17 @@
   flex-direction: column;
   header {
     height: 50px;
-    margin-top: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  .meal-dish-type {
+    span {
+      padding: 2px 8px;
+      margin-right: 4px;
+      background-color: #A0C4FF;
+      border-radius: 15px;
+    }
   }
 }
 
@@ -269,7 +275,7 @@
 .favoriteBTN {
   width: 40px;
   height: 40px;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 .product-icon {
   margin-left: 10px;
@@ -292,4 +298,32 @@
   align-items: center;
   height: 40px;
   margin-right: 3px;
+}
+
+
+.loading-box {
+  width: 330px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .loading {
+    animation: loadingAnimation 1s ease 0s 10 normal forwards;
+    margin-bottom: 30px;
+  }
+  h4 {
+    font-size: 24px;
+  }
+}
+@keyframes loadingAnimation {
+	0% {
+		transform: rotate(0);
+    opacity: 0;
+	}
+
+	100% {
+		transform: rotate(360deg);
+    opacity: 1;
+	}
 }
