@@ -246,12 +246,19 @@
     align-items: center;
   }
   .meal-dish-type {
+    margin-left: 10px;
     span {
       padding: 2px 8px;
       margin-right: 4px;
       background-color: #A0C4FF;
       border-radius: 15px;
     }
+  }
+  .recipe-detail {
+    
+    list-style-type: none;
+    margin: 10px;
+    margin-left: 28px;
   }
 }
 

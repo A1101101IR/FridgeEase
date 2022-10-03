@@ -1,13 +1,11 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import useFatch from "../customHooks/useFetch";
-import Recipe from "../recipe";
 import Favorite from "../../img/favorite.png";
 import loadingImg from "../../img/loading.png";
 const RecipeSearch = () => {
   const { id } = useParams();
-  const searchWord = "bacon";
   const [searchResult, setSearchResult] = useState();
   const {
     data: productData,
