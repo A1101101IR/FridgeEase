@@ -8,7 +8,7 @@ const RecipeDetails = () => {
     data: searchResult,
     isLoading,
     error,
-  } = useFatch(`/recipedetails/${id}`);
+  } = useFatch(`/recipe/details/${id}`);
   /* const [searchResult, setSearchResult] = useState(true); */
   /* useEffect(() => {
     if (id) {

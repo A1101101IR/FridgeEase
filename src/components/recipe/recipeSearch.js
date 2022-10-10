@@ -18,7 +18,7 @@ const RecipeSearch = () => {
     if (!isLoading) {
       console.log(productData.name);
       const word = productData.name;
-      fetch(`/recipebyname/?phrase=${word}`)
+      fetch(`/recipe/byname/?phrase=${word}`)
         .then((res) => res.json())
         .then((results) => setSearchResult(results.Recipes));
     }

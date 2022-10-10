@@ -9,7 +9,7 @@ const Recipe = () => {
     data: searchResult,
     isLoading,
     error,
-  } = useFatch("random?numberofrecipes=5");
+  } = useFatch("recipe/random?numberofrecipes=5");
   return (
     <div className="recipe-container">
       {isLoading && (
