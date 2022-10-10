@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Navigation from "./components/navigation";
 import OrderList from "./components/orderList";
 import Account from "./components/account";
-import Recipe from "./components/recipe";
+import Recipe from "./components/recipe/recipe";
 import Fridge from "./components/fridge";
 import Header from "./components/header";
 import Main from "./main";

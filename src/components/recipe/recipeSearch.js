@@ -15,9 +15,13 @@ const RecipeSearch = () => {
   } = useFatch(`http://localhost:8000/products/${id}`);
 
   useEffect(() => {
-    fetch("/recipe/single")
-      .then((res) => res.json())
-      .then((results) => setSearchResult(results.Recipes));
+    if (!isLoading) {
+      console.log(productData.name);
+      const word = productData.name;
+      fetch(`/recipebyname/?phrase=${word}`)
+        .then((res) => res.json())
+        .then((results) => setSearchResult(results.Recipes));
+    }
   }, [isLoading]);
   return (
     <div className="recipe-container">
