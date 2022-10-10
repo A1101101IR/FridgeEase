@@ -46,7 +46,7 @@ const RecipeSearch = () => {
             <>
               {searchResult &&
                 searchResult.map((item) => (
-                  <article className="recipe-cart-small">
+                  <article className="recipe-cart-small" key={item.recipe.id}>
                     <header>
                       <div className="flex-center">
                         <img
