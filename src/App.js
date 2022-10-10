@@ -9,6 +9,8 @@ import Main from "./main";
 import ProductList from "./components/product/product-list";
 import Product from "./components/product/product";
 import RecipeSearch from "./components/recipe/recipeSearch";
+import { useEffect } from "react";
+import RecipeDetails from "./components/recipe/singleRecipe";
 function App() {
   return (
     <div className="container">
@@ -23,6 +25,7 @@ function App() {
           <Route path="/orderList" element={<OrderList />}></Route>
           <Route path="/recipe" element={<Recipe />}></Route>
           <Route path="/recipe/:id" element={<RecipeSearch />}></Route>
+          <Route path="/recipeDetails/:id" element={<RecipeDetails />}></Route>
         </Routes>
       </section>
       <Navigation />

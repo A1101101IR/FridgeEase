@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import useFatch from "../customHooks/useFetch";
 import Favorite from "../../img/favorite.png";
 import loadingImg from "../../img/loading.png";
+/* require("dotenv").config(); */
 const RecipeSearch = () => {
   const { id } = useParams();
   const [searchResult, setSearchResult] = useState();
@@ -12,24 +13,11 @@ const RecipeSearch = () => {
     isLoading,
     error,
   } = useFatch(`http://localhost:8000/products/${id}`);
-  console.log(productData);
 
   useEffect(() => {
-    if (!isLoading) {
-      fetch(
-        `https://edamam-recipe-search.p.rapidapi.com/search?q=${productData.name}`,
-        {
-          method: "GET",
-          headers: {
-            "X-RapidAPI-Key":
-              "fc6f5f41bfmshb50a75999c65417p13ac81jsn45483f53f901",
-            "X-RapidAPI-Host": "edamam-recipe-search.p.rapidapi.com",
-          },
-        }
-      )
-        .then((res) => res.json())
-        .then((results) => setSearchResult(results.hits));
-    }
+    fetch("/recipe/single")
+      .then((res) => res.json())
+      .then((results) => setSearchResult(results.Recipes));
   }, [isLoading]);
   return (
     <div className="recipe-container">
@@ -46,16 +34,50 @@ const RecipeSearch = () => {
             <>
               {searchResult &&
                 searchResult.map((item) => (
-                  <article className="recipe-cart-small" key={item.recipe.id}>
+                  <Link
+                    to={`/recipeDetails/${item.Id}`}
+                    className="recipe-cart-small"
+                    key={item.Id}
+                  >
                     <header>
                       <div className="flex-center">
                         <img
                           src={require(`../../img/icons8/${productData.icon}`)}
                           className="product-icon"
                         />
-                        <h4 className="cart-headline-bold">
-                          {item.recipe.label}
-                        </h4>
+                        <h4 className="cart-headline-bold">{item.Title}</h4>
+                      </div>
+                      <div className="flex-center">
+                        <img className="favoriteBTN" src={Favorite} />
+                      </div>
+                    </header>
+                    <div className="recipe-cart-body">
+                      {/* <div className="meal-dish-type">
+                        <span>{item.recipe.mealType}</span>
+                        <span>{item.recipe.dishType}</span>
+                      </div> */}
+                      <p>{item.PreambleHTML}</p>
+                      <img src={item.ImageUrl} width={300} alt="" />
+                      <div className="recipe-detail">
+                        {/* <ul>
+                          {item.recipe.ingredients.map((ingredient) => (
+                            <li>{ingredient.text}</li>
+                          ))}
+                        </ul> */}
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              {/* {searchResult &&
+                searchResult.map((item) => (
+                  <article className="recipe-cart-small" key={item.Id}>
+                    <header>
+                      <div className="flex-center">
+                        <img
+                          src={require(`../../img/icons8/${productData.icon}`)}
+                          className="product-icon"
+                        />
+                        <h4 className="cart-headline-bold">{item.Title}</h4>
                       </div>
                       <div className="flex-center">
                         <img className="favoriteBTN" src={Favorite} />
@@ -75,7 +97,7 @@ const RecipeSearch = () => {
                       </div>
                     </div>
                   </article>
-                ))}
+                ))} */}
             </>
           )}
         </>

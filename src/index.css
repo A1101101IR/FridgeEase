@@ -1,0 +1,547 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+}
+
+.container {
+  max-width: 380px;
+  max-height: 812px;
+  min-width: 380px;
+  min-height: 812px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-family: 'Oswald', sans-serif;
+  background-color: #A0C4FF;
+}
+
+.header {
+  height: 140px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header .logo {
+  font-size: 34px;
+  font-weight: 700;
+  text-decoration: none;
+  color: black;
+}
+
+.navbar {
+  min-height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.navbar nav {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.navbar nav a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 12px;
+  color: black;
+  text-decoration: none;
+  width: 80px;
+}
+
+.navbar nav a img {
+  width: 40px;
+}
+
+.main {
+  height: calc(812px - 50px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login {
+  margin-top: 150px;
+}
+
+.login form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 330px;
+}
+
+.login form input {
+  height: 45px;
+  margin-bottom: 15px;
+  border: 2px solid #A0C4FF;
+  border-radius: 45px;
+  background-color: white;
+  padding-left: 15px;
+}
+
+.login form input[type=text]:focus {
+  border: 2px solid black;
+  outline: none;
+}
+
+.login .orBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.login .orBox div {
+  height: 1px;
+  width: 50px;
+  background-color: black;
+}
+
+.login .orBox p {
+  font-size: 14px;
+}
+
+.bigBTN {
+  width: 330px;
+  height: 45px;
+  margin-bottom: 15px;
+  border: 1px solid black;
+  border-radius: 45px;
+  background-color: white;
+}
+
+.fridge {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.fridge .fakeBTN {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 330px;
+  height: 45px;
+  margin-bottom: 15px;
+  border: 1px solid black;
+  border-radius: 45px;
+  background-color: white;
+  text-decoration: none;
+  color: black;
+}
+
+.fridge h4 {
+  margin-left: 15px;
+  margin-top: 2px;
+}
+
+.fridge p {
+  margin-top: 50px;
+  font-weight: 300;
+}
+
+.product-cart-small {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid black;
+  width: 330px;
+  height: 45px;
+  background-color: white;
+  border-radius: 25px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.product-cart-container .product-cart {
+  width: 330px;
+  background-color: white;
+  border-radius: 10px;
+  padding-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.product-cart-container .product-cart header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.product-cart-container .product-cart form {
+  width: 310px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.product-cart-container .product-cart form label {
+  font-size: 14px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+.product-cart-container .product-cart form input {
+  height: 40px;
+  border: none;
+  background-color: #e3e3e3;
+  margin-bottom: 10px;
+  padding: 0 10px;
+  border-radius: 5px;
+}
+
+.product-cart-container .product-cart form select {
+  height: 40px;
+  border: none;
+  background-color: #e3e3e3;
+  margin-bottom: 10px;
+  padding: 0 10px;
+  border-radius: 5px;
+}
+
+.product-cart-container .product-cart form option {
+  height: 40px;
+  border: none;
+  background-color: #e3e3e3;
+  margin-bottom: 10px;
+  padding: 0 10px;
+  border-radius: 5px;
+}
+
+.product-cart-container .product-cart form textarea {
+  height: 120px;
+  border: none;
+  padding: 10px;
+  background-color: #e3e3e3;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.FridgeItem .expiration-date {
+  background-color: red;
+  border: 1px solid black;
+  padding: 5px 15px;
+  border-radius: 15px;
+  font-size: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+}
+
+.recipe-container {
+  height: 600px;
+  overflow: scroll;
+}
+
+.recipe-cart-small {
+  width: 330px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-decoration: none;
+  color: black;
+}
+
+.recipe-cart-small header {
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.recipe-cart-small .meal-dish-type {
+  margin-left: 10px;
+}
+
+.recipe-cart-small .meal-dish-type span {
+  padding: 2px 8px;
+  margin-right: 4px;
+  background-color: #A0C4FF;
+  border-radius: 15px;
+}
+
+.recipe-cart-small .recipe-detail {
+  list-style-type: none;
+  margin: 10px;
+  margin-left: 28px;
+}
+
+.recipe-details-page {
+  width: 330px;
+  height: 100%;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+.recipe-details-page header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.recipe-details-page header .recipe-img-box {
+  background-color: #5e646f;
+  height: 330px;
+  width: 330px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+.recipe-details-page header .cart-headline-bold {
+  font-size: 20px;
+  margin: 10px 10px;
+}
+
+.recipe-details-page .recipe-details-body {
+  margin: 0 10px;
+}
+
+/* Global styles */
+.closeBTN {
+  width: 45px;
+  height: 45px;
+  margin-right: 10px;
+}
+
+.plusBTN {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.recipeBTN {
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+  margin-left: 10PX;
+}
+
+.favoriteBTN {
+  width: 40px;
+  height: 40px;
+  margin-right: 5px;
+}
+
+.product-icon {
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 35px;
+  height: 35px;
+}
+
+.cart-headline {
+  background-color: white;
+  font-size: 16px;
+  color: wheat;
+}
+
+.cart-headline-bold {
+  margin-top: 2px;
+  font-size: 16px;
+}
+
+.flex-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 40px;
+  margin-right: 3px;
+}
+
+.loading-box {
+  width: 330px;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.loading-box .loading {
+  -webkit-animation: loadingAnimation 1s ease 0s 10 normal forwards;
+          animation: loadingAnimation 1s ease 0s 10 normal forwards;
+  margin-bottom: 30px;
+}
+
+.loading-box h4 {
+  font-size: 24px;
+}
+
+@-webkit-keyframes loadingAnimation {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    opacity: 1;
+  }
+}
+
+@keyframes loadingAnimation {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    opacity: 1;
+  }
+}
+/*# sourceMappingURL=index.css.map */

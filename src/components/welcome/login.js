@@ -8,6 +8,7 @@ const Login = () => {
   const displaySignin = () => {
     setLogin(true);
   };
+
   return (
     <>
       <section className="login">

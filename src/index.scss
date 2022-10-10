@@ -239,6 +239,8 @@
   background-color: white;
   display: flex;
   flex-direction: column;
+  text-decoration: none;
+  color: black;
   header {
     height: 50px;
     display: flex;
@@ -260,6 +262,38 @@
     margin-left: 28px;
   }
 }
+
+.recipe-details-page {
+  width: 330px;
+  height: 100%;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  header {
+    display: flex;
+    flex-direction: column;
+    .recipe-img-box {
+      background-color: #5e646f;
+      height: 330px;
+      width: 330px;
+      border-top-left-radius: 25px;
+      border-top-right-radius: 25px;
+    }
+    .cart-headline-bold {
+      font-size: 20px;
+      margin: 10px 10px;
+    }
+  }
+  .recipe-details-body {
+    margin: 0 10px;
+  }
+}
+
+
 
 /* Global styles */
 .closeBTN {

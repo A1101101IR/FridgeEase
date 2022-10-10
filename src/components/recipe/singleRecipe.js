@@ -1,21 +1,37 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+
 const RecipeDetails = () => {
-  useEffect(() => {
-    /* API DOCS */
-    /* https://rapidapi.com/apidojo/api/tasty/ */
-    /* const recipeId = 8167;
-    fetch(`https://tasty.p.rapidapi.com/recipes/detail?id=${recipeId}`, {
-      method: "GET",
-      headers: {
-        "X-RapidAPI-Key": "6041811422msh04a7e54867d0447p1fde8ajsn3f26737186dd",
-        "X-RapidAPI-Host": "tasty.p.rapidapi.com",
-      },
-    })
-      .then((res) => res.json())
-      .then((results) => console.log(results)); */
-  }, []);
+  const { id } = useParams();
+  const [searchResult, setSearchResult] = useState(true);
+  /* useEffect(() => {
+    if (id) {
+      console.log(id);
+      fetch(`/recipedetails/${id}`)
+        .then((res) => res.json())
+        .then((results) => setSearchResult(results));
+    }
+  }, [id]); */
   return (
     <>
-      <div></div>
+      {searchResult && (
+        <article className="recipe-details-page">
+          <header>
+            <div className="recipe-img-box"></div>
+            <h4 className="cart-headline-bold">
+              Saffransbakad fisk med mos och citrongurka
+            </h4>
+          </header>
+          <div className="recipe-details-body">
+            <p className="short-info">
+              Att saffran passar bra ihop med fisk är sen gammalt. Här är den
+              gyllene kryddan i crème fraichen som breds över fisken innan den
+              tillagas i ugnen. Ät ihop med ett fluffigt mos, hemmagjort
+              såklart, och en syrlig sallad.
+            </p>
+          </div>
+        </article>
+      )}
     </>
   );
 };
