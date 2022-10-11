@@ -394,8 +394,8 @@
 
 .recipe-details-page {
   width: 330px;
-  height: 100%;
-  margin-bottom: 15px;
+  height: 600px;
+  overflow: scroll;
   border-radius: 10px;
   background-color: white;
   display: -webkit-box;
@@ -432,8 +432,116 @@
   margin: 10px 10px;
 }
 
+.recipe-details-page header .short-info {
+  margin: 0 10px;
+}
+
 .recipe-details-page .recipe-details-body {
   margin: 0 10px;
+}
+
+.recipe-details-page .recipe-details-body .rating-time-portions {
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.recipe-details-page .recipe-details-body .rating-time-portions span {
+  height: 50px;
+  width: 50px;
+  background-color: #A0C4FF;
+  border-radius: 10px;
+}
+
+.recipe-details-page .recipe-details-body .ingredients form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.recipe-details-page .recipe-details-body .ingredients form .ingredient {
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #ecedef;
+  margin-bottom: 4px;
+  border-radius: 5px;
+}
+
+.recipe-details-page .recipe-details-body .ingredients form .ingredient input {
+  margin: 10px;
+}
+
+.recipe-details-page .recipe-details-body .ingredients form button {
+  width: 100%;
+  margin-top: 5px;
+  height: 40px;
+  margin-bottom: 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #A0C4FF;
+}
+
+.recipe-details-page .recipe-details-body .cooking-steps form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.recipe-details-page .recipe-details-body .cooking-steps form .step {
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #ecedef;
+  margin-bottom: 4px;
+  border-radius: 5px;
+}
+
+.recipe-details-page .recipe-details-body .cooking-steps form .step input {
+  margin: 10px;
+}
+
+.recipe-details-page .recipe-details-body .cooking-steps form .step label {
+  margin: 6px 0;
+}
+
+.recipe-details-page .recipe-details-body .cooking-steps form button {
+  width: 100%;
+  margin-top: 5px;
+  height: 40px;
+  margin-bottom: 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #A0C4FF;
 }
 
 /* Global styles */

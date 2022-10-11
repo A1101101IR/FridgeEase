@@ -2,13 +2,12 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useFatch from "../customHooks/useFetch";
 import loadingImg from "../../img/loading.png";
+import Rating from "../../img/rating.png";
+import Time from "../../img/time.png";
+import User from "../../img/user.png";
 const RecipeDetails = () => {
   const { id } = useParams();
-  const {
-    data: searchResult,
-    isLoading,
-    error,
-  } = useFatch(`/recipe/details/${id}`);
+  const { data: recipe, isLoading, error } = useFatch(`/recipe/details/${id}`);
   /* const [searchResult, setSearchResult] = useState(true); */
   /* useEffect(() => {
     if (id) {
@@ -18,6 +17,9 @@ const RecipeDetails = () => {
         .then((results) => setSearchResult(results));
     }
   }, [id]); */
+  if (recipe) {
+    console.log(recipe.IngredientGroups);
+  }
   return (
     <>
       {isLoading && (
@@ -31,21 +33,63 @@ const RecipeDetails = () => {
         <>
           {!error && (
             <>
-              {searchResult && (
+              {recipe && (
                 <article className="recipe-details-page">
                   <header>
-                    <div className="recipe-img-box"></div>
-                    <h4 className="cart-headline-bold">
-                      Saffransbakad fisk med mos och citrongurka
-                    </h4>
+                    <div></div>
+                    <img
+                      src={recipe.ImageUrl}
+                      className="recipe-img-box"
+                      alt=""
+                    />
+                    <h4 className="cart-headline-bold">{recipe.Title}</h4>
+                    <p className="short-info">{recipe.PreambleHTML}</p>
                   </header>
                   <div className="recipe-details-body">
-                    <p className="short-info">
-                      Att saffran passar bra ihop med fisk är sen gammalt. Här
-                      är den gyllene kryddan i crème fraichen som breds över
-                      fisken innan den tillagas i ugnen. Ät ihop med ett
-                      fluffigt mos, hemmagjort såklart, och en syrlig sallad.
-                    </p>
+                    <div className="rating-time-portions">
+                      <span className="rating">
+                        <img src={Rating} alt="rating icon" />
+                        <pre>{recipe.AverageRating}</pre>
+                      </span>
+                      <span className="time">
+                        <img src={Time} alt="timer icon" />
+                        <pre>{recipe.CookingTimeAbbreviated}</pre>
+                      </span>
+                      <span className="portions">
+                        <img src={User} alt="user icon" />
+                        <pre>{recipe.Portions}</pre>
+                      </span>
+                    </div>
+                    {recipe.IngredientGroups.map((Item) => (
+                      <div className="ingredients">
+                        <h4>{Item.GroupName && Item.GroupName}</h4>
+                        <p className="portion-info">
+                          Ingredienser för {Item.Portions} personer
+                        </p>
+                        <form>
+                          {Item.Ingredients.map((Ingredient) => (
+                            <>
+                              <div className="ingredient">
+                                <input type="checkbox" />
+                                <label>{Ingredient.Text}</label>
+                              </div>
+                            </>
+                          ))}
+                          <button>Lagg till inköplista</button>
+                        </form>
+                      </div>
+                    ))}
+
+                    <div className="cooking-steps">
+                      <form>
+                        {recipe.CookingStepsWithTimers.map((item) => (
+                          <div className="step">
+                            <input type="checkbox" />
+                            <label>{item.Description}</label>
+                          </div>
+                        ))}
+                      </form>
+                    </div>
                   </div>
                 </article>
               )}

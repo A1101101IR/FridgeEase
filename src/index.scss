@@ -265,8 +265,8 @@
 
 .recipe-details-page {
   width: 330px;
-  height: 100%;
-  margin-bottom: 15px;
+  height: 600px;
+  overflow: scroll;
   border-radius: 10px;
   background-color: white;
   display: flex;
@@ -278,7 +278,7 @@
     flex-direction: column;
     .recipe-img-box {
       background-color: #5e646f;
-      height: 330px;
+      height: auto;
       width: 330px;
       border-top-left-radius: 25px;
       border-top-right-radius: 25px;
@@ -287,9 +287,90 @@
       font-size: 20px;
       margin: 10px 10px;
     }
+    .short-info {
+      margin: 0 10px;
+    }
   }
   .recipe-details-body {
     margin: 0 10px;
+    .rating-time-portions {
+      height: 65px;
+      margin: 15px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      background-color: #ecedef;
+      border-radius: 5px;
+      span {
+        height: 45px;
+        img {
+          height: 25px;
+          width: 25px;
+        }
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+    .ingredients {
+      form {
+        display: flex;
+        flex-direction: column;
+        .ingredient {
+          height: 40px;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          background-color: #ecedef;
+          input {
+            margin: 10px;
+          }
+          margin-bottom: 4px;
+          border-radius: 5px;
+        }
+        button {
+          width: 100%;
+          margin-top: 5px;
+          height: 40px;
+          margin-bottom: 15px;
+          border: 1px solid black;
+          border-radius: 5px;
+          background-color: #A0C4FF;
+        }
+      }
+    }
+    .cooking-steps {
+      form {
+        display: flex;
+        flex-direction: column;
+        .step {
+          height: auto;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          background-color: #ecedef;
+          input {
+            margin: 10px;
+          }
+          label {
+            margin: 6px 0;
+          }
+          margin-bottom: 4px;
+          border-radius: 5px;
+        }
+        button {
+          width: 100%;
+          margin-top: 5px;
+          height: 40px;
+          margin-bottom: 15px;
+          border: 1px solid black;
+          border-radius: 5px;
+          background-color: #A0C4FF;
+        }
+      }
+    }
+    
   }
 }
 
