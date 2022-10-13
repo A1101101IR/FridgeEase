@@ -10,7 +10,7 @@ import ProductList from "./components/product/product-list";
 import Product from "./components/product/product";
 import RecipeSearch from "./components/recipe/recipeSearch";
 import { useEffect } from "react";
-import RecipeDetails from "./components/recipe/singleRecipe";
+import RecipeDetails from "./components/recipe/RecipeDetails";
 function App() {
   return (
     <div className="container">

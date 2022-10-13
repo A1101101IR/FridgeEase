@@ -235,32 +235,32 @@
 .recipe-cart-small {
   width: 330px;
   margin-bottom: 15px;
-  border-radius: 10px;
+  border-radius: 15px;
   background-color: white;
   display: flex;
   flex-direction: column;
   text-decoration: none;
   color: black;
+  .recipe-img {
+    width: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
   header {
     height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  .meal-dish-type {
     margin-left: 10px;
-    span {
-      padding: 2px 8px;
-      margin-right: 4px;
-      background-color: #A0C4FF;
-      border-radius: 15px;
+  }
+  .recipe-cart-body {
+    p {
+      margin: 0 10px;
+      margin-bottom: 10px;
     }
   }
-  .recipe-detail {
-    list-style-type: none;
-    margin: 10px;
-    margin-left: 28px;
-  }
+  
+  
 }
 
 .recipe-details-page {

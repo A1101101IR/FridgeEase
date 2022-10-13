@@ -9,15 +9,14 @@ const RecipeSearch = () => {
   const { id } = useParams();
   const [searchResult, setSearchResult] = useState();
   const {
-    data: productData,
+    data: product,
     isLoading,
     error,
   } = useFatch(`http://localhost:8000/products/${id}`);
 
   useEffect(() => {
     if (!isLoading) {
-      console.log(productData.name);
-      const word = productData.name;
+      const word = product.name;
       fetch(`/recipe/byname/?phrase=${word}`)
         .then((res) => res.json())
         .then((results) => setSearchResult(results.Recipes));
@@ -43,12 +42,9 @@ const RecipeSearch = () => {
                     className="recipe-cart-small"
                     key={item.Id}
                   >
+                    <img src={item.ImageUrl} className="recipe-img" alt="" />
                     <header>
                       <div className="flex-center">
-                        <img
-                          src={require(`../../img/icons8/${productData.icon}`)}
-                          className="product-icon"
-                        />
                         <h4 className="cart-headline-bold">{item.Title}</h4>
                       </div>
                       <div className="flex-center">
@@ -56,52 +52,10 @@ const RecipeSearch = () => {
                       </div>
                     </header>
                     <div className="recipe-cart-body">
-                      {/* <div className="meal-dish-type">
-                        <span>{item.recipe.mealType}</span>
-                        <span>{item.recipe.dishType}</span>
-                      </div> */}
                       <p>{item.PreambleHTML}</p>
-                      <img src={item.ImageUrl} width={300} alt="" />
-                      <div className="recipe-detail">
-                        {/* <ul>
-                          {item.recipe.ingredients.map((ingredient) => (
-                            <li>{ingredient.text}</li>
-                          ))}
-                        </ul> */}
-                      </div>
                     </div>
                   </Link>
                 ))}
-              {/* {searchResult &&
-                searchResult.map((item) => (
-                  <article className="recipe-cart-small" key={item.Id}>
-                    <header>
-                      <div className="flex-center">
-                        <img
-                          src={require(`../../img/icons8/${productData.icon}`)}
-                          className="product-icon"
-                        />
-                        <h4 className="cart-headline-bold">{item.Title}</h4>
-                      </div>
-                      <div className="flex-center">
-                        <img className="favoriteBTN" src={Favorite} />
-                      </div>
-                    </header>
-                    <div className="recipe-cart-body">
-                      <div className="meal-dish-type">
-                        <span>{item.recipe.mealType}</span>
-                        <span>{item.recipe.dishType}</span>
-                      </div>
-                      <div className="recipe-detail">
-                        <ul>
-                          {item.recipe.ingredients.map((ingredient) => (
-                            <li>{ingredient.text}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  </article>
-                ))} */}
             </>
           )}
         </>

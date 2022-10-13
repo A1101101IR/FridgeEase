@@ -30,6 +30,7 @@ const Recipe = () => {
                     className="recipe-cart-small"
                     key={item.Id}
                   >
+                    <img src={item.ImageUrl} className="recipe-img" alt="" />
                     <header>
                       <div className="flex-center">
                         <h4 className="cart-headline-bold">{item.Title}</h4>
@@ -40,8 +41,6 @@ const Recipe = () => {
                     </header>
                     <div className="recipe-cart-body">
                       <p>{item.PreambleHTML}</p>
-                      <img src={item.ImageUrl} width={300} alt="" />
-                      <div className="recipe-detail"></div>
                     </div>
                   </Link>
                 ))}
