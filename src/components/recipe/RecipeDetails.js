@@ -52,7 +52,7 @@ const RecipeDetails = () => {
                       <div className="ingredients">
                         <h4>{Item.GroupName && Item.GroupName}</h4>
                         <p className="portion-info">
-                          Ingredienser för {Item.Portions} personer
+                          <span>Ingredienser</span> för {Item.Portions} personer
                         </p>
                         <form>
                           {Item.Ingredients.map((Ingredient) => (

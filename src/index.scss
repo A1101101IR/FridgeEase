@@ -3,13 +3,26 @@
   margin: 0;
   padding: 0;
   
-  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
-  
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.4px;
+  line-height: 1.2;
 }
-#root {
+$c1: #A0C4FF;
+$c2: #F0F2F2;
+$c3: #0540F2;
+
+
+@mixin Flex($direction,$justify,$align) {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+#root {
+  @include Flex(row,center,center);
   height: 100vh;
 }
 .container {
@@ -17,17 +30,13 @@
   max-height: 812px;
   min-width: 380px;
   min-height: 812px;
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-  font-family: 'Oswald', sans-serif;
-  background-color: #A0C4FF;
+  @include Flex(column,flex-start,none);
+  font-family: 'Poppins', sans-serif;
+  background-color: $c1;
 }
 .header {
   height: 140px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include Flex(row,center,center);
   .logo {
     font-size: 34px;
     font-weight: 700;
@@ -37,17 +46,12 @@
 }
 .navbar {
   min-height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include Flex(row,center,center);
   nav {
     width: 100%;
-    display: flex;
-    justify-content: space-evenly;
+    @include Flex(row,space-evenly,none);
     a {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      @include Flex(column,none,center);
       font-size: 12px;
       color: black;
       text-decoration: none;
@@ -60,20 +64,17 @@
 }
 .main {
   height: calc(812px - 50px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include Flex(column,none,center);
 }
 .login {
   margin-top: 150px;
   form {
-    display: flex;
-    flex-direction: column;
+    @include Flex(column,none,none);
     width: 330px;
     input {
       height: 45px;
       margin-bottom: 15px;
-      border: 2px solid #A0C4FF;
+      border: 2px solid $c1;
       border-radius: 45px;
       background-color: white;
       padding-left: 15px;
@@ -84,9 +85,7 @@
     }
   }
   .orBox {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+    @include Flex(row,center,space-evenly);
     height: 50px;
     margin-bottom: 10px;
     div {
@@ -109,14 +108,9 @@
 }
 
 .fridge {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @include Flex(column,center,center);
   .fakeBTN {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @include Flex(row,space-between,center);
     width: 330px;
     height: 45px;
     margin-bottom: 15px;
@@ -139,9 +133,7 @@
 
 
 .product-cart-small {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include Flex(row,space-between,center);
   border: 1px solid black;
   width: 330px;
   height: 45px;
@@ -157,20 +149,15 @@
     background-color: white;
     border-radius: 10px;
     padding-top: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include Flex(row,center,center);
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      @include Flex(row,center,center);
       width: 100%;
       margin-bottom: 15px;
     }
     form {
       width: 310px;
-      display: flex;
-      flex-direction: column;
+      @include Flex(column,none,none);
       label {
         font-size: 14px;
         margin-left: 5px;
@@ -179,7 +166,7 @@
       input {
         height: 40px;
         border: none;
-        background-color: #e3e3e3;
+        background-color: $c2;
         margin-bottom: 10px;
         padding: 0 10px;
         border-radius: 5px;
@@ -187,7 +174,7 @@
       select {
         height: 40px;
         border: none;
-        background-color: #e3e3e3;
+        background-color: $c2;
         margin-bottom: 10px;
         padding: 0 10px;
         border-radius: 5px;
@@ -195,7 +182,7 @@
       option {
         height: 40px;
         border: none;
-        background-color: #e3e3e3;
+        background-color: $c2;
         margin-bottom: 10px;
         padding: 0 10px;
         border-radius: 5px;
@@ -204,7 +191,7 @@
         height: 120px;
         border: none;
         padding: 10px;
-        background-color: #e3e3e3;
+        background-color: $c2;
         border-radius: 5px;
         margin-bottom: 10px;
       }
@@ -220,8 +207,7 @@
     padding: 5px 15px;
     border-radius: 15px;
     font-size: 12px;
-    display: flex;
-    align-items: center;
+    @include Flex(row,none,center);
     color: white;
   }
 }
@@ -237,8 +223,7 @@
   margin-bottom: 15px;
   border-radius: 15px;
   background-color: white;
-  display: flex;
-  flex-direction: column;
+  @include Flex(column,none,none);
   text-decoration: none;
   color: black;
   .recipe-img {
@@ -248,18 +233,15 @@
   }
   header {
     height: 50px;
-    display: flex;
-    align-items: center;
+    @include Flex(row,none,center);
     margin-left: 10px;
   }
   .recipe-cart-body {
     .rating-time-portions {
       height: 65px;
       margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-evenly;
-      background-color: #ecedef;
+      @include Flex(row,space-evenly,center);
+      background-color: $c2;
       
       span {
         height: 45px;
@@ -267,10 +249,7 @@
           height: 25px;
           width: 25px;
         }
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
+        @include Flex(column,space-between,center);
       }
     }
     p {
@@ -288,15 +267,12 @@
   overflow: scroll;
   border-radius: 10px;
   background-color: white;
-  display: flex;
-  flex-direction: column;
+  @include Flex(column,none,none);
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
   header {
-    display: flex;
-    flex-direction: column;
+    @include Flex(column,none,none);
     .recipe-img-box {
-      background-color: #5e646f;
       height: auto;
       width: 330px;
       border-top-left-radius: 25px;
@@ -315,10 +291,8 @@
     .rating-time-portions {
       height: 65px;
       margin: 15px 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-evenly;
-      background-color: #ecedef;
+      @include Flex(row,space-evenly,center);
+      background-color: $c2;
       border-radius: 5px;
       span {
         height: 45px;
@@ -326,22 +300,26 @@
           height: 25px;
           width: 25px;
         }
-        display: flex;
+        @include Flex(row,space-between,center);
         flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
       }
     }
     .ingredients {
+      .portion-info {
+        margin-bottom: 10px;
+        margin-top: 50px;
+        font-size: 16px;
+        font-weight: 600;
+        span {
+          color: rgb(168, 9, 9);
+        }
+      }
       form {
-        display: flex;
-        flex-direction: column;
+        @include Flex(column,none,none);
         .ingredient {
           height: 40px;
-          display: flex;
-          justify-content: flex-start;
-          align-items: center;
-          background-color: #ecedef;
+          @include Flex(row,flex-start,center);
+          background-color: $c2;
           input {
             margin: 10px;
           }
@@ -355,20 +333,17 @@
           margin-bottom: 15px;
           border: 1px solid black;
           border-radius: 5px;
-          background-color: #A0C4FF;
+          background-color: $c1;
         }
       }
     }
     .cooking-steps {
       form {
-        display: flex;
-        flex-direction: column;
+        @include Flex(column,none,none);
         .step {
           height: auto;
-          display: flex;
-          justify-content: flex-start;
-          align-items: center;
-          background-color: #ecedef;
+          @include Flex(row,flex-start,center);
+          background-color: $c2;
           input {
             margin: 10px;
           }
@@ -385,7 +360,7 @@
           margin-bottom: 15px;
           border: 1px solid black;
           border-radius: 5px;
-          background-color: #A0C4FF;
+          background-color: $c1;
         }
       }
     }
@@ -434,8 +409,7 @@
 }
 
 .flex-center {
-  display: flex;
-  align-items: center;
+  @include Flex(row,none ,center );
   height: 40px;
   margin-right: 3px;
 }
@@ -444,10 +418,7 @@
 .loading-box {
   width: 330px;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @include Flex(column,center,center);
   .loading {
     animation: loadingAnimation 1s ease 0s 10 normal forwards;
     margin-bottom: 30px;
@@ -467,3 +438,4 @@
     opacity: 1;
 	}
 }
+
