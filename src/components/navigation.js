@@ -9,19 +9,19 @@ const Navigation = () => {
       <nav>
         <Link to="/orderList" className="link">
           <img src={Shopping} alt="" />
-          Shopping
+          {/* Shopping */}
         </Link>
         <Link to="/recipe" className="link">
           <img src={Recipe} alt="" />
-          Recipe
+          {/* Recipe */}
         </Link>
         <Link to="/" className="link">
           <img src={Fridge} alt="" />
-          Fridge
+          {/* Fridge */}
         </Link>
         <Link to="/account" className="link">
           <img src={Account} alt="" />
-          Account
+          {/* Account */}
         </Link>
       </nav>
     </section>

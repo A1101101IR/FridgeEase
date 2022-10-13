@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useFatch from "../customHooks/useFetch";
-import Favorite from "../../img/favorite.png";
 import loadingImg from "../../img/loading.png";
+import Rating from "../../img/rating.png";
+import Time from "../../img/time.png";
+import User from "../../img/user.png";
 const Recipe = () => {
-  /* Fetch Recipe data and display out */
   const {
-    data: searchResult,
+    data: randomRecipe,
     isLoading,
     error,
   } = useFatch("recipe/random?numberofrecipes=5");
@@ -23,8 +23,8 @@ const Recipe = () => {
         <>
           {!error && (
             <>
-              {searchResult &&
-                searchResult.Recipes.map((item) => (
+              {randomRecipe &&
+                randomRecipe.Recipes.map((item) => (
                   <Link
                     to={`/recipeDetails/${item.Id}`}
                     className="recipe-cart-small"
@@ -32,14 +32,23 @@ const Recipe = () => {
                   >
                     <img src={item.ImageUrl} className="recipe-img" alt="" />
                     <header>
-                      <div className="flex-center">
-                        <h4 className="cart-headline-bold">{item.Title}</h4>
-                      </div>
-                      <div className="flex-center">
-                        <img className="favoriteBTN" src={Favorite} />
-                      </div>
+                      <h4 className="cart-headline-bold">{item.Title}</h4>
                     </header>
                     <div className="recipe-cart-body">
+                      <div className="rating-time-portions">
+                        <span className="rating">
+                          <img src={Rating} alt="rating icon" />
+                          <pre>{item.AverageRating}</pre>
+                        </span>
+                        <span className="time">
+                          <img src={Time} alt="timer icon" />
+                          <pre>{item.CookingTimeAbbreviated}</pre>
+                        </span>
+                        <span className="portions">
+                          <img src={User} alt="user icon" />
+                          <pre>{item.Portions}</pre>
+                        </span>
+                      </div>
                       <p>{item.PreambleHTML}</p>
                     </div>
                   </Link>

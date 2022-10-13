@@ -8,18 +8,6 @@ import User from "../../img/user.png";
 const RecipeDetails = () => {
   const { id } = useParams();
   const { data: recipe, isLoading, error } = useFatch(`/recipe/details/${id}`);
-  /* const [searchResult, setSearchResult] = useState(true); */
-  /* useEffect(() => {
-    if (id) {
-      console.log(id);
-      fetch(`/recipedetails/${id}`)
-        .then((res) => res.json())
-        .then((results) => setSearchResult(results));
-    }
-  }, [id]); */
-  if (recipe) {
-    console.log(recipe.IngredientGroups);
-  }
   return (
     <>
       {isLoading && (
@@ -79,7 +67,6 @@ const RecipeDetails = () => {
                         </form>
                       </div>
                     ))}
-
                     <div className="cooking-steps">
                       <form>
                         {recipe.CookingStepsWithTimers.map((item) => (

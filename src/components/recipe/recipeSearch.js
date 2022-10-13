@@ -4,24 +4,33 @@ import { Link, useParams } from "react-router-dom";
 import useFatch from "../customHooks/useFetch";
 import Favorite from "../../img/favorite.png";
 import loadingImg from "../../img/loading.png";
-/* require("dotenv").config(); */
+import Rating from "../../img/rating.png";
+import Time from "../../img/time.png";
+import User from "../../img/user.png";
 const RecipeSearch = () => {
   const { id } = useParams();
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const [searchResult, setSearchResult] = useState();
-  const {
-    data: product,
-    isLoading,
-    error,
-  } = useFatch(`http://localhost:8000/products/${id}`);
+  const { data: product } = useFatch(`http://localhost:8000/products/${id}`);
 
   useEffect(() => {
-    if (!isLoading) {
-      const word = product.name;
-      fetch(`/recipe/byname/?phrase=${word}`)
+    if (product) {
+      const searchWord = product.name;
+      fetch(`/recipe/byname/?phrase=${searchWord}`)
         .then((res) => res.json())
-        .then((results) => setSearchResult(results.Recipes));
+        .then((results) => {
+          setSearchResult(results.Recipes);
+          setIsLoading(false);
+          setError(null);
+        })
+        .catch((err) => {
+          setIsLoading(false);
+          setError(err.message);
+        });
     }
-  }, [isLoading]);
+  }, [product]);
+
   return (
     <div className="recipe-container">
       {isLoading && (
@@ -44,14 +53,23 @@ const RecipeSearch = () => {
                   >
                     <img src={item.ImageUrl} className="recipe-img" alt="" />
                     <header>
-                      <div className="flex-center">
-                        <h4 className="cart-headline-bold">{item.Title}</h4>
-                      </div>
-                      <div className="flex-center">
-                        <img className="favoriteBTN" src={Favorite} />
-                      </div>
+                      <h4 className="cart-headline-bold">{item.Title}</h4>
                     </header>
                     <div className="recipe-cart-body">
+                      <div className="rating-time-portions">
+                        <span className="rating">
+                          <img src={Rating} alt="rating icon" />
+                          <pre>{item.AverageRating}</pre>
+                        </span>
+                        <span className="time">
+                          <img src={Time} alt="timer icon" />
+                          <pre>{item.CookingTimeAbbreviated}</pre>
+                        </span>
+                        <span className="portions">
+                          <img src={User} alt="user icon" />
+                          <pre>{item.Portions}</pre>
+                        </span>
+                      </div>
                       <p>{item.PreambleHTML}</p>
                     </div>
                   </Link>
