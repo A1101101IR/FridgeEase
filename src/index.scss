@@ -1,14 +1,6 @@
 
-* {
-  margin: 0;
-  padding: 0;
-  
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-  font-family: 'Poppins', sans-serif;
-  letter-spacing: 0.4px;
-  line-height: 1.2;
-}
 $c1: #A0C4FF;
 $c2: #F0F2F2;
 $c3: #0540F2;
@@ -20,7 +12,13 @@ $c3: #0540F2;
   justify-content: $justify;
   align-items: $align;
 }
-
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.4px;
+  line-height: 1.2;
+}
 #root {
   @include Flex(row,center,center);
   height: 100vh;
@@ -31,7 +29,6 @@ $c3: #0540F2;
   min-width: 380px;
   min-height: 812px;
   @include Flex(column,flex-start,none);
-  font-family: 'Poppins', sans-serif;
   background-color: $c1;
 }
 .header {
@@ -40,8 +37,6 @@ $c3: #0540F2;
   .logo {
     font-size: 34px;
     font-weight: 700;
-    text-decoration: none;
-    color: black;
   }
 }
 .navbar {
@@ -53,8 +48,6 @@ $c3: #0540F2;
     a {
       @include Flex(column,none,center);
       font-size: 12px;
-      color: black;
-      text-decoration: none;
       width: 80px;
       img {
         width: 40px;
@@ -85,7 +78,7 @@ $c3: #0540F2;
     }
   }
   .orBox {
-    @include Flex(row,center,space-evenly);
+    @include Flex(row,space-evenly, center);
     height: 50px;
     margin-bottom: 10px;
     div {
@@ -117,7 +110,6 @@ $c3: #0540F2;
     border: 1px solid black;
     border-radius: 45px;
     background-color: white;
-    text-decoration: none;
     color: black;
   }
   h4 {
@@ -140,7 +132,6 @@ $c3: #0540F2;
   background-color: white;
   border-radius: 25px;
   margin-bottom: 10px;
-  text-decoration: none;
   color: black;
 }
 .product-cart-container {
@@ -224,8 +215,6 @@ $c3: #0540F2;
   border-radius: 15px;
   background-color: white;
   @include Flex(column,none,none);
-  text-decoration: none;
-  color: black;
   .recipe-img {
     width: 100%;
     border-top-left-radius: 15px;
@@ -414,6 +403,10 @@ $c3: #0540F2;
   margin-right: 3px;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
 
 .loading-box {
   width: 330px;

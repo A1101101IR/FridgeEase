@@ -5,11 +5,9 @@ import Account from "./components/account";
 import Recipe from "./components/recipe/recipe";
 import Fridge from "./components/fridge";
 import Header from "./components/header";
-import Main from "./main";
 import ProductList from "./components/product/product-list";
 import Product from "./components/product/product";
 import RecipeSearch from "./components/recipe/recipeSearch";
-import { useEffect } from "react";
 import RecipeDetails from "./components/recipe/RecipeDetails";
 function App() {
   return (

@@ -1,15 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import useFatch from "../customHooks/useFetch";
 import loadingImg from "../../img/loading.png";
 import Rating from "../../img/rating.png";
 import Time from "../../img/time.png";
 import User from "../../img/user.png";
+import { useEffect, useState } from "react";
 const Recipe = () => {
   const {
     data: randomRecipe,
     isLoading,
     error,
   } = useFatch("recipe/random?numberofrecipes=5");
+
   return (
     <div className="recipe-container">
       {isLoading && (
