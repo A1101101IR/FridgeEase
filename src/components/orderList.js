@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
 import useFatch from "../components/customHooks/useFetch";
 import loadingImg from "../img/loading.png";
+import Plus from "../img/plus.png";
 const OrderList = () => {
   const { data: shoppingList, isLoading, error } = useFatch("/shoppinglist");
   return (
@@ -11,6 +13,10 @@ const OrderList = () => {
         </div>
       )}
       {error && <h4>obs...</h4>}
+      <Link to="/" className="fakeBTN">
+        <h4>Lägg till vara</h4>
+        <img src={Plus} className="plusBTN" alt="" />
+      </Link>
       {shoppingList &&
         shoppingList.map((item) => (
           <div className="item-cart" key={item._id}>

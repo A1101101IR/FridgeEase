@@ -8,7 +8,7 @@ const Fridge = () => {
     <>
       <section className="fridge">
         <Link to="/productlist" className="fakeBTN">
-          <h4>Add Products</h4>
+          <h4>Lägg till vara</h4>
           <img src={Plus} className="plusBTN" alt="" />
         </Link>
 

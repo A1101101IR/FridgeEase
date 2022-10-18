@@ -102,16 +102,7 @@ $c3: #0540F2;
 
 .fridge {
   @include Flex(column,center,center);
-  .fakeBTN {
-    @include Flex(row,space-between,center);
-    width: 330px;
-    height: 45px;
-    margin-bottom: 15px;
-    border: 1px solid black;
-    border-radius: 45px;
-    background-color: white;
-    color: black;
-  }
+  
   h4 {
     margin-left: 15px;
     margin-top: 2px;
@@ -360,6 +351,11 @@ $c3: #0540F2;
 .shopping-list-container {
   width: 330px;
   height: 600px;
+  a {
+    h4 {
+      margin-left: 10px
+    }
+  }
   .item-cart {
     /* height: 40px;
     border-radius: 10px;
@@ -419,7 +415,16 @@ $c3: #0540F2;
   margin-top: 2px;
   font-size: 16px;
 }
-
+.fakeBTN {
+  @include Flex(row,space-between,center);
+  width: 330px;
+  height: 45px;
+  margin-bottom: 15px;
+  border: 1px solid black;
+  border-radius: 45px;
+  background-color: white;
+  color: black;
+}
 .flex-center {
   @include Flex(row,none ,center );
   height: 40px;
