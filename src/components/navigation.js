@@ -7,7 +7,7 @@ const Navigation = () => {
   return (
     <section className="navbar">
       <nav>
-        <Link to="/orderList" className="link">
+        <Link to="/ShoppingList" className="link">
           <img src={Shopping} alt="" />
           {/* Shopping */}
         </Link>

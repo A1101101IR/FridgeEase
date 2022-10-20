@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Navigation from "./components/navigation";
-import OrderList from "./components/orderList";
+import ShoppingList from "./components/shopping/shoppingList";
 import Account from "./components/account";
 import Recipe from "./components/recipe/recipe";
 import Fridge from "./components/fridge";
@@ -20,7 +20,7 @@ function App() {
           <Route path="/productlist" element={<ProductList />}></Route>
           <Route path="/productlist/:id" element={<Product />}></Route>
           <Route path="/account" element={<Account />}></Route>
-          <Route path="/orderList" element={<OrderList />}></Route>
+          <Route path="/shoppingList" element={<ShoppingList />}></Route>
           <Route path="/recipe" element={<Recipe />}></Route>
           <Route path="/recipe/:id" element={<RecipeSearch />}></Route>
           <Route path="/recipeDetails/:id" element={<RecipeDetails />}></Route>
