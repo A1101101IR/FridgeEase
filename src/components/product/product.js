@@ -18,6 +18,9 @@ const Product = () => {
       Name: name,
       Quantity: quantity,
       Weight: weight,
+      Category: "mjölk",
+      Expiration_date: 5,
+      Notes: "Note",
     });
     var requestOptions = {
       method: "POST",
@@ -25,9 +28,9 @@ const Product = () => {
       body: raw,
       redirect: "follow",
     };
-    fetch("http://localhost:3000/shoppinglist", requestOptions)
-      .then((response) => response.text())
-      .then((result) => console.log(result))
+    fetch("http://localhost:3000/fridge", requestOptions)
+      .then((response) => response.json())
+      .then((result) => navigate("/"))
       .catch((error) => console.log("error", error));
   };
   return (
