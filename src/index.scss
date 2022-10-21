@@ -137,7 +137,7 @@ $c3: #0540F2;
       width: 100%;
       margin-bottom: 15px;
     }
-    form {
+    .form {
       width: 310px;
       @include Flex(column,none,none);
       label {
@@ -192,6 +192,19 @@ $c3: #0540F2;
     @include Flex(row,none,center);
     color: white;
   }
+  .icon-box {
+    @include Flex(row,none,center);
+    img {
+      width: 40px;
+      height: 40px;
+    }
+    .recipe-btn {
+      margin-top: 3px;
+      margin-left: 5px;
+    }
+    margin-right: 5px;
+  }
+
 }
 
 
@@ -374,6 +387,13 @@ $c3: #0540F2;
       margin-left: 10px;
       text-transform: capitalize;
     }
+    div {
+      @include Flex(row,space-between,center);
+      img {
+        width: 40px;
+        margin-right: 5px;
+      }
+    }
   }
   
 }
@@ -414,6 +434,8 @@ $c3: #0540F2;
 .cart-headline-bold {
   margin-top: 2px;
   font-size: 16px;
+  text-transform: capitalize;
+
 }
 .fakeBTN {
   @include Flex(row,space-between,center);

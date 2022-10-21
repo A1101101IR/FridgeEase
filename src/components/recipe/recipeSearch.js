@@ -12,12 +12,17 @@ const RecipeSearch = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [searchResult, setSearchResult] = useState();
-  const { data: product } = useFatch(`http://localhost:8000/products/${id}`);
-
+  const [productName, setProductName] = useState();
+  /* Just nu det är fast url för att fetcha data fixa senare */
+  const fetchData = async (url) => {
+    const res = await fetch(url);
+    const result = await res.json();
+    setProductName(result.Name);
+  };
   useEffect(() => {
-    if (product) {
-      const searchWord = product.name;
-      fetch(`/recipe/byname/?phrase=${searchWord}`)
+    fetchData("/shoppinglist/634d4af714a6d36c1ef974af");
+    if (productName) {
+      fetch(`/recipe/byname/?phrase=${productName}`)
         .then((res) => res.json())
         .then((results) => {
           setSearchResult(results.Recipes);
@@ -29,7 +34,7 @@ const RecipeSearch = () => {
           setError(err.message);
         });
     }
-  }, [product]);
+  }, [productName]);
 
   return (
     <div className="recipe-container">

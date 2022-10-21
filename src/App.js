@@ -9,6 +9,7 @@ import ProductList from "./components/product/product-list";
 import Product from "./components/product/product";
 import RecipeSearch from "./components/recipe/recipeSearch";
 import RecipeDetails from "./components/recipe/RecipeDetails";
+import AddToShoppingList from "./components/shopping/addToShoppingList";
 function App() {
   return (
     <div className="container">
@@ -21,6 +22,10 @@ function App() {
           <Route path="/productlist/:id" element={<Product />}></Route>
           <Route path="/account" element={<Account />}></Route>
           <Route path="/shoppingList" element={<ShoppingList />}></Route>
+          <Route
+            path="/addtoshoppinglist"
+            element={<AddToShoppingList />}
+          ></Route>
           <Route path="/recipe" element={<Recipe />}></Route>
           <Route path="/recipe/:id" element={<RecipeSearch />}></Route>
           <Route path="/recipeDetails/:id" element={<RecipeDetails />}></Route>
