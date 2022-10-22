@@ -6,7 +6,7 @@ const FridgeList = () => {
   const { data: fridgeData } = useFatch("/fridge");
   const deleteItem = (id) => {
     console.log(id);
-    fetch(`http://localhost:3000/fridge/${id}`, {
+    fetch(`/fridge/${id}`, {
       method: "DELETE",
       redirect: "follow",
     })

@@ -6,10 +6,9 @@ import Recipe from "./components/recipe/recipe";
 import Fridge from "./components/fridge";
 import Header from "./components/header";
 import ProductList from "./components/product/product-list";
-import Product from "./components/product/product";
 import RecipeSearch from "./components/recipe/recipeSearch";
 import RecipeDetails from "./components/recipe/RecipeDetails";
-import AddToShoppingList from "./components/shopping/addToShoppingList";
+import AddForm from "./components/addForm";
 function App() {
   return (
     <div className="container">
@@ -18,14 +17,21 @@ function App() {
         <Routes>
           {/* <Route path="/" element={<Main />}></Route> */}
           <Route path="/" element={<Fridge />}></Route>
-          <Route path="/productlist" element={<ProductList />}></Route>
-          <Route path="/productlist/:id" element={<Product />}></Route>
-          <Route path="/account" element={<Account />}></Route>
-          <Route path="/shoppingList" element={<ShoppingList />}></Route>
           <Route
-            path="/addtoshoppinglist"
-            element={<AddToShoppingList />}
+            path="/tofridge"
+            element={<ProductList url={"tofridge"} />}
           ></Route>
+          <Route
+            path="/tofridge/:id"
+            element={<AddForm url={"fridge"} />}
+          ></Route>
+          <Route path="/account" element={<Account />}></Route>
+          <Route path="/list" element={<ShoppingList />}></Route>
+          <Route
+            path="/tolist"
+            element={<ProductList url={"tolist"} />}
+          ></Route>
+          <Route path="/tolist/:id" element={<AddForm url={"list"} />}></Route>
           <Route path="/recipe" element={<Recipe />}></Route>
           <Route path="/recipe/:id" element={<RecipeSearch />}></Route>
           <Route path="/recipeDetails/:id" element={<RecipeDetails />}></Route>

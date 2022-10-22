@@ -7,21 +7,17 @@ const Navigation = () => {
   return (
     <section className="navbar">
       <nav>
-        <Link to="/ShoppingList" className="link">
+        <Link to="/list" className="link">
           <img src={Shopping} alt="" />
-          {/* Shopping */}
         </Link>
         <Link to="/recipe" className="link">
           <img src={Recipe} alt="" />
-          {/* Recipe */}
         </Link>
         <Link to="/" className="link">
           <img src={Fridge} alt="" />
-          {/* Fridge */}
         </Link>
         <Link to="/account" className="link">
           <img src={Account} alt="" />
-          {/* Account */}
         </Link>
       </nav>
     </section>

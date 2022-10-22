@@ -7,10 +7,8 @@ import Delete from "../../img/close.png";
 import { useState } from "react";
 const ShoppingList = () => {
   const { data: shoppingList, isLoading, error } = useFatch("/shoppinglist");
-  console.log(shoppingList);
-  const getItems = () => {};
   const deleteItem = (id) => {
-    fetch(`http://localhost:3000/shoppinglist/${id}`, {
+    fetch(`/shoppinglist/${id}`, {
       method: "DELETE",
       redirect: "follow",
     })
@@ -24,7 +22,6 @@ const ShoppingList = () => {
   };
 
   const addItemToFridge = (item) => {
-    console.log(item);
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     var raw = JSON.stringify({
@@ -35,8 +32,7 @@ const ShoppingList = () => {
       Expiration_date: 5,
       Notes: "Note",
     });
-
-    fetch("http://localhost:3000/fridge", {
+    fetch("/fridge", {
       method: "POST",
       headers: myHeaders,
       body: raw,
@@ -60,7 +56,7 @@ const ShoppingList = () => {
   };
   return (
     <div className="shopping-list-container">
-      <Link to="/addtoshoppinglist" className="fakeBTN">
+      <Link to="/tolist" className="fakeBTN">
         <h4>Lägg till inköpslista</h4>
         <img src={Plus} className="plusBTN" alt="" />
       </Link>

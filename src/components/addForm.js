@@ -1,36 +1,51 @@
 import { useParams, useNavigate } from "react-router-dom";
-import useFatch from "../customHooks/useFetch";
-import Plus from "../../img/plus.png";
-import Close from "../../img/close.png";
+import Close from "../img/close.png";
 import { useState } from "react";
-const Product = () => {
-  const { id } = useParams();
-  console.log(id);
+const AddForm = (props) => {
   const navigate = useNavigate();
-  const [name, setName] = useState(id);
+  const url = props.url;
+  const { id } = useParams();
+  console.log(url);
+  const [name, setName] = useState();
   const [quantity, setQuantity] = useState();
   const [weight, setWeight] = useState();
-
   const addItem = () => {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-    var raw = JSON.stringify({
-      Name: name,
-      Quantity: quantity,
-      Weight: weight,
-      Category: "mjölk",
-      Expiration_date: 5,
-      Notes: "Note",
-    });
+
+    if (url === "list") {
+      var raw = JSON.stringify({
+        Name: name,
+        Quantity: quantity,
+        Weight: weight,
+      });
+    }
+
+    if (url === "fridge") {
+      var raw = JSON.stringify({
+        Name: name,
+        Quantity: quantity,
+        Weight: weight,
+        Category: "mjölk",
+        Expiration_date: 5,
+        Notes: "Note",
+      });
+    }
+
     var requestOptions = {
       method: "POST",
       headers: myHeaders,
       body: raw,
       redirect: "follow",
     };
-    fetch("/fridge", requestOptions)
+
+    fetch(`/${url}`, requestOptions)
       .then((response) => response.json())
-      .then((result) => navigate("/"))
+      .then((result) =>
+        setTimeout(() => {
+          navigate(-1);
+        }, 1000)
+      )
       .catch((error) => console.log("error", error));
   };
   return (
@@ -38,11 +53,11 @@ const Product = () => {
       <article className="product-cart">
         <header>
           <div className="flex-center">
-            {/* <img
-              src={require(`../../img/icons8/${product.icon}`)}
+            <img
+              src={require(`../img/icons8/${id}.png`)}
               className="product-icon"
-            /> */}
-            <h4 className="cart-headline-bold">{id}</h4>
+            />
+            <h4 className="cart-headline-bold">Lägg till</h4>
           </div>
           <img
             className="closeBTN"
@@ -52,6 +67,12 @@ const Product = () => {
           />
         </header>
         <div className="form">
+          <label>Name</label>
+          <input
+            type="text"
+            placeholder="name"
+            onChange={(e) => setName(e.target.value)}
+          />
           <label>Quantity</label>
           <input
             type="number"
@@ -64,23 +85,12 @@ const Product = () => {
             placeholder="100KG"
             onChange={(e) => setWeight(e.target.value)}
           />
-          {/* <label>Production type</label>
-            <select>
-              <option selected="selected">ECO</option>
-              <option>Locally produced</option>
-            </select>
-            <label>Climate impact</label>
-            <select>
-              <option selected="selected">A</option>
-              <option>B</option>
-              <option>C</option>
-            </select> */}
           <label>Note</label>
           <textarea placeholder="Note"></textarea>
           <input
             type="submit"
             onClick={(e) => addItem()}
-            value="Add to Fridge"
+            value="Lägg till inköpslista"
           />
         </div>
         <footer></footer>
@@ -89,4 +99,4 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default AddForm;

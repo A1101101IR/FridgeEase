@@ -22,7 +22,7 @@ const AddToShoppingList = () => {
       body: raw,
       redirect: "follow",
     };
-    fetch("http://localhost:3000/shoppinglist", requestOptions)
+    fetch("/shoppinglist", requestOptions)
       .then((response) => response.json())
       .then((result) =>
         setTimeout(() => {

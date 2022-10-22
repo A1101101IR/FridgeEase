@@ -364,6 +364,7 @@ $c3: #0540F2;
 .shopping-list-container {
   width: 330px;
   height: 600px;
+  overflow-y: scroll;
   a {
     h4 {
       margin-left: 10px
