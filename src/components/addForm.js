@@ -49,53 +49,50 @@ const AddForm = (props) => {
       .catch((error) => console.log("error", error));
   };
   return (
-    <div className="product-cart-container">
-      <article className="product-cart">
-        <header>
-          <div className="flex-center">
-            <img
-              src={require(`../img/icons8/${id}.png`)}
-              className="product-icon"
-            />
-            <h4 className="cart-headline-bold">Lägg till</h4>
-          </div>
+    <article className="addForm-body">
+      <header>
+        <div className="flex-center">
           <img
-            className="closeBTN"
-            src={Close}
-            alt=""
-            onClick={() => navigate(-1)}
+            src={require(`../img/icons8/${id}.png`)}
+            className="product-icon"
           />
-        </header>
-        <div className="form">
-          <label>Name</label>
-          <input
-            type="text"
-            placeholder="name"
-            onChange={(e) => setName(e.target.value)}
-          />
-          <label>Quantity</label>
-          <input
-            type="number"
-            placeholder="1"
-            onChange={(e) => setQuantity(e.target.value)}
-          />
-          <label>Weight</label>
-          <input
-            type="number"
-            placeholder="100KG"
-            onChange={(e) => setWeight(e.target.value)}
-          />
-          <label>Note</label>
-          <textarea placeholder="Note"></textarea>
-          <input
-            type="submit"
-            onClick={(e) => addItem()}
-            value="Lägg till inköpslista"
-          />
+          <h4 className="cart-headline-bold">Lägg till</h4>
         </div>
-        <footer></footer>
-      </article>
-    </div>
+        <img
+          className="closeBTN"
+          src={Close}
+          alt=""
+          onClick={() => navigate(-1)}
+        />
+      </header>
+      <div className="form">
+        <label>Name</label>
+        <input
+          type="text"
+          placeholder="name"
+          onChange={(e) => setName(e.target.value)}
+        />
+        <label>Quantity</label>
+        <input
+          type="number"
+          placeholder="1"
+          onChange={(e) => setQuantity(e.target.value)}
+        />
+        <label>Weight</label>
+        <input
+          type="number"
+          placeholder="100KG"
+          onChange={(e) => setWeight(e.target.value)}
+        />
+        <label>Note</label>
+        <textarea placeholder="Note"></textarea>
+        <input
+          type="submit"
+          onClick={(e) => addItem()}
+          value="Lägg till inköpslista"
+        />
+      </div>
+    </article>
   );
 };
 

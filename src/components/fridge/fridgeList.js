@@ -32,9 +32,9 @@ const FridgeList = () => {
                 <h4 className="cart-headline-bold">{item.Name}</h4>
               </div>
               <div className="flex-center">
-                <span className="expiration-date">
+                {/* <span className="expiration-date">
                   {item.Expiration_date + " dagar"}
-                </span>
+                </span> */}
                 <div className="icon-box">
                   <Link to={`/recipe/${item._id}`}>
                     <img

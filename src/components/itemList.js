@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
-import useFatch from "../customHooks/useFetch";
-import loadingImg from "../../img/loading.png";
-import Plus from "../../img/plus.png";
-import Fridge from "../../img/fridge.png";
-import Delete from "../../img/close.png";
+import PecipeIcon from "../img/recipe.png";
+import Delete from "../img/close.png";
+import useFatch from "./customHooks/useFetch";
 import { useState } from "react";
-import ItemList from "../itemList";
-const ShoppingList = () => {
-  const { data: shoppingList, isLoading, error } = useFatch("/shoppinglist");
+import Fridge from "../img/fridge.png";
+const ItemList = (props) => {
+  const { data } = useFatch("/fridge");
+  const url = props.url;
+  console.log(url);
   const deleteItem = (id) => {
-    fetch(`/shoppinglist/${id}`, {
+    console.log(id);
+    fetch(`/fridge/${id}`, {
       method: "DELETE",
       redirect: "follow",
     })
@@ -21,7 +22,6 @@ const ShoppingList = () => {
       )
       .catch((error) => console.log("error", error));
   };
-
   const addItemToFridge = (item) => {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -56,21 +56,9 @@ const ShoppingList = () => {
     }
   };
   return (
-    <div className="shopping-list-container">
-      <Link to="/tolist" className="fakeBTN">
-        <h4>Lägg till inköpslista</h4>
-        <img src={Plus} className="plusBTN" alt="" />
-      </Link>
-      {isLoading && (
-        <div className="loading-box">
-          <img src={loadingImg} className="loading" />
-          <h4>Loading...</h4>
-        </div>
-      )}
-      {error && <h4>obs...</h4>}
-      <ItemList url={"list"} />
-      {/* {shoppingList &&
-        shoppingList.map((item) => (
+    <div className="item-container">
+      {data &&
+        data.map((item) => (
           <div
             className="item-cart"
             key={item._id}
@@ -80,11 +68,27 @@ const ShoppingList = () => {
               <header>
                 <h4>{item.Name}</h4>
                 <div>
-                  <img
-                    src={Fridge}
-                    onClick={() => addItemToFridge(item)}
-                    alt=""
-                  />
+                  {url === "fridge" && (
+                    <>
+                      <span className="expiration-date">
+                        {item.Expiration_date + " dagar"}
+                      </span>
+                      <Link to={`/recipe/${item._id}`}>
+                        <img
+                          src={PecipeIcon}
+                          className="recipe-btn"
+                          alt="recipe icon"
+                        />
+                      </Link>
+                    </>
+                  )}
+                  {url === "list" && (
+                    <img
+                      src={Fridge}
+                      onClick={() => addItemToFridge(item)}
+                      alt=""
+                    />
+                  )}
                   <img
                     src={Delete}
                     onClick={() => deleteItem(item._id)}
@@ -118,9 +122,9 @@ const ShoppingList = () => {
               )}
             </div>
           </div>
-        ))} */}
+        ))}
     </div>
   );
 };
 
-export default ShoppingList;
+export default ItemList;

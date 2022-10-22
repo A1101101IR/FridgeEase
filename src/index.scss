@@ -125,58 +125,57 @@ $c3: #0540F2;
   margin-bottom: 10px;
   color: black;
 }
-.product-cart-container {
-  .product-cart {
-    width: 330px;
-    background-color: white;
-    border-radius: 10px;
-    padding-top: 10px;
-    @include Flex(column,center,center);
-    header {
-      @include Flex(row,space-between,center);
-      width: 100%;
-      margin-bottom: 15px;
+
+.addForm-bo {
+  width: 330px;
+  background-color: white;
+  border-radius: 10px;
+  padding-top: 10px;
+  @include Flex(column,center,center);
+  header {
+    @include Flex(row,space-between,center);
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .form {
+    width: 310px;
+    @include Flex(column,none,none);
+    label {
+      font-size: 14px;
+      margin-left: 5px;
+      margin-bottom: 5px;
     }
-    .form {
-      width: 310px;
-      @include Flex(column,none,none);
-      label {
-        font-size: 14px;
-        margin-left: 5px;
-        margin-bottom: 5px;
-      }
-      input {
-        height: 40px;
-        border: none;
-        background-color: $c2;
-        margin-bottom: 10px;
-        padding: 0 10px;
-        border-radius: 5px;
-      }
-      select {
-        height: 40px;
-        border: none;
-        background-color: $c2;
-        margin-bottom: 10px;
-        padding: 0 10px;
-        border-radius: 5px;
-      }
-      option {
-        height: 40px;
-        border: none;
-        background-color: $c2;
-        margin-bottom: 10px;
-        padding: 0 10px;
-        border-radius: 5px;
-      }
-      textarea {
-        height: 120px;
-        border: none;
-        padding: 10px;
-        background-color: $c2;
-        border-radius: 5px;
-        margin-bottom: 10px;
-      }
+    input {
+      height: 40px;
+      border: none;
+      background-color: $c2;
+      margin-bottom: 10px;
+      padding: 0 10px;
+      border-radius: 5px;
+    }
+    select {
+      height: 40px;
+      border: none;
+      background-color: $c2;
+      margin-bottom: 10px;
+      padding: 0 10px;
+      border-radius: 5px;
+    }
+    option {
+      height: 40px;
+      border: none;
+      background-color: $c2;
+      margin-bottom: 10px;
+      padding: 0 10px;
+      border-radius: 5px;
+    }
+    textarea {
+      height: 120px;
+      border: none;
+      padding: 10px;
+      background-color: $c2;
+      border-radius: 5px;
+      margin-bottom: 10px;
     }
   }
 }
@@ -361,13 +360,24 @@ $c3: #0540F2;
   }
 }
 
-.shopping-list-container {
+.item-container {
   width: 330px;
   height: 600px;
   overflow-y: scroll;
   a {
     h4 {
       margin-left: 10px
+    }
+  }
+  header {
+    .expiration-date {
+      background-color: red;
+      border: 1px solid black;
+      padding: 5px 15px;
+      border-radius: 15px;
+      font-size: 12px;
+      @include Flex(row,none,center);
+      color: white;
     }
   }
   .item-cart {
@@ -415,10 +425,7 @@ $c3: #0540F2;
 
       }
     }
-
-    
   }
-  
 }
 
 /* Global styles */
