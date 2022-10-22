@@ -5,10 +5,11 @@ import useFatch from "./customHooks/useFetch";
 import { useState } from "react";
 import Fridge from "../img/fridge.png";
 const ItemList = (props) => {
-  const { data } = useFatch("/fridge");
   const url = props.url;
+  console.log(url);
+  const { data } = useFatch(`/${url}`);
   const deleteItem = (id) => {
-    fetch(`/fridge/${id}`, {
+    fetch(`/${url}/${id}`, {
       method: "DELETE",
       redirect: "follow",
     })
