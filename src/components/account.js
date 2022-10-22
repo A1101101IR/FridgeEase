@@ -1,4 +1,4 @@
-import Login from "./welcome/login";
+import Login from "./login";
 
 const Account = () => {
   return (

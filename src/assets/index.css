@@ -1,13 +1,20 @@
-@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.4px;
+  line-height: 1.2;
 }
 
 #root {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -25,14 +32,16 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  font-family: 'Oswald', sans-serif;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: none;
+      -ms-flex-align: none;
+          align-items: none;
   background-color: #A0C4FF;
 }
 
@@ -41,6 +50,10 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -52,8 +65,6 @@
 .header .logo {
   font-size: 34px;
   font-weight: 700;
-  text-decoration: none;
-  color: black;
 }
 
 .navbar {
@@ -61,12 +72,16 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .navbar nav {
@@ -74,9 +89,16 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  -webkit-box-align: none;
+      -ms-flex-align: none;
+          align-items: none;
 }
 
 .navbar nav a {
@@ -87,12 +109,13 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: none;
+      -ms-flex-pack: none;
+          justify-content: none;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   font-size: 12px;
-  color: black;
-  text-decoration: none;
   width: 80px;
 }
 
@@ -109,6 +132,9 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: none;
+      -ms-flex-pack: none;
+          justify-content: none;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -126,6 +152,12 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: none;
+      -ms-flex-pack: none;
+          justify-content: none;
+  -webkit-box-align: none;
+      -ms-flex-align: none;
+          align-items: none;
   width: 330px;
 }
 
@@ -147,6 +179,10 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
@@ -176,7 +212,65 @@
   background-color: white;
 }
 
-.fridge {
+.main .fridge {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 600px;
+}
+
+.main .fridge h4 {
+  margin-left: 15px;
+  margin-top: 2px;
+}
+
+.main .fridge p {
+  margin-top: 50px;
+  font-weight: 300;
+}
+
+.shopping-list {
+  height: 600px;
+}
+
+.product-cart-small {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid black;
+  width: 330px;
+  height: 45px;
+  background-color: white;
+  border-radius: 25px;
+  margin-bottom: 10px;
+  color: black;
+}
+
+.addForm-body {
+  width: 330px;
+  background-color: white;
+  border-radius: 10px;
+  padding-top: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -192,77 +286,14 @@
           align-items: center;
 }
 
-.fridge .fakeBTN {
+.addForm-body header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  width: 330px;
-  height: 45px;
-  margin-bottom: 15px;
-  border: 1px solid black;
-  border-radius: 45px;
-  background-color: white;
-  text-decoration: none;
-  color: black;
-}
-
-.fridge h4 {
-  margin-left: 15px;
-  margin-top: 2px;
-}
-
-.fridge p {
-  margin-top: 50px;
-  font-weight: 300;
-}
-
-.product-cart-small {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border: 1px solid black;
-  width: 330px;
-  height: 45px;
-  background-color: white;
-  border-radius: 25px;
-  margin-bottom: 10px;
-  text-decoration: none;
-  color: black;
-}
-
-.product-cart-container .product-cart {
-  width: 330px;
-  background-color: white;
-  border-radius: 10px;
-  padding-top: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.product-cart-container .product-cart header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -273,7 +304,7 @@
   margin-bottom: 15px;
 }
 
-.product-cart-container .product-cart form {
+.addForm-body .form {
   width: 310px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -282,65 +313,79 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: none;
+      -ms-flex-pack: none;
+          justify-content: none;
+  -webkit-box-align: none;
+      -ms-flex-align: none;
+          align-items: none;
 }
 
-.product-cart-container .product-cart form label {
+.addForm-body .form label {
   font-size: 14px;
   margin-left: 5px;
   margin-bottom: 5px;
 }
 
-.product-cart-container .product-cart form input {
+.addForm-body .form input {
   height: 40px;
   border: none;
-  background-color: #e3e3e3;
+  background-color: #F0F2F2;
   margin-bottom: 10px;
   padding: 0 10px;
   border-radius: 5px;
 }
 
-.product-cart-container .product-cart form select {
+.addForm-body .form select {
   height: 40px;
   border: none;
-  background-color: #e3e3e3;
+  background-color: #F0F2F2;
   margin-bottom: 10px;
   padding: 0 10px;
   border-radius: 5px;
 }
 
-.product-cart-container .product-cart form option {
+.addForm-body .form option {
   height: 40px;
   border: none;
-  background-color: #e3e3e3;
+  background-color: #F0F2F2;
   margin-bottom: 10px;
   padding: 0 10px;
   border-radius: 5px;
 }
 
-.product-cart-container .product-cart form textarea {
+.addForm-body .form textarea {
   height: 120px;
   border: none;
   padding: 10px;
-  background-color: #e3e3e3;
+  background-color: #F0F2F2;
   border-radius: 5px;
   margin-bottom: 10px;
 }
 
-.FridgeItem .expiration-date {
-  background-color: red;
-  border: 1px solid black;
-  padding: 5px 15px;
-  border-radius: 15px;
-  font-size: 12px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  color: white;
-}
-
+/* .FridgeItem {
+  .expiration-date {
+    background-color: red;
+    border: 1px solid black;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 12px;
+    @include Flex(row,none,center);
+    color: white;
+  }
+  .icon-box {
+    @include Flex(row,none,center);
+    img {
+      width: 40px;
+      height: 40px;
+    }
+    .recipe-btn {
+      margin-top: 3px;
+      margin-left: 5px;
+    }
+    margin-right: 5px;
+  }
+} */
 .recipe-container {
   height: 600px;
   overflow: scroll;
@@ -349,7 +394,7 @@
 .recipe-cart-small {
   width: 330px;
   margin-bottom: 15px;
-  border-radius: 10px;
+  border-radius: 15px;
   background-color: white;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -358,8 +403,18 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  text-decoration: none;
-  color: black;
+  -webkit-box-pack: none;
+      -ms-flex-pack: none;
+          justify-content: none;
+  -webkit-box-align: none;
+      -ms-flex-align: none;
+          align-items: none;
+}
+
+.recipe-cart-small .recipe-img {
+  width: 100%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
 .recipe-cart-small header {
@@ -367,6 +422,47 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: none;
+      -ms-flex-pack: none;
+          justify-content: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 10px;
+}
+
+.recipe-cart-small .recipe-cart-body .rating-time-portions {
+  height: 65px;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #F0F2F2;
+}
+
+.recipe-cart-small .recipe-cart-body .rating-time-portions span {
+  height: 45px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -375,21 +471,14 @@
           align-items: center;
 }
 
-.recipe-cart-small .meal-dish-type {
-  margin-left: 10px;
+.recipe-cart-small .recipe-cart-body .rating-time-portions span img {
+  height: 25px;
+  width: 25px;
 }
 
-.recipe-cart-small .meal-dish-type span {
-  padding: 2px 8px;
-  margin-right: 4px;
-  background-color: #A0C4FF;
-  border-radius: 15px;
-}
-
-.recipe-cart-small .recipe-detail {
-  list-style-type: none;
-  margin: 10px;
-  margin-left: 28px;
+.recipe-cart-small .recipe-cart-body p {
+  margin: 0 10px;
+  margin-bottom: 10px;
 }
 
 .recipe-details-page {
@@ -405,6 +494,12 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: none;
+      -ms-flex-pack: none;
+          justify-content: none;
+  -webkit-box-align: none;
+      -ms-flex-align: none;
+          align-items: none;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
 }
@@ -417,11 +512,16 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: none;
+      -ms-flex-pack: none;
+          justify-content: none;
+  -webkit-box-align: none;
+      -ms-flex-align: none;
+          align-items: none;
 }
 
 .recipe-details-page header .recipe-img-box {
-  background-color: #5e646f;
-  height: 330px;
+  height: auto;
   width: 330px;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
@@ -441,23 +541,58 @@
 }
 
 .recipe-details-page .recipe-details-body .rating-time-portions {
-  height: 100px;
+  height: 65px;
+  margin: 15px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #F0F2F2;
+  border-radius: 5px;
 }
 
 .recipe-details-page .recipe-details-body .rating-time-portions span {
-  height: 50px;
-  width: 50px;
-  background-color: #A0C4FF;
-  border-radius: 10px;
+  height: 45px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-direction: column;
+      flex-direction: column;
+}
+
+.recipe-details-page .recipe-details-body .rating-time-portions span img {
+  height: 25px;
+  width: 25px;
+}
+
+.recipe-details-page .recipe-details-body .ingredients .portion-info {
+  margin-bottom: 10px;
+  margin-top: 50px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.recipe-details-page .recipe-details-body .ingredients .portion-info span {
+  color: #a80909;
 }
 
 .recipe-details-page .recipe-details-body .ingredients form {
@@ -468,6 +603,12 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: none;
+      -ms-flex-pack: none;
+          justify-content: none;
+  -webkit-box-align: none;
+      -ms-flex-align: none;
+          align-items: none;
 }
 
 .recipe-details-page .recipe-details-body .ingredients form .ingredient {
@@ -475,13 +616,17 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #ecedef;
+  background-color: #F0F2F2;
   margin-bottom: 4px;
   border-radius: 5px;
 }
@@ -508,6 +653,12 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: none;
+      -ms-flex-pack: none;
+          justify-content: none;
+  -webkit-box-align: none;
+      -ms-flex-align: none;
+          align-items: none;
 }
 
 .recipe-details-page .recipe-details-body .cooking-steps form .step {
@@ -515,13 +666,17 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #ecedef;
+  background-color: #F0F2F2;
   margin-bottom: 4px;
   border-radius: 5px;
 }
@@ -542,6 +697,137 @@
   border: 1px solid black;
   border-radius: 5px;
   background-color: #A0C4FF;
+}
+
+.item-container {
+  width: 330px;
+  height: 600px;
+  overflow-y: scroll;
+}
+
+.item-container a h4 {
+  margin-left: 10px;
+}
+
+.item-container header .expiration-date {
+  background-color: red;
+  border: 1px solid black;
+  padding: 5px 15px;
+  border-radius: 15px;
+  font-size: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: none;
+      -ms-flex-pack: none;
+          justify-content: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+}
+
+.item-container .item-cart {
+  min-height: 45px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 25px;
+  margin-bottom: 10px;
+}
+
+.item-container .item-cart .small-cart header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 330px;
+  min-height: 45px;
+  color: black;
+}
+
+.item-container .item-cart .small-cart header h4 {
+  margin-left: 10px;
+  text-transform: capitalize;
+}
+
+.item-container .item-cart .small-cart header div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.item-container .item-cart .small-cart header div img {
+  width: 40px;
+  margin-right: 5px;
+}
+
+.item-container .item-cart .small-cart .more {
+  height: 300px;
+  background-color: white;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+}
+
+.item-container .item-cart .small-cart .more div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.item-container .item-cart .small-cart .more div button {
+  height: 30px;
+  padding: 0px 15px;
+  border: none;
+  border-radius: 5px;
+  margin: 10px 0px;
 }
 
 /* Global styles */
@@ -586,17 +872,53 @@
 .cart-headline-bold {
   margin-top: 2px;
   font-size: 16px;
+  text-transform: capitalize;
+}
+
+.fakeBTN {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 330px;
+  height: 45px;
+  margin-bottom: 15px;
+  border: 1px solid black;
+  border-radius: 45px;
+  background-color: white;
+  color: black;
 }
 
 .flex-center {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: none;
+      -ms-flex-pack: none;
+          justify-content: none;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   height: 40px;
   margin-right: 3px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }
 
 .loading-box {

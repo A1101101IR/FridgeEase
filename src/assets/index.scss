@@ -100,20 +100,26 @@ $c3: #0540F2;
   background-color: white;
 }
 
-.fridge {
-  @include Flex(column,center,center);
-  
-  h4 {
-    margin-left: 15px;
-    margin-top: 2px;
-  }
-  p {
-    margin-top: 50px;
-    font-weight: 300;
+
+
+.main {
+  .fridge {
+    @include Flex(column,center,center);
+    height: 600px;
+    h4 {
+      margin-left: 15px;
+      margin-top: 2px;
+    }
+    p {
+      margin-top: 50px;
+      font-weight: 300;
+    }
   }
 }
 
-
+.shopping-list {
+  height: 600px;
+}
 
 .product-cart-small {
   @include Flex(row,space-between,center);
@@ -126,7 +132,7 @@ $c3: #0540F2;
   color: black;
 }
 
-.addForm-bo {
+.addForm-body {
   width: 330px;
   background-color: white;
   border-radius: 10px;
@@ -181,7 +187,7 @@ $c3: #0540F2;
 }
 
 
-.FridgeItem {
+/* .FridgeItem {
   .expiration-date {
     background-color: red;
     border: 1px solid black;
@@ -203,8 +209,7 @@ $c3: #0540F2;
     }
     margin-right: 5px;
   }
-
-}
+} */
 
 
 

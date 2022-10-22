@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Navigation from "./components/navigation";
-import ShoppingList from "./components/shopping/shoppingList";
+import ShoppingList from "./components/shoppingList";
 import Account from "./components/account";
 import Recipe from "./components/recipe/recipe";
 import Fridge from "./components/fridge";
@@ -9,13 +9,12 @@ import ProductList from "./components/product/product-list";
 import RecipeSearch from "./components/recipe/recipeSearch";
 import RecipeDetails from "./components/recipe/RecipeDetails";
 import AddForm from "./components/addForm";
-function App() {
+function Foodbud() {
   return (
     <div className="container">
       <section className="main">
         <Header />
         <Routes>
-          {/* <Route path="/" element={<Main />}></Route> */}
           <Route path="/" element={<Fridge />}></Route>
           <Route
             path="/tofridge"
@@ -42,4 +41,4 @@ function App() {
   );
 }
 
-export default App;
+export default Foodbud;

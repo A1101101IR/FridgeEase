@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
 import Plus from "../img/plus.png";
-import useFatch from "./customHooks/useFetch";
-import FridgeList from "./fridge/fridgeList";
 import ItemList from "./itemList";
 const Fridge = () => {
   return (

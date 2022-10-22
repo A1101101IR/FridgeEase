@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
 import useFatch from "../customHooks/useFetch";
-import banan from "../../img/icons8/banan.png";
 import Plus from "../../img/plus.png";
 import { Link, useParams } from "react-router-dom";
 const ProductList = (props) => {

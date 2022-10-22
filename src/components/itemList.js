@@ -7,9 +7,7 @@ import Fridge from "../img/fridge.png";
 const ItemList = (props) => {
   const { data } = useFatch("/fridge");
   const url = props.url;
-  console.log(url);
   const deleteItem = (id) => {
-    console.log(id);
     fetch(`/fridge/${id}`, {
       method: "DELETE",
       redirect: "follow",

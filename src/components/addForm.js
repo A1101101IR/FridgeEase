@@ -5,7 +5,6 @@ const AddForm = (props) => {
   const navigate = useNavigate();
   const url = props.url;
   const { id } = useParams();
-  console.log(url);
   const [name, setName] = useState();
   const [quantity, setQuantity] = useState();
   const [weight, setWeight] = useState();
