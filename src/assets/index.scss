@@ -12,6 +12,26 @@ $c3: #0540F2;
   justify-content: $justify;
   align-items: $align;
 }
+@mixin width-heigth-sizes {
+  max-width: 430px;
+  max-height: 820px;
+  min-width: 375px;
+  min-height: 612px;
+  width: 100%;
+  height: 100%;
+}
+@mixin child-width-heigth-sizes {
+  max-width: 410px;
+  max-height: 612px;
+  min-width: 355px;
+  min-height: 612px;
+  width: 100%;
+  height: 100%;
+}
+@mixin element-width-heigth-sizes {
+  width: 100%;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -19,26 +39,32 @@ $c3: #0540F2;
   letter-spacing: 0.4px;
   line-height: 1.2;
 }
+
 #root {
   @include Flex(row,center,center);
   height: 100vh;
 }
+/* This app is responsive for iPhone devices */
+/* source of sizes : https://www.ios-resolution.com/ */
 .container {
-  max-width: 380px;
-  max-height: 812px;
-  min-width: 380px;
-  min-height: 812px;
+  @include width-heigth-sizes();
   @include Flex(column,flex-start,none);
   background-color: $c1;
-}
-.header {
-  height: 140px;
-  @include Flex(row,center,center);
-  .logo {
-    font-size: 34px;
-    font-weight: 700;
+  .header {
+    min-height: 140px;
+    width: 100%;
+    @include Flex(column,center,center);
+    .logo {
+      font-size: 34px;
+      font-weight: 700;
+    }
+    .btn-box {
+      width: 330px;
+    }
   }
 }
+
+
 .navbar {
   min-height: 60px;
   @include Flex(row,center,center);
@@ -55,15 +81,15 @@ $c3: #0540F2;
     }
   }
 }
-.main {
-  height: calc(812px - 50px);
-  @include Flex(column,none,center);
-}
+
+
+
 .login {
-  margin-top: 150px;
+  @include Flex(column,center,center);
+  
   form {
     @include Flex(column,none,none);
-    width: 330px;
+    width: 100%;
     input {
       height: 45px;
       margin-bottom: 15px;
@@ -80,6 +106,7 @@ $c3: #0540F2;
   .orBox {
     @include Flex(row,space-evenly, center);
     height: 50px;
+    width: 100%;
     margin-bottom: 10px;
     div {
       height: 1px;
@@ -91,57 +118,59 @@ $c3: #0540F2;
     }
   }
 }
-.bigBTN {
-  width: 330px;
-  height: 45px;
-  margin-bottom: 15px;
-  border: 1px solid black;
-  border-radius: 45px;
-  background-color: white;
-}
-
-
 
 .main {
+  height: calc(812px - 50px);
+  @include width-heigth-sizes();
+  @include Flex(column,none,center);
   .fridge {
-    @include Flex(column,center,center);
-    height: 600px;
+    @include Flex(column,none,center);
+    @include child-width-heigth-sizes();
+    height: 612px;
     h4 {
       margin-left: 15px;
       margin-top: 2px;
     }
     p {
-      margin-top: 50px;
+      margin-top: 10px;
       font-weight: 300;
     }
   }
+  .shopping-list {
+    height: 612px;
+    @include child-width-heigth-sizes();
+    @include Flex(column,none,center);
+  }
+}
+.product-list {
+  @include child-width-heigth-sizes();
+  @include Flex(column,none,center);
+  .product-cart-small {
+    @include Flex(row,space-between,center);
+    border: 1px solid black;
+    width: 330px;
+    height: 45px;
+    background-color: white;
+    border-radius: 25px;
+    margin-bottom: 10px;
+    color: black;
+  }
 }
 
-.shopping-list {
-  height: 600px;
-}
-
-.product-cart-small {
-  @include Flex(row,space-between,center);
-  border: 1px solid black;
-  width: 330px;
-  height: 45px;
-  background-color: white;
-  border-radius: 25px;
-  margin-bottom: 10px;
-  color: black;
-}
 
 .addForm-body {
   width: 330px;
   background-color: white;
   border-radius: 10px;
-  padding-top: 10px;
   @include Flex(column,center,center);
   header {
     @include Flex(row,space-between,center);
     width: 100%;
+    height: 50px;
     margin-bottom: 15px;
+    .closeBTN {
+      margin-right: 0;
+    }
   }
   .form {
     width: 310px;
@@ -187,80 +216,57 @@ $c3: #0540F2;
 }
 
 
-/* .FridgeItem {
-  .expiration-date {
-    background-color: red;
-    border: 1px solid black;
-    padding: 5px 15px;
-    border-radius: 15px;
-    font-size: 12px;
-    @include Flex(row,none,center);
-    color: white;
-  }
-  .icon-box {
-    @include Flex(row,none,center);
-    img {
-      width: 40px;
-      height: 40px;
-    }
-    .recipe-btn {
-      margin-top: 3px;
-      margin-left: 5px;
-    }
-    margin-right: 5px;
-  }
-} */
-
 
 
 .recipe-container {
-  height: 600px;
+  height: 612px;
   overflow: scroll;
-}
-.recipe-cart-small {
-  width: 330px;
-  margin-bottom: 15px;
-  border-radius: 15px;
-  background-color: white;
-  @include Flex(column,none,none);
-  .recipe-img {
-    width: 100%;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-  }
-  header {
-    height: 50px;
-    @include Flex(row,none,center);
-    margin-left: 10px;
-  }
-  .recipe-cart-body {
-    .rating-time-portions {
-      height: 65px;
-      margin-bottom: 10px;
-      @include Flex(row,space-evenly,center);
-      background-color: $c2;
-      
-      span {
-        height: 45px;
-        img {
-          height: 25px;
-          width: 25px;
+  @include Flex(column,none,center);
+  @include child-width-heigth-sizes();
+  .recipe-cart-small {
+    width: 330px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    background-color: white;
+    @include Flex(column,none,none);
+    .recipe-img {
+      width: 100%;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+    header {
+      height: 50px;
+      @include Flex(row,none,center);
+      margin-left: 10px;
+    }
+    .recipe-cart-body {
+      .rating-time-portions {
+        height: 65px;
+        margin-bottom: 10px;
+        @include Flex(row,space-evenly,center);
+        background-color: $c2;
+        
+        span {
+          height: 45px;
+          img {
+            height: 25px;
+            width: 25px;
+          }
+          @include Flex(column,space-between,center);
         }
-        @include Flex(column,space-between,center);
+      }
+      p {
+        margin: 0 10px;
+        margin-bottom: 10px;
       }
     }
-    p {
-      margin: 0 10px;
-      margin-bottom: 10px;
-    }
   }
-  
-  
 }
+
 
 .recipe-details-page {
   width: 330px;
-  height: 600px;
+  height: 612px;
   overflow: scroll;
   border-radius: 10px;
   background-color: white;
@@ -361,9 +367,9 @@ $c3: #0540F2;
         }
       }
     }
-    
   }
 }
+
 
 .item-container {
   width: 330px;
@@ -388,7 +394,7 @@ $c3: #0540F2;
   .item-cart {
     min-height: 45px;
     background-color: white;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 25px;
     margin-bottom: 10px;
     .small-cart{
@@ -401,8 +407,11 @@ $c3: #0540F2;
           margin-left: 10px;
           text-transform: capitalize;
         }
-        div {
+        .right-box {
           @include Flex(row,space-between,center);
+          a {
+            @include Flex(row,space-between,center);
+          }
           img {
             width: 40px;
             margin-right: 5px;
@@ -414,6 +423,7 @@ $c3: #0540F2;
         background-color: white;
         border-bottom-left-radius: 25px;
         border-bottom-right-radius: 25px;
+        
         @include Flex(column, space-between, center);
         padding: 10px;
         div {
@@ -423,8 +433,18 @@ $c3: #0540F2;
             height: 30px;
             padding: 0px 15px;
             border: none;
+            border-radius: 15px;
+            margin-top: 10px;
+            background-color: $c1;
+          }
+          input {
+            height: 40px;
+            width: 100%;
+            border: none;
+            background-color: $c2;
+            margin-bottom: 10px;
+            padding: 0 10px;
             border-radius: 5px;
-            margin: 10px 0px;
           }
         }
 
@@ -470,17 +490,27 @@ $c3: #0540F2;
   margin-top: 2px;
   font-size: 16px;
   text-transform: capitalize;
-
 }
-.fakeBTN {
-  @include Flex(row,space-between,center);
+.bigBTN {
   width: 330px;
   height: 45px;
   margin-bottom: 15px;
   border: 1px solid black;
   border-radius: 45px;
   background-color: white;
+}
+.fakeBTN {
+  @include Flex(row,space-between,center);
+  width: 330px;
+  min-height: 45px;
+  margin-bottom: 15px;
+  border: 1px solid black;
+  border-radius: 45px;
+  background-color: white;
   color: black;
+  h4 {
+    margin-left: 10px
+  }
 }
 .flex-center {
   @include Flex(row,none ,center );

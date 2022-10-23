@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
 import PecipeIcon from "../img/recipe.png";
-import Delete from "../img/close.png";
+import Close from "../img/close.png";
 import useFatch from "./customHooks/useFetch";
 import { useState } from "react";
 import Fridge from "../img/fridge.png";
 const ItemList = (props) => {
   const url = props.url;
-  console.log(url);
+
   const { data } = useFatch(`/${url}`);
+
   const deleteItem = (id) => {
     fetch(`/${url}/${id}`, {
       method: "DELETE",
@@ -21,6 +22,7 @@ const ItemList = (props) => {
       )
       .catch((error) => console.log("error", error));
   };
+
   const addItemToFridge = (item) => {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -54,6 +56,7 @@ const ItemList = (props) => {
       setIsMore(false);
     }
   };
+
   return (
     <div className="item-container">
       {data &&
@@ -66,44 +69,52 @@ const ItemList = (props) => {
             <div className="small-cart">
               <header>
                 <h4>{item.Name}</h4>
-                <div>
+                <div className="right-box">
                   {url === "fridge" && (
+                    <span className="expiration-date">
+                      {item.Expiration_date + " dagar"}
+                    </span>
+                  )}
+                  {more !== item._id && (
                     <>
-                      <span className="expiration-date">
-                        {item.Expiration_date + " dagar"}
-                      </span>
-                      <Link to={`/recipe/${item._id}`}>
+                      {url === "fridge" && (
+                        <Link to={`/recipe/${item._id}`}>
+                          <img
+                            src={PecipeIcon}
+                            className="recipe-btn"
+                            alt="recipe icon"
+                          />
+                        </Link>
+                      )}
+                      {url === "list" && (
                         <img
-                          src={PecipeIcon}
-                          className="recipe-btn"
-                          alt="recipe icon"
+                          src={Fridge}
+                          onClick={() => addItemToFridge(item)}
+                          alt=""
                         />
-                      </Link>
+                      )}
                     </>
                   )}
-                  {url === "list" && (
-                    <img
-                      src={Fridge}
-                      onClick={() => addItemToFridge(item)}
-                      alt=""
-                    />
+                  {isMore && (
+                    <>
+                      {more === item._id && (
+                        <img
+                          src={Close}
+                          onClick={() => setIsMore(false)}
+                          alt=""
+                        />
+                      )}
+                    </>
                   )}
-                  <img
-                    src={Delete}
-                    onClick={() => deleteItem(item._id)}
-                    alt=""
-                  />
                 </div>
               </header>
               {more === item._id && (
                 <div className="more">
                   <div>
-                    <label>Antal</label>
                     <input type="numner" placeholder={item.Quantity + "st"} />
                     <p></p>
                   </div>
                   <div>
-                    <label>Vikt</label>
                     <input type="numner" placeholder={item.Weight + "kg"} />
                   </div>
                   <p className="note">
@@ -115,7 +126,15 @@ const ItemList = (props) => {
                   </p>
                   <div>
                     <button>Ändra</button>
-                    <button>Lägg till kylskåp</button>
+                    <button onClick={() => deleteItem(item._id)}>
+                      Ta bort
+                    </button>
+                    {url === "list" && (
+                      <button onClick={() => addItemToFridge(item)}>
+                        Lägg till kylskåp
+                      </button>
+                    )}
+                    {url === "fridge" && <button>Hitta recept</button>}
                   </div>
                 </div>
               )}

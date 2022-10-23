@@ -12,8 +12,8 @@ import AddForm from "./components/addForm";
 function Foodbud() {
   return (
     <div className="container">
+      <Header />
       <section className="main">
-        <Header />
         <Routes>
           <Route path="/" element={<Fridge />}></Route>
           <Route

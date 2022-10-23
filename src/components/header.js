@@ -1,12 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <section className="header">
-      {/* <h1 className="logo">FoodBud</h1> */}
       <Link to="/" className="logo link">
         FoodBud
       </Link>
+      <div className="btn-box">
+        <button onClick={() => navigate(-1)}>tillbaka</button>
+      </div>
     </section>
   );
 };
