@@ -37,7 +37,7 @@ const RecipeSearch = () => {
   }, [productName]);
 
   return (
-    <div className="recipe-container">
+    <section className="recipe-container">
       {isLoading && (
         <div className="loading-box">
           <img src={loadingImg} className="loading" />
@@ -83,7 +83,7 @@ const RecipeSearch = () => {
           )}
         </>
       )}
-    </div>
+    </section>
   );
 };
 

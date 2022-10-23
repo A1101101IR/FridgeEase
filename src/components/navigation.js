@@ -5,7 +5,7 @@ import Fridge from "../img/fridge.png";
 import Recipe from "../img/recipe.png";
 const Navigation = () => {
   return (
-    <section className="navbar">
+    <div className="navbar">
       <nav>
         <Link to="/list" className="link">
           <img src={Shopping} alt="" />
@@ -20,7 +20,7 @@ const Navigation = () => {
           <img src={Account} alt="" />
         </Link>
       </nav>
-    </section>
+    </div>
   );
 };
 

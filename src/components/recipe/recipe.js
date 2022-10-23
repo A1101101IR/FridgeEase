@@ -13,7 +13,7 @@ const Recipe = () => {
   } = useFatch("recipe/random?numberofrecipes=5");
 
   return (
-    <div className="recipe-container">
+    <section>
       {isLoading && (
         <div className="loading-box">
           <img src={loadingImg} className="loading" />
@@ -59,7 +59,7 @@ const Recipe = () => {
           )}
         </>
       )}
-    </div>
+    </section>
   );
 };
 

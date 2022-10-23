@@ -76,7 +76,7 @@
   width: 330px;
 }
 
-.navbar {
+.container .navbar {
   min-height: 60px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -93,7 +93,7 @@
           align-items: center;
 }
 
-.navbar nav {
+.container .navbar nav {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -110,7 +110,7 @@
           align-items: none;
 }
 
-.navbar nav a {
+.container .navbar nav a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -128,8 +128,55 @@
   width: 80px;
 }
 
-.navbar nav a img {
+.container .navbar nav a img {
   width: 40px;
+}
+
+main {
+  height: calc(812px - 50px);
+  max-width: 430px;
+  max-height: 820px;
+  min-width: 375px;
+  min-height: 612px;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: none;
+      -ms-flex-pack: none;
+          justify-content: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main section {
+  height: 612px;
+  overflow: scroll;
+  max-width: 410px;
+  max-height: 612px;
+  min-width: 355px;
+  min-height: 612px;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: none;
+      -ms-flex-pack: none;
+          justify-content: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .login {
@@ -162,7 +209,7 @@
   -webkit-box-align: none;
       -ms-flex-align: none;
           align-items: none;
-  width: 100%;
+  width: 330px;
 }
 
 .login form input {
@@ -206,85 +253,6 @@
 
 .login .orBox p {
   font-size: 14px;
-}
-
-.main {
-  height: calc(812px - 50px);
-  max-width: 430px;
-  max-height: 820px;
-  min-width: 375px;
-  min-height: 612px;
-  width: 100%;
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: none;
-      -ms-flex-pack: none;
-          justify-content: none;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.main .fridge {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: none;
-      -ms-flex-pack: none;
-          justify-content: none;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  max-width: 410px;
-  max-height: 612px;
-  min-width: 355px;
-  min-height: 612px;
-  width: 100%;
-  height: 100%;
-  height: 612px;
-}
-
-.main .fridge h4 {
-  margin-left: 15px;
-  margin-top: 2px;
-}
-
-.main .fridge p {
-  margin-top: 10px;
-  font-weight: 300;
-}
-
-.main .shopping-list {
-  height: 612px;
-  max-width: 410px;
-  max-height: 612px;
-  min-width: 355px;
-  min-height: 612px;
-  width: 100%;
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: none;
-      -ms-flex-pack: none;
-          justify-content: none;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .product-list {
@@ -433,31 +401,7 @@
   margin-bottom: 10px;
 }
 
-.recipe-container {
-  height: 612px;
-  overflow: scroll;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: none;
-      -ms-flex-pack: none;
-          justify-content: none;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  max-width: 410px;
-  max-height: 612px;
-  min-width: 355px;
-  min-height: 612px;
-  width: 100%;
-  height: 100%;
-}
-
-.recipe-container .recipe-cart-small {
+.recipe-cart-small {
   width: 330px;
   margin-bottom: 15px;
   border-radius: 15px;
@@ -477,13 +421,13 @@
           align-items: none;
 }
 
-.recipe-container .recipe-cart-small .recipe-img {
+.recipe-cart-small .recipe-img {
   width: 100%;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
 
-.recipe-container .recipe-cart-small header {
+.recipe-cart-small header {
   height: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -501,7 +445,7 @@
   margin-left: 10px;
 }
 
-.recipe-container .recipe-cart-small .recipe-cart-body .rating-time-portions {
+.recipe-cart-small .recipe-cart-body .rating-time-portions {
   height: 65px;
   margin-bottom: 10px;
   display: -webkit-box;
@@ -520,7 +464,7 @@
   background-color: #F0F2F2;
 }
 
-.recipe-container .recipe-cart-small .recipe-cart-body .rating-time-portions span {
+.recipe-cart-small .recipe-cart-body .rating-time-portions span {
   height: 45px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -537,12 +481,12 @@
           align-items: center;
 }
 
-.recipe-container .recipe-cart-small .recipe-cart-body .rating-time-portions span img {
+.recipe-cart-small .recipe-cart-body .rating-time-portions span img {
   height: 25px;
   width: 25px;
 }
 
-.recipe-container .recipe-cart-small .recipe-cart-body p {
+.recipe-cart-small .recipe-cart-body p {
   margin: 0 10px;
   margin-bottom: 10px;
 }
@@ -771,10 +715,6 @@
   overflow-y: scroll;
 }
 
-.item-container a h4 {
-  margin-left: 10px;
-}
-
 .item-container header .expiration-date {
   background-color: red;
   border: 1px solid black;
@@ -800,7 +740,6 @@
 .item-container .item-cart {
   min-height: 45px;
   background-color: white;
-  /* border: 1px solid black; */
   border-radius: 25px;
   margin-bottom: 10px;
 }
@@ -825,7 +764,6 @@
 }
 
 .item-container .item-cart .small-cart header h4 {
-  margin-left: 10px;
   text-transform: capitalize;
 }
 
@@ -867,7 +805,6 @@
 }
 
 .item-container .item-cart .small-cart .more {
-  height: 300px;
   background-color: white;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
@@ -1000,10 +937,6 @@
   color: black;
 }
 
-.fakeBTN h4 {
-  margin-left: 10px;
-}
-
 .flex-center {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1025,6 +958,10 @@
 a {
   text-decoration: none;
   color: black;
+}
+
+h4 {
+  margin-left: 10px;
 }
 
 .loading-box {

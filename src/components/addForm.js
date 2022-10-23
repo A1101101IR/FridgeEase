@@ -48,7 +48,7 @@ const AddForm = (props) => {
       .catch((error) => console.log("error", error));
   };
   return (
-    <article className="addForm-body">
+    <div className="addForm-body">
       <header>
         <div className="flex-center">
           <img
@@ -91,7 +91,7 @@ const AddForm = (props) => {
           value="Lägg till inköpslista"
         />
       </div>
-    </article>
+    </div>
   );
 };
 

@@ -3,7 +3,7 @@ import Plus from "../img/plus.png";
 import ItemList from "./itemList";
 const Fridge = () => {
   return (
-    <section className="fridge">
+    <section>
       <Link to="/tofridge" className="fakeBTN">
         <h4>Lägg till vara</h4>
         <img src={Plus} className="plusBTN" alt="" />

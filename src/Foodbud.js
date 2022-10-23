@@ -13,7 +13,7 @@ function Foodbud() {
   return (
     <div className="container">
       <Header />
-      <section className="main">
+      <main>
         <Routes>
           <Route path="/" element={<Fridge />}></Route>
           <Route
@@ -35,7 +35,7 @@ function Foodbud() {
           <Route path="/recipe/:id" element={<RecipeSearch />}></Route>
           <Route path="/recipeDetails/:id" element={<RecipeDetails />}></Route>
         </Routes>
-      </section>
+      </main>
       <Navigation />
     </div>
   );

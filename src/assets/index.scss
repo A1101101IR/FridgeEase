@@ -31,7 +31,9 @@ $c3: #0540F2;
 @mixin element-width-heigth-sizes {
   width: 100%;
 }
-
+@mixin element-width {
+  width: 330px;
+}
 * {
   margin: 0;
   padding: 0;
@@ -62,34 +64,42 @@ $c3: #0540F2;
       width: 330px;
     }
   }
-}
-
-
-.navbar {
-  min-height: 60px;
-  @include Flex(row,center,center);
-  nav {
-    width: 100%;
-    @include Flex(row,space-evenly,none);
-    a {
-      @include Flex(column,none,center);
-      font-size: 12px;
-      width: 80px;
-      img {
-        width: 40px;
+  .navbar {
+    min-height: 60px;
+    @include Flex(row,center,center);
+    nav {
+      width: 100%;
+      @include Flex(row,space-evenly,none);
+      a {
+        @include Flex(column,none,center);
+        font-size: 12px;
+        width: 80px;
+        img {
+          width: 40px;
+        }
       }
     }
   }
 }
 
 
+main {
+  height: calc(812px - 50px);
+  @include width-heigth-sizes();
+  @include Flex(column,none,center);
+  section {
+    height: 612px;
+    overflow: scroll;
+    @include child-width-heigth-sizes();
+    @include Flex(column,none,center);
+  }
+}
 
 .login {
   @include Flex(column,center,center);
-  
   form {
     @include Flex(column,none,none);
-    width: 100%;
+    @include element-width();
     input {
       height: 45px;
       margin-bottom: 15px;
@@ -119,36 +129,14 @@ $c3: #0540F2;
   }
 }
 
-.main {
-  height: calc(812px - 50px);
-  @include width-heigth-sizes();
-  @include Flex(column,none,center);
-  .fridge {
-    @include Flex(column,none,center);
-    @include child-width-heigth-sizes();
-    height: 612px;
-    h4 {
-      margin-left: 15px;
-      margin-top: 2px;
-    }
-    p {
-      margin-top: 10px;
-      font-weight: 300;
-    }
-  }
-  .shopping-list {
-    height: 612px;
-    @include child-width-heigth-sizes();
-    @include Flex(column,none,center);
-  }
-}
+
 .product-list {
   @include child-width-heigth-sizes();
   @include Flex(column,none,center);
   .product-cart-small {
     @include Flex(row,space-between,center);
     border: 1px solid black;
-    width: 330px;
+    @include element-width();
     height: 45px;
     background-color: white;
     border-radius: 25px;
@@ -159,7 +147,7 @@ $c3: #0540F2;
 
 
 .addForm-body {
-  width: 330px;
+  @include element-width();
   background-color: white;
   border-radius: 10px;
   @include Flex(column,center,center);
@@ -218,54 +206,47 @@ $c3: #0540F2;
 
 
 
-.recipe-container {
-  height: 612px;
-  overflow: scroll;
-  @include Flex(column,none,center);
-  @include child-width-heigth-sizes();
-  .recipe-cart-small {
-    width: 330px;
-    margin-bottom: 15px;
-    border-radius: 15px;
-    background-color: white;
-    @include Flex(column,none,none);
-    .recipe-img {
-      width: 100%;
-      border-top-left-radius: 15px;
-      border-top-right-radius: 15px;
-    }
-    header {
-      height: 50px;
-      @include Flex(row,none,center);
-      margin-left: 10px;
-    }
-    .recipe-cart-body {
-      .rating-time-portions {
-        height: 65px;
-        margin-bottom: 10px;
-        @include Flex(row,space-evenly,center);
-        background-color: $c2;
-        
-        span {
-          height: 45px;
-          img {
-            height: 25px;
-            width: 25px;
-          }
-          @include Flex(column,space-between,center);
+.recipe-cart-small {
+  @include element-width();
+  margin-bottom: 15px;
+  border-radius: 15px;
+  background-color: white;
+  @include Flex(column,none,none);
+  .recipe-img {
+    width: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+  header {
+    height: 50px;
+    @include Flex(row,none,center);
+    margin-left: 10px;
+  }
+  .recipe-cart-body {
+    .rating-time-portions {
+      height: 65px;
+      margin-bottom: 10px;
+      @include Flex(row,space-evenly,center);
+      background-color: $c2;
+      span {
+        height: 45px;
+        img {
+          height: 25px;
+          width: 25px;
         }
+        @include Flex(column,space-between,center);
       }
-      p {
-        margin: 0 10px;
-        margin-bottom: 10px;
-      }
+    }
+    p {
+      margin: 0 10px;
+      margin-bottom: 10px;
     }
   }
 }
 
 
 .recipe-details-page {
-  width: 330px;
+  @include element-width();
   height: 612px;
   overflow: scroll;
   border-radius: 10px;
@@ -277,7 +258,7 @@ $c3: #0540F2;
     @include Flex(column,none,none);
     .recipe-img-box {
       height: auto;
-      width: 330px;
+      @include element-width();
       border-top-left-radius: 25px;
       border-top-right-radius: 25px;
     }
@@ -372,14 +353,9 @@ $c3: #0540F2;
 
 
 .item-container {
-  width: 330px;
+  @include element-width();
   height: 600px;
   overflow-y: scroll;
-  a {
-    h4 {
-      margin-left: 10px
-    }
-  }
   header {
     .expiration-date {
       background-color: red;
@@ -394,17 +370,15 @@ $c3: #0540F2;
   .item-cart {
     min-height: 45px;
     background-color: white;
-    /* border: 1px solid black; */
     border-radius: 25px;
     margin-bottom: 10px;
     .small-cart{
       header {
         @include Flex(row,space-between,center);
-        width: 330px;
+        @include element-width();
         min-height: 45px;
         color: black;
         h4 {
-          margin-left: 10px;
           text-transform: capitalize;
         }
         .right-box {
@@ -419,11 +393,9 @@ $c3: #0540F2;
         }
       }
       .more {
-        height: 300px;
         background-color: white;
         border-bottom-left-radius: 25px;
         border-bottom-right-radius: 25px;
-        
         @include Flex(column, space-between, center);
         padding: 10px;
         div {
@@ -492,7 +464,7 @@ $c3: #0540F2;
   text-transform: capitalize;
 }
 .bigBTN {
-  width: 330px;
+  @include element-width();
   height: 45px;
   margin-bottom: 15px;
   border: 1px solid black;
@@ -501,30 +473,30 @@ $c3: #0540F2;
 }
 .fakeBTN {
   @include Flex(row,space-between,center);
-  width: 330px;
+  @include element-width();
   min-height: 45px;
   margin-bottom: 15px;
   border: 1px solid black;
   border-radius: 45px;
   background-color: white;
   color: black;
-  h4 {
-    margin-left: 10px
-  }
 }
+
 .flex-center {
   @include Flex(row,none ,center );
   height: 40px;
   margin-right: 3px;
 }
-
 a {
   text-decoration: none;
   color: black;
 }
+h4 {
+  margin-left: 10px
+}
 
 .loading-box {
-  width: 330px;
+  @include element-width();
   height: 100%;
   @include Flex(column,center,center);
   .loading {
@@ -535,12 +507,12 @@ a {
     font-size: 24px;
   }
 }
+
 @keyframes loadingAnimation {
 	0% {
 		transform: rotate(0);
     opacity: 0;
 	}
-
 	100% {
 		transform: rotate(360deg);
     opacity: 1;
