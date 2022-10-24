@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import PecipeIcon from "../img/recipe.png";
 import Close from "../img/close.png";
 import useFatch from "./customHooks/useFetch";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Fridge from "../img/fridge.png";
 import Success from "../img/success.png";
 import MoreIcon from "../img/more.png";
@@ -10,24 +10,30 @@ const ItemList = (props) => {
   const url = props.url;
   const [notfication, setNotfication] = useState(false);
   const [msg, setMsg] = useState();
-  const { data } = useFatch(`/${url}`);
+  const [data, setData] = useState();
 
-  const deleteItem = (item) => {
-    fetch(`/${url}/${item._id}`, {
+  async function getItems() {
+    const res = await fetch(`/${url}`);
+    const result = await res.json();
+    setData(result);
+  }
+
+  async function deleteItem(item) {
+    const res = await fetch(`/${url}/${item._id}`, {
       method: "DELETE",
       redirect: "follow",
-    })
-      .then((response) => response.json())
-      .then((result) => console.log(result))
-      .catch((error) => console.log("error", error));
-    setMsg(`${item.Name} togs bort från listan!`);
-    displayMore(item._id);
-    setNotfication(true);
-    setTimeout(() => {
-      setNotfication(false);
-      window.location.reload(false);
-    }, 2000);
-  };
+    });
+    const result = await res.json();
+    if (res.status === 200) {
+      getItems();
+      setMsg(`${item.Name} togs bort från listan!`);
+      displayMore(item._id);
+      setNotfication(true);
+      setTimeout(() => {
+        setNotfication(false);
+      }, 1000);
+    }
+  }
 
   const addItemToFridge = (item) => {
     var myHeaders = new Headers();
@@ -70,6 +76,9 @@ const ItemList = (props) => {
     }
   };
 
+  useEffect(() => {
+    getItems();
+  }, []);
   return (
     <div className="item-container">
       {notfication && (
@@ -117,12 +126,18 @@ const ItemList = (props) => {
               </header>
               {more === item._id && (
                 <div className="more">
-                  <div>
-                    <input type="numner" placeholder={item.Quantity + "st"} />
-                    <p></p>
-                  </div>
-                  <div>
-                    <input type="numner" placeholder={item.Weight + "kg"} />
+                  <div className="input-body">
+                    <div className="input-box">
+                      <p>Mängd</p>
+                      <input type="numner" placeholder={item.Weight} />
+                    </div>
+                    <div className="input-box">
+                      <p>Enhet</p>
+                      <select>
+                        <option value="kg">KG</option>
+                        <option value="kg">ST</option>
+                      </select>
+                    </div>
                   </div>
                   <p className="note">
                     Lorem Ipsum is simply dummy text of the printing and
@@ -131,7 +146,7 @@ const ItemList = (props) => {
                     printer took a galley of type and scrambled it to make a
                     type specimen book.
                   </p>
-                  <div>
+                  <div className="btn-box">
                     <button>Ändra</button>
                     <button onClick={() => deleteItem(item)}>Ta bort</button>
                     {url === "list" && (

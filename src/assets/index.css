@@ -912,7 +912,58 @@ main section {
   padding: 10px;
 }
 
-.item-container .item-cart .small-cart .more div {
+.item-container .item-cart .small-cart .more .input-body {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.item-container .item-cart .small-cart .more .input-body .input-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.item-container .item-cart .small-cart .more .input-body .input-box p {
+  margin-bottom: 5px;
+}
+
+.item-container .item-cart .small-cart .more .input-body .input-box input, .item-container .item-cart .small-cart .more .input-body .input-box select, .item-container .item-cart .small-cart .more .input-body .input-box option {
+  height: 40px;
+  width: 130px;
+  border: none;
+  background-color: #F0F2F2;
+  margin-bottom: 10px;
+  padding: 0 10px;
+  border-radius: 5px;
+}
+
+.item-container .item-cart .small-cart .more .input-body .input-box select {
+  width: 150px;
+}
+
+.item-container .item-cart .small-cart .more .btn-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -929,23 +980,13 @@ main section {
   width: 100%;
 }
 
-.item-container .item-cart .small-cart .more div button {
+.item-container .item-cart .small-cart .more .btn-box button {
   height: 30px;
   padding: 0px 15px;
   border: none;
   border-radius: 15px;
   margin-top: 10px;
   background-color: #A0C4FF;
-}
-
-.item-container .item-cart .small-cart .more div input {
-  height: 40px;
-  width: 100%;
-  border: none;
-  background-color: #F0F2F2;
-  margin-bottom: 10px;
-  padding: 0 10px;
-  border-radius: 5px;
 }
 
 /* s */
