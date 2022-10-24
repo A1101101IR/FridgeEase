@@ -50,19 +50,23 @@ $c3: #0540F2;
 /* source of sizes : https://www.ios-resolution.com/ */
 .container {
   @include width-heigth-sizes();
-  @include Flex(column,flex-start,none);
+  @include Flex(column,flex-start,center);
   background-color: $c1;
   .header {
-    min-height: 140px;
-    width: 100%;
-    @include Flex(column,center,center);
+    height: 100px;
+    width: 330px;
+    @include Flex(row,space-between,center);
     .logo {
-      font-size: 34px;
+      font-size: 32px;
       font-weight: 700;
     }
     .btn-box {
-      width: 330px;
+      @include Flex(row,flex-start,center);
+      img {
+        width: 40px;  
+      }
     }
+    
   }
   .navbar {
     min-height: 60px;
