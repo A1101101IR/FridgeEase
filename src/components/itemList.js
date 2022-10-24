@@ -4,23 +4,29 @@ import Close from "../img/close.png";
 import useFatch from "./customHooks/useFetch";
 import { useState } from "react";
 import Fridge from "../img/fridge.png";
+import Success from "../img/success.png";
+import MoreIcon from "../img/more.png";
 const ItemList = (props) => {
   const url = props.url;
-
+  const [notfication, setNotfication] = useState(false);
+  const [msg, setMsg] = useState();
   const { data } = useFatch(`/${url}`);
 
-  const deleteItem = (id) => {
-    fetch(`/${url}/${id}`, {
+  const deleteItem = (item) => {
+    fetch(`/${url}/${item._id}`, {
       method: "DELETE",
       redirect: "follow",
     })
       .then((response) => response.json())
-      .then((result) =>
-        setTimeout(() => {
-          window.location.reload(false);
-        }, 500)
-      )
+      .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
+    setMsg(`${item.Name} togs bort från listan!`);
+    displayMore(item._id);
+    setNotfication(true);
+    setTimeout(() => {
+      setNotfication(false);
+      window.location.reload(false);
+    }, 2000);
   };
 
   const addItemToFridge = (item) => {
@@ -43,6 +49,13 @@ const ItemList = (props) => {
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
+
+    setMsg(`${item.Name} lades till kylskåp!`);
+    displayMore(item._id);
+    setNotfication(true);
+    setTimeout(() => {
+      setNotfication(false);
+    }, 2000);
   };
 
   const [more, setMore] = useState(null);
@@ -59,13 +72,17 @@ const ItemList = (props) => {
 
   return (
     <div className="item-container">
+      {notfication && (
+        <div className="alert-container">
+          <div className="alert">
+            <img src={Success} alt="" />
+            <h4>{msg}</h4>
+          </div>
+        </div>
+      )}
       {data &&
         data.map((item) => (
-          <div
-            className="item-cart"
-            key={item._id}
-            onClick={() => displayMore(item._id)}
-          >
+          <div className="item-cart" key={item._id}>
             <div className="small-cart">
               <header>
                 <h4>{item.Name}</h4>
@@ -77,22 +94,12 @@ const ItemList = (props) => {
                   )}
                   {more !== item._id && (
                     <>
-                      {url === "fridge" && (
-                        <Link to={`/recipe/${item._id}`}>
-                          <img
-                            src={PecipeIcon}
-                            className="recipe-btn"
-                            alt="recipe icon"
-                          />
-                        </Link>
-                      )}
-                      {url === "list" && (
-                        <img
-                          src={Fridge}
-                          onClick={() => addItemToFridge(item)}
-                          alt=""
-                        />
-                      )}
+                      <img
+                        src={MoreIcon}
+                        className="more-icon"
+                        onClick={() => displayMore(item._id)}
+                        alt=""
+                      />
                     </>
                   )}
                   {isMore && (
@@ -100,7 +107,7 @@ const ItemList = (props) => {
                       {more === item._id && (
                         <img
                           src={Close}
-                          onClick={() => setIsMore(false)}
+                          onClick={() => displayMore(item._id)}
                           alt=""
                         />
                       )}
@@ -126,9 +133,7 @@ const ItemList = (props) => {
                   </p>
                   <div>
                     <button>Ändra</button>
-                    <button onClick={() => deleteItem(item._id)}>
-                      Ta bort
-                    </button>
+                    <button onClick={() => deleteItem(item)}>Ta bort</button>
                     {url === "list" && (
                       <button onClick={() => addItemToFridge(item)}>
                         Lägg till kylskåp

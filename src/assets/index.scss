@@ -94,9 +94,41 @@ main {
   section {
     height: 612px;
     overflow: scroll;
+    position: relative;
     @include child-width-heigth-sizes();
     @include Flex(column,none,center);
   }
+}
+.alert-container {
+  @include Flex(column, center, center);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 11;
+}
+.alert {
+  width: 330px;
+  height: 330px;
+  @include Flex(column, center, center);
+  background-color: #F0F2F2;
+  border-radius: 25px;
+  backdrop-filter: blur(4px);
+  h4 {
+    margin-top: 50px;
+    text-transform: capitalize;
+  }
+  img {
+    animation: myAnim 1s ease 0s 1 normal forwards;
+  }
+}
+@keyframes myAnim {
+	0% {
+		transform: scale(0.5);
+	}
+	100% {
+		transform: scale(1);
+	}
 }
 
 .login {
@@ -160,9 +192,6 @@ main {
     width: 100%;
     height: 50px;
     margin-bottom: 15px;
-    .closeBTN {
-      margin-right: 0;
-    }
   }
   .form {
     width: 310px;
@@ -391,8 +420,8 @@ main {
             @include Flex(row,space-between,center);
           }
           img {
-            width: 40px;
-            margin-right: 5px;
+            width: 30px;
+            margin: 0px 10px;
           }
         }
       }
@@ -429,15 +458,19 @@ main {
   }
 }
 
+/* s */
+
+
+
 /* Global styles */
 .closeBTN {
-  width: 45px;
-  height: 45px;
+  width: 35px;
+  height: 35px;
   margin-right: 10px;
 }
 .plusBTN {
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   margin-right: 10px;
 }
 .recipeBTN {
@@ -449,7 +482,7 @@ main {
 .favoriteBTN {
   width: 40px;
   height: 40px;
-  margin-right: 5px;
+  margin-right: 0px;
 }
 .product-icon {
   margin-left: 10px;
@@ -489,7 +522,6 @@ main {
 .flex-center {
   @include Flex(row,none ,center );
   height: 40px;
-  margin-right: 3px;
 }
 a {
   text-decoration: none;
