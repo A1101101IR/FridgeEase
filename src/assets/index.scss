@@ -52,6 +52,11 @@ $c3: #0540F2;
   @include width-heigth-sizes();
   @include Flex(column,flex-start,center);
   background-color: $c1;
+  .welcome-page {
+    width: 100%;
+    height: 100%;
+    @include Flex(row,center,center);
+  }
   .header {
     height: 100px;
     width: 330px;
@@ -133,7 +138,7 @@ main {
 
 .login {
   @include Flex(column,center,center);
-  form {
+  .form {
     @include Flex(column,none,none);
     @include element-width();
     input {

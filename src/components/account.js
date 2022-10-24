@@ -1,11 +1,22 @@
 import Login from "./login";
-import Product from "./product/product";
 
 const Account = () => {
+  const user = localStorage.getItem("user");
+  const logout = () => {
+    localStorage.removeItem("user");
+  };
   return (
     <>
-      <Login />
-      {/* <Product /> */}
+      {!user && <Login />}
+      {user && (
+        <section>
+          <div className="fakeBTN" onClick={() => logout()}>
+            <p></p>
+            <h4>Logga ut</h4>
+            <p></p>
+          </div>
+        </section>
+      )}
     </>
   );
 };
