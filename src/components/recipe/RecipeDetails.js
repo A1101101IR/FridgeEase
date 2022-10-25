@@ -10,7 +10,7 @@ const RecipeDetails = () => {
   const { data: recipe, isLoading, error } = useFatch(`/recipe/details/${id}`);
 
   return (
-    <>
+    <section>
       {isLoading && (
         <div className="loading-box">
           <img src={loadingImg} className="loading" />
@@ -71,7 +71,7 @@ const RecipeDetails = () => {
           </div>
         </article>
       )}
-    </>
+    </section>
   );
 };
 

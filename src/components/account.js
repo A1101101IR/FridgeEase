@@ -10,6 +10,16 @@ const Account = () => {
       {!user && <Login />}
       {user && (
         <section>
+          <div className="fakeBTN">
+            <p></p>
+            <h4>Recept favoriter</h4>
+            <p></p>
+          </div>
+          <div className="fakeBTN">
+            <p></p>
+            <h4>Diet</h4>
+            <p></p>
+          </div>
           <div className="fakeBTN" onClick={() => logout()}>
             <p></p>
             <h4>Logga ut</h4>

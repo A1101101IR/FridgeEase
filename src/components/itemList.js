@@ -154,7 +154,11 @@ const ItemList = (props) => {
                         Lägg till kylskåp
                       </button>
                     )}
-                    {url === "fridge" && <button>Hitta recept</button>}
+                    {url === "fridge" && (
+                      <Link to={`/recipe/${item.Name}`}>
+                        <button>Hitta recept</button>
+                      </Link>
+                    )}
                   </div>
                 </div>
               )}

@@ -15,24 +15,26 @@ $c3: #0540F2;
 @mixin width-heigth-sizes {
   max-width: 430px;
   max-height: 820px;
-  min-width: 375px;
+  min-width: 330px;
   min-height: 612px;
   width: 100%;
   height: 100%;
 }
 @mixin child-width-heigth-sizes {
-  max-width: 410px;
-  max-height: 612px;
-  min-width: 355px;
+  max-width: 400px;
+  max-height: 694px;
+  min-width: 325px;
   min-height: 612px;
   width: 100%;
   height: 100%;
 }
-@mixin element-width-heigth-sizes {
+/* @mixin element-width-heigth-sizes {
   width: 100%;
-}
+} */
 @mixin element-width {
-  width: 330px;
+  max-width: 400px;
+  min-width: 300px;
+  width: 96%;
 }
 * {
   margin: 0;
@@ -58,8 +60,8 @@ $c3: #0540F2;
     @include Flex(row,center,center);
   }
   .header {
-    height: 100px;
-    width: 330px;
+    min-height: 70px;
+    @include element-width();
     @include Flex(row,space-between,center);
     .logo {
       font-size: 32px;
@@ -75,9 +77,10 @@ $c3: #0540F2;
   }
   .navbar {
     min-height: 60px;
+    @include element-width();
     @include Flex(row,center,center);
     nav {
-      width: 100%;
+      @include element-width();
       @include Flex(row,space-evenly,none);
       a {
         @include Flex(column,none,center);
@@ -97,7 +100,6 @@ main {
   @include width-heigth-sizes();
   @include Flex(column,none,center);
   section {
-    height: 612px;
     overflow: scroll;
     position: relative;
     @include child-width-heigth-sizes();
@@ -246,7 +248,7 @@ main {
 
 .recipe-cart-small {
   @include element-width();
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   border-radius: 15px;
   background-color: white;
   @include Flex(column,none,none);
@@ -285,7 +287,6 @@ main {
 
 .recipe-details-page {
   @include element-width();
-  height: 612px;
   overflow: scroll;
   border-radius: 10px;
   background-color: white;
@@ -296,7 +297,7 @@ main {
     @include Flex(column,none,none);
     .recipe-img-box {
       height: auto;
-      @include element-width();
+      width: 100%;
       border-top-left-radius: 25px;
       border-top-right-radius: 25px;
     }
@@ -413,7 +414,7 @@ main {
     .small-cart{
       header {
         @include Flex(row,space-between,center);
-        @include element-width();
+        /* @include element-width(); */
         min-height: 45px;
         color: black;
         h4 {
