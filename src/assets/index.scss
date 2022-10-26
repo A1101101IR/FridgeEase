@@ -108,14 +108,15 @@ main {
 }
 .alert-container {
   @include Flex(column, center, center);
+  background-color: #A0C4FF;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 11;
+  bottom: 0;
 }
 .alert {
-  width: 330px;
+  @include element-width();
   height: 330px;
   @include Flex(column, center, center);
   background-color: #F0F2F2;
@@ -190,10 +191,14 @@ main {
 
 
 .addForm-body {
+  width: 100%;
+  height: 100%;
+  @include Flex(column,center,center);
+  .addForm {
   @include element-width();
+  @include Flex(column,center,center);
   background-color: white;
   border-radius: 10px;
-  @include Flex(column,center,center);
   header {
     @include Flex(row,space-between,center);
     width: 100%;
@@ -201,7 +206,7 @@ main {
     margin-bottom: 15px;
   }
   .form {
-    width: 310px;
+    @include element-width();
     @include Flex(column,none,none);
     label {
       font-size: 14px;
@@ -240,6 +245,7 @@ main {
       border-radius: 5px;
       margin-bottom: 10px;
     }
+  }
   }
 }
 
@@ -441,22 +447,26 @@ main {
           width: 100%;
           @include Flex(row, space-between, center);
           .input-box {
-            @include Flex(column, space-between, flex-start);
+            /* @include Flex(column, center, flex-start); */
+            width: 100%;
             p {
               margin-bottom: 5px;
             }
             input, select, option {
               height: 40px;
-              width: 130px;
+              width: 100%;
               border: none;
               background-color: $c2;
               margin-bottom: 10px;
               padding: 0 10px;
-              border-radius: 5px;
+              
             }
             select {
-              width: 150px;
+              width: 100%;
             }
+          }
+          .select {
+            border-left: 2px solid white
           }
         }
         .btn-box {

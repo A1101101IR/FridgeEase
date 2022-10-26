@@ -5,6 +5,7 @@ import useFatch from "./customHooks/useFetch";
 import { useEffect, useState } from "react";
 import Fridge from "../img/fridge.png";
 import Success from "../img/success.png";
+import Error from "../img/error.png";
 import MoreIcon from "../img/more.png";
 const ItemList = (props) => {
   const url = props.url;
@@ -131,11 +132,10 @@ const ItemList = (props) => {
                       <p>Mängd</p>
                       <input type="numner" placeholder={item.Weight} />
                     </div>
-                    <div className="input-box">
+                    <div className="input-box select">
                       <p>Enhet</p>
                       <select>
-                        <option value="kg">KG</option>
-                        <option value="kg">ST</option>
+                        <option>{item.Quantity}</option>
                       </select>
                     </div>
                   </div>

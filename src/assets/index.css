@@ -237,15 +237,18 @@ main section {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-color: #A0C4FF;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 11;
+  bottom: 0;
 }
 
 .alert {
-  width: 330px;
+  max-width: 400px;
+  min-width: 300px;
+  width: 96%;
   height: 330px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -424,11 +427,8 @@ main section {
 }
 
 .addForm-body {
-  max-width: 400px;
-  min-width: 300px;
-  width: 96%;
-  background-color: white;
-  border-radius: 10px;
+  width: 100%;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -444,7 +444,28 @@ main section {
           align-items: center;
 }
 
-.addForm-body header {
+.addForm-body .addForm {
+  max-width: 400px;
+  min-width: 300px;
+  width: 96%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.addForm-body .addForm header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -463,8 +484,10 @@ main section {
   margin-bottom: 15px;
 }
 
-.addForm-body .form {
-  width: 310px;
+.addForm-body .addForm .form {
+  max-width: 400px;
+  min-width: 300px;
+  width: 96%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -480,13 +503,13 @@ main section {
           align-items: none;
 }
 
-.addForm-body .form label {
+.addForm-body .addForm .form label {
   font-size: 14px;
   margin-left: 5px;
   margin-bottom: 5px;
 }
 
-.addForm-body .form input {
+.addForm-body .addForm .form input {
   height: 40px;
   border: none;
   background-color: #F0F2F2;
@@ -495,7 +518,7 @@ main section {
   border-radius: 5px;
 }
 
-.addForm-body .form select {
+.addForm-body .addForm .form select {
   height: 40px;
   border: none;
   background-color: #F0F2F2;
@@ -504,7 +527,7 @@ main section {
   border-radius: 5px;
 }
 
-.addForm-body .form option {
+.addForm-body .addForm .form option {
   height: 40px;
   border: none;
   background-color: #F0F2F2;
@@ -513,7 +536,7 @@ main section {
   border-radius: 5px;
 }
 
-.addForm-body .form textarea {
+.addForm-body .addForm .form textarea {
   height: 120px;
   border: none;
   padding: 10px;
@@ -968,19 +991,8 @@ main section {
 }
 
 .item-container .item-cart .small-cart .more .input-body .input-box {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  /* @include Flex(column, center, flex-start); */
+  width: 100%;
 }
 
 .item-container .item-cart .small-cart .more .input-body .input-box p {
@@ -989,16 +1001,19 @@ main section {
 
 .item-container .item-cart .small-cart .more .input-body .input-box input, .item-container .item-cart .small-cart .more .input-body .input-box select, .item-container .item-cart .small-cart .more .input-body .input-box option {
   height: 40px;
-  width: 130px;
+  width: 100%;
   border: none;
   background-color: #F0F2F2;
   margin-bottom: 10px;
   padding: 0 10px;
-  border-radius: 5px;
 }
 
 .item-container .item-cart .small-cart .more .input-body .input-box select {
-  width: 150px;
+  width: 100%;
+}
+
+.item-container .item-cart .small-cart .more .input-body .select {
+  border-left: 2px solid white;
 }
 
 .item-container .item-cart .small-cart .more .btn-box {
