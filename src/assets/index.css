@@ -421,7 +421,7 @@ main section {
   width: 96%;
   height: 45px;
   background-color: white;
-  border-radius: 25px;
+  border-radius: 10px;
   margin-bottom: 10px;
   color: black;
 }

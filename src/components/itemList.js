@@ -12,6 +12,8 @@ const ItemList = (props) => {
   const [notfication, setNotfication] = useState(false);
   const [msg, setMsg] = useState();
   const [data, setData] = useState();
+  const [more, setMore] = useState(null);
+  const [isMore, setIsMore] = useState(false);
 
   async function getItems() {
     const res = await fetch(`/${url}`);
@@ -65,8 +67,6 @@ const ItemList = (props) => {
     }, 2000);
   };
 
-  const [more, setMore] = useState(null);
-  const [isMore, setIsMore] = useState(false);
   const displayMore = (id) => {
     if (!isMore) {
       setMore(id);
@@ -147,7 +147,9 @@ const ItemList = (props) => {
                     type specimen book.
                   </p>
                   <div className="btn-box">
-                    <button>Ändra</button>
+                    <Link to={`/${url}/${item._id}`}>
+                      <button>Ändra</button>
+                    </Link>
                     <button onClick={() => deleteItem(item)}>Ta bort</button>
                     {url === "list" && (
                       <button onClick={() => addItemToFridge(item)}>

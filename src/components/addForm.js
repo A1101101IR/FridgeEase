@@ -1,18 +1,23 @@
 import { useParams, useNavigate } from "react-router-dom";
 import Close from "../img/close.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Success from "../img/success.png";
 import ErrorIcon from "../img/error.png";
+import useFatch from "./customHooks/useFetch";
 const AddForm = (props) => {
   const navigate = useNavigate();
   const url = props.url;
+  const order = props.order;
   const { id } = useParams();
+  const [itemData, setItemData] = useState();
   const [name, setName] = useState();
   const [quantity, setQuantity] = useState();
   const [weight, setWeight] = useState();
   const [notfication, setNotfication] = useState(false);
   const [msg, setMsg] = useState();
   const [msgImg, setMsgImg] = useState();
+
+  /* function to add item */
   async function addItem() {
     if (!name) {
       console.log("obs");
@@ -26,7 +31,6 @@ const AddForm = (props) => {
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-
     if (url === "list") {
       var raw = JSON.stringify({
         Name: name,
@@ -34,7 +38,6 @@ const AddForm = (props) => {
         Weight: weight,
       });
     }
-
     if (url === "fridge") {
       var raw = JSON.stringify({
         Name: name,
@@ -45,14 +48,12 @@ const AddForm = (props) => {
         Notes: "Note",
       });
     }
-
     var requestOptions = {
       method: "POST",
       headers: myHeaders,
       body: raw,
       redirect: "follow",
     };
-
     const res = await fetch(`/${url}`, requestOptions);
     const result = await res.json();
     console.log(result);
@@ -77,6 +78,55 @@ const AddForm = (props) => {
       }, 1000);
     }
   }
+
+  /* function to getting item */
+  async function getItem() {
+    const res = await fetch(`/${url}/${id}`);
+    const data = await res.json();
+    console.log(data);
+    setItemData(data);
+    setName(data.Name);
+    setQuantity(data.Quantity);
+    setWeight(data.Weight);
+  }
+
+  /* function to edit item */
+  async function editItem(id) {
+    console.log(name, weight, quantity);
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    var raw = JSON.stringify({
+      Name: name,
+      Quantity: quantity,
+      Weight: weight,
+    });
+    const res = await fetch(`/${url}/${id}`, {
+      method: "PATCH",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    });
+    const data = await res.json();
+    console.log(data.modifiedCount);
+    if (data.modifiedCount === 1) {
+      setMsg(`${name} updaterades!`);
+      setMsgImg(Success);
+      setNotfication(true);
+      setTimeout(() => {
+        setNotfication(false);
+        if (url === "list") {
+          navigate(-1);
+        }
+        if (url === "fridge") {
+          navigate("/");
+        }
+      }, 3000);
+    }
+  }
+
+  useEffect(() => {
+    getItem();
+  }, []);
   return (
     <section>
       <div className="addForm-body">
@@ -92,10 +142,10 @@ const AddForm = (props) => {
           <div className="addForm">
             <header>
               <div className="flex-center">
-                <img
+                {/* <img
                   src={require(`../img/icons8/${id}.png`)}
                   className="product-icon"
-                />
+                /> */}
                 <h4 className="cart-headline-bold">Lägg till</h4>
               </div>
               <img
@@ -105,43 +155,78 @@ const AddForm = (props) => {
                 onClick={() => navigate(-1)}
               />
             </header>
-            <div className="form">
-              <label>Namn</label>
-              <input
-                type="text"
-                placeholder="Namn"
-                onChange={(e) => setName(e.target.value)}
-              />
-              <label>Mängd</label>
-              <input
-                type="number"
-                placeholder="Mängd"
-                onChange={(e) => setWeight(e.target.value)}
-              />
-              <label>Enhet</label>
-              {/* <input
-          type="number"
-          placeholder="Enhet"
-          onChange={(e) => setQuantity(e.target.value)}
-        /> */}
-              <select
-                placeholder="Enhet"
-                onChange={(e) => {
-                  const enhet = e.target.value;
-                  setQuantity(enhet);
-                }}
-              >
-                <option value="kg">kg</option>
-                <option value="st">st</option>
-              </select>
-              <label>Note</label>
-              <textarea placeholder="Note"></textarea>
-              <input
-                type="submit"
-                onClick={() => addItem()}
-                value="Lägg till inköpslista"
-              />
-            </div>
+            {!order && (
+              <div className="form">
+                <label>Namn</label>
+                <input
+                  type="text"
+                  placeholder="Namn"
+                  onChange={(e) => setName(e.target.value)}
+                />
+                <label>Mängd</label>
+                <input
+                  type="number"
+                  placeholder="Mängd"
+                  onChange={(e) => setWeight(e.target.value)}
+                />
+                <label>Enhet</label>
+                <select
+                  placeholder="Enhet"
+                  onChange={(e) => {
+                    const enhet = e.target.value;
+                    setQuantity(enhet);
+                  }}
+                >
+                  <option value="kg">kg</option>
+                  <option value="st">st</option>
+                </select>
+                <label>Note</label>
+                <textarea placeholder="Note"></textarea>
+                <input
+                  type="submit"
+                  onClick={() => addItem()}
+                  value="Lägg till inköpslista"
+                />
+              </div>
+            )}
+            {order === "edit" && (
+              <>
+                {itemData && (
+                  <div className="form">
+                    <label>Namn</label>
+                    <input
+                      type="text"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                    <label>Mängd</label>
+                    <input
+                      type="number"
+                      value={weight}
+                      onChange={(e) => setWeight(e.target.value)}
+                    />
+                    <label>Enhet</label>
+                    <select
+                      value={quantity}
+                      onChange={(e) => {
+                        const enhet = e.target.value;
+                        setQuantity(enhet);
+                      }}
+                    >
+                      <option value="kg">kg</option>
+                      <option value="st">st</option>
+                    </select>
+                    <label>Note</label>
+                    <textarea placeholder="Note"></textarea>
+                    <input
+                      type="submit"
+                      onClick={() => editItem(itemData._id)}
+                      value="Spara"
+                    />
+                  </div>
+                )}
+              </>
+            )}
           </div>
         )}
       </div>

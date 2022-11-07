@@ -28,16 +28,28 @@ function Foodbud() {
                 path="/tofridge/:id"
                 element={<AddForm url={"fridge"} />}
               ></Route>
+              <Route
+                path="/fridge/:id"
+                element={<AddForm order={"edit"} url={"fridge"} />}
+              ></Route>
+
               <Route path="/account" element={<Account />}></Route>
               <Route path="/list" element={<ShoppingList />}></Route>
+
               <Route
                 path="/tolist"
                 element={<ProductList url={"tolist"} />}
+              ></Route>
+
+              <Route
+                path="/list/:id"
+                element={<AddForm order={"edit"} url={"list"} />}
               ></Route>
               <Route
                 path="/tolist/:id"
                 element={<AddForm url={"list"} />}
               ></Route>
+
               <Route path="/recipe" element={<Recipe />}></Route>
               <Route path="/recipe/:id" element={<RecipeSearch />}></Route>
               <Route
