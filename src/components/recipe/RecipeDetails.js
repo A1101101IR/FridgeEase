@@ -21,7 +21,7 @@ const RecipeDetails = () => {
       {recipe && (
         <article className="recipe-details-page">
           <header>
-            <div></div>
+            {/* <div></div> */}
             <img src={recipe.ImageUrl} className="recipe-img-box" alt="" />
             <h4 className="cart-headline-bold">{recipe.Title}</h4>
             <p className="short-info">{recipe.PreambleHTML}</p>

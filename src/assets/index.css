@@ -792,6 +792,10 @@ main section {
   margin: 10px;
 }
 
+.recipe-details-page .recipe-details-body .ingredients form .ingredient input[type=checkbox]:checked + label {
+  color: rgba(0, 0, 0, 0.099);
+}
+
 .recipe-details-page .recipe-details-body .ingredients form button {
   width: 100%;
   margin-top: 5px;
@@ -889,7 +893,7 @@ main section {
 .item-container .item-cart {
   min-height: 45px;
   background-color: white;
-  border-radius: 25px;
+  border-radius: 10px;
   margin-bottom: 10px;
 }
 
@@ -1042,7 +1046,24 @@ main section {
   background-color: #A0C4FF;
 }
 
-/* s */
+.search-box {
+  width: 96%;
+  margin-bottom: 10px;
+}
+
+.search-box input {
+  width: calc(100% - 16px);
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  padding-left: 15px;
+  border: 1px solid black;
+}
+
+.search-box input[type=text]:focus {
+  outline: none;
+}
+
 /* Global styles */
 .closeBTN {
   width: 35px;
@@ -1116,10 +1137,10 @@ main section {
   max-width: 400px;
   min-width: 300px;
   width: 96%;
-  min-height: 45px;
+  min-height: 50px;
   margin-bottom: 15px;
   border: 1px solid black;
-  border-radius: 45px;
+  border-radius: 10px;
   background-color: white;
   color: black;
 }

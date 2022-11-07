@@ -6,14 +6,32 @@ import Time from "../../img/time.png";
 import User from "../../img/user.png";
 import { useEffect, useState } from "react";
 const Recipe = () => {
+  const [searchWord, setSearchWord] = useState(null);
   const {
     data: randomRecipe,
     isLoading,
     error,
   } = useFatch("recipe/random?numberofrecipes=5");
-
+  const [recipeData, setRecipeData] = useState(randomRecipe);
+  useEffect(() => {
+    fetch(`/recipe/byname/?phrase=${searchWord}`)
+      .then((res) => res.json())
+      .then((results) => {
+        setRecipeData(results);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [searchWord]);
   return (
     <section>
+      <div className="search-box">
+        <input
+          type="text"
+          placeholder="Search for recipe"
+          onChange={(e) => setSearchWord(e.target.value)}
+        />
+      </div>
       {isLoading && (
         <div className="loading-box">
           <img src={loadingImg} className="loading" />
@@ -25,8 +43,8 @@ const Recipe = () => {
         <>
           {!error && (
             <>
-              {randomRecipe &&
-                randomRecipe.Recipes.map((item) => (
+              {recipeData &&
+                recipeData.Recipes.map((item) => (
                   <Link
                     to={`/recipeDetails/${item.Id}`}
                     className="recipe-cart-small"
