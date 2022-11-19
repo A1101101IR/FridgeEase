@@ -12,7 +12,7 @@ const Header = () => {
         )}
       </div>
       <Link to="/" className="logo link">
-        FoodBud
+        FridgeEase
       </Link>
       <div className="btn-box">
         <img src={Notification} onClick={() => navigate(-1)} alt="" />

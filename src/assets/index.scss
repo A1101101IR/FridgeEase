@@ -30,7 +30,7 @@ $c3: #0540F2;
 }
 @mixin child-width-heigth-sizes {
   max-width: 400px;
-  max-height: 694px;
+  max-height: 800px;
   min-width: 325px;
   min-height: calc(100% - 130px);
   width: 100%;
@@ -198,6 +198,24 @@ main {
   }
 }
 
+.account-page {
+  height: 250px;
+  @include Flex(column, center, center );
+  img {
+    margin-bottom: 25px
+  }
+  h4 {
+    margin-left: 0px;
+  }
+  @media only screen and (min-width: 600px) {
+    min-height: 150px;
+    @include Flex(row, center, center );
+    img {
+      margin-bottom: 0px;
+      margin-right: 25px
+    }
+  }
+}
 
 .product-list {
   @include child-width-heigth-sizes();
@@ -586,12 +604,18 @@ main {
 .fakeBTN {
   @include Flex(row,space-between,center);
   @include element-width();
+  
   min-height: 50px;
   margin-bottom: 15px;
   border: 1px solid black;
   border-radius: 10px;
   background-color: white;
   color: black;
+}
+.elementBTN {
+  min-width: 200px;
+  max-width: 360px;
+  width: 100%;
 }
 
 .flex-center {

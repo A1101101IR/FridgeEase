@@ -10,7 +10,7 @@ import RecipeSearch from "./components/recipe/recipeSearch";
 import RecipeDetails from "./components/recipe/RecipeDetails";
 import AddForm from "./components/addForm";
 import Login from "./components/login";
-function Foodbud() {
+function FridgeEase() {
   const user = localStorage.getItem("user");
   return (
     <div className="container">
@@ -70,4 +70,4 @@ function Foodbud() {
   );
 }
 
-export default Foodbud;
+export default FridgeEase;

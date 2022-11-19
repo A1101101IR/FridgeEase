@@ -5,7 +5,7 @@ const Fridge = () => {
   return (
     <section>
       <Link to="/tofridge" className="fakeBTN">
-        <h4>Lägg till vara</h4>
+        <h4>Lägg till din kylskåp</h4>
         <img src={Plus} className="plusBTN" alt="" />
       </Link>
       <ItemList url={"fridge"} />
