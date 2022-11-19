@@ -31,9 +31,9 @@
 /* source of sizes : https://www.ios-resolution.com/ */
 .container {
   max-width: 430px;
-  max-height: 820px;
+  max-height: 100%;
   min-width: 330px;
-  min-height: 612px;
+  min-height: calc(100% - 130px);
   width: 100%;
   height: 100%;
   display: -webkit-box;
@@ -50,6 +50,23 @@
       -ms-flex-align: center;
           align-items: center;
   background-color: #A0C4FF;
+}
+
+@media only screen and (min-width: 429px) {
+  .container {
+    max-width: 926px;
+    max-height: 926px;
+    min-width: 330px;
+    min-height: calc(100% - 130px);
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media only screen and (min-width: 930px) {
+  .container {
+    border-radius: 25px;
+  }
 }
 
 .container .welcome-page {
@@ -90,6 +107,14 @@
           align-items: center;
 }
 
+@media only screen and (min-width: 600px) {
+  .container .header {
+    max-width: 860px;
+    min-width: 330px;
+    width: 100%;
+  }
+}
+
 .container .header .logo {
   font-size: 32px;
   font-weight: 700;
@@ -109,6 +134,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 40px;
 }
 
 .container .header .btn-box img {
@@ -135,6 +161,14 @@
           align-items: center;
 }
 
+@media only screen and (min-width: 600px) {
+  .container .navbar {
+    max-width: 860px;
+    min-width: 330px;
+    width: 100%;
+  }
+}
+
 .container .navbar nav {
   max-width: 400px;
   min-width: 300px;
@@ -152,6 +186,14 @@
   -webkit-box-align: none;
       -ms-flex-align: none;
           align-items: none;
+}
+
+@media only screen and (min-width: 600px) {
+  .container .navbar nav {
+    max-width: 860px;
+    min-width: 330px;
+    width: 100%;
+  }
 }
 
 .container .navbar nav a {
@@ -179,9 +221,9 @@
 main {
   height: calc(812px - 50px);
   max-width: 430px;
-  max-height: 820px;
+  max-height: 100%;
   min-width: 330px;
-  min-height: 612px;
+  min-height: calc(100% - 130px);
   width: 100%;
   height: 100%;
   display: -webkit-box;
@@ -199,13 +241,24 @@ main {
           align-items: center;
 }
 
+@media only screen and (min-width: 429px) {
+  main {
+    max-width: 926px;
+    max-height: 926px;
+    min-width: 330px;
+    min-height: calc(100% - 130px);
+    width: 100%;
+    height: 100%;
+  }
+}
+
 main section {
   overflow: scroll;
   position: relative;
   max-width: 400px;
   max-height: 694px;
   min-width: 325px;
-  min-height: 612px;
+  min-height: calc(100% - 130px);
   width: 100%;
   height: 100%;
   display: -webkit-box;
@@ -221,6 +274,17 @@ main section {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@media only screen and (min-width: 429px) {
+  main section {
+    max-width: 860px;
+    max-height: 840px;
+    min-width: 330px;
+    min-height: 100%;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .alert-container {
@@ -267,6 +331,14 @@ main section {
   border-radius: 25px;
   -webkit-backdrop-filter: blur(4px);
           backdrop-filter: blur(4px);
+}
+
+@media only screen and (min-width: 600px) {
+  .alert {
+    max-width: 860px;
+    min-width: 330px;
+    width: 100%;
+  }
 }
 
 .alert h4 {
@@ -336,6 +408,14 @@ main section {
   width: 96%;
 }
 
+@media only screen and (min-width: 600px) {
+  .login .form {
+    max-width: 860px;
+    min-width: 330px;
+    width: 100%;
+  }
+}
+
 .login .form input {
   height: 45px;
   margin-bottom: 15px;
@@ -383,7 +463,7 @@ main section {
   max-width: 400px;
   max-height: 694px;
   min-width: 325px;
-  min-height: 612px;
+  min-height: calc(100% - 130px);
   width: 100%;
   height: 100%;
   display: -webkit-box;
@@ -399,6 +479,17 @@ main section {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@media only screen and (min-width: 429px) {
+  .product-list {
+    max-width: 860px;
+    max-height: 840px;
+    min-width: 330px;
+    min-height: 100%;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .product-list .product-cart-small {
@@ -424,6 +515,14 @@ main section {
   border-radius: 10px;
   margin-bottom: 10px;
   color: black;
+}
+
+@media only screen and (min-width: 600px) {
+  .product-list .product-cart-small {
+    max-width: 860px;
+    min-width: 330px;
+    width: 100%;
+  }
 }
 
 .addForm-body {
@@ -465,6 +564,14 @@ main section {
   border-radius: 10px;
 }
 
+@media only screen and (min-width: 600px) {
+  .addForm-body .addForm {
+    max-width: 860px;
+    min-width: 330px;
+    width: 100%;
+  }
+}
+
 .addForm-body .addForm header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -501,6 +608,20 @@ main section {
   -webkit-box-align: none;
       -ms-flex-align: none;
           align-items: none;
+}
+
+@media only screen and (min-width: 600px) {
+  .addForm-body .addForm .form {
+    max-width: 860px;
+    min-width: 330px;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 930px) {
+  .addForm-body .addForm .form {
+    max-width: 98%;
+  }
 }
 
 .addForm-body .addForm .form label {
@@ -565,6 +686,14 @@ main section {
   -webkit-box-align: none;
       -ms-flex-align: none;
           align-items: none;
+}
+
+@media only screen and (min-width: 600px) {
+  .recipe-cart-small {
+    max-width: 860px;
+    min-width: 330px;
+    width: 100%;
+  }
 }
 
 .recipe-cart-small .recipe-img {
@@ -659,6 +788,14 @@ main section {
           align-items: none;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
+}
+
+@media only screen and (min-width: 600px) {
+  .recipe-details-page {
+    max-width: 860px;
+    min-width: 330px;
+    width: 100%;
+  }
 }
 
 .recipe-details-page header {
@@ -868,6 +1005,14 @@ main section {
   overflow-y: scroll;
 }
 
+@media only screen and (min-width: 600px) {
+  .item-container {
+    max-width: 860px;
+    min-width: 330px;
+    width: 100%;
+  }
+}
+
 .item-container header .expiration-date {
   background-color: red;
   border: 1px solid black;
@@ -1047,8 +1192,19 @@ main section {
 }
 
 .search-box {
+  max-width: 400px;
+  min-width: 300px;
   width: 96%;
+  max-width: 96%;
   margin-bottom: 10px;
+}
+
+@media only screen and (min-width: 600px) {
+  .search-box {
+    max-width: 860px;
+    min-width: 330px;
+    width: 100%;
+  }
 }
 
 .search-box input {
@@ -1120,6 +1276,14 @@ main section {
   background-color: white;
 }
 
+@media only screen and (min-width: 600px) {
+  .bigBTN {
+    max-width: 860px;
+    min-width: 330px;
+    width: 100%;
+  }
+}
+
 .fakeBTN {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1143,6 +1307,14 @@ main section {
   border-radius: 10px;
   background-color: white;
   color: black;
+}
+
+@media only screen and (min-width: 600px) {
+  .fakeBTN {
+    max-width: 860px;
+    min-width: 330px;
+    width: 100%;
+  }
 }
 
 .flex-center {
@@ -1189,6 +1361,14 @@ h4 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@media only screen and (min-width: 600px) {
+  .loading-box {
+    max-width: 860px;
+    min-width: 330px;
+    width: 100%;
+  }
 }
 
 .loading-box .loading {

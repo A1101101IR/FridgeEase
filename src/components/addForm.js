@@ -16,7 +16,6 @@ const AddForm = (props) => {
   const [notfication, setNotfication] = useState(false);
   const [msg, setMsg] = useState();
   const [msgImg, setMsgImg] = useState();
-
   /* function to add item */
   async function addItem() {
     if (!name) {
@@ -58,7 +57,7 @@ const AddForm = (props) => {
     const result = await res.json();
     console.log(result);
     if (res.status === 200) {
-      setMsg(`${result.Name} lades till kylskåp!`);
+      setMsg(`${result.Name} lades till ${url}!`);
       setMsgImg(Success);
       setNotfication(true);
       setName(null);
@@ -66,7 +65,12 @@ const AddForm = (props) => {
       setQuantity(null);
       setTimeout(() => {
         setNotfication(false);
-        navigate("/");
+        if (url === "fridge") {
+          navigate("/");
+        }
+        if (url === "list") {
+          navigate("/list");
+        }
       }, 3000);
     }
     if (res.status === 400) {
@@ -126,6 +130,7 @@ const AddForm = (props) => {
 
   useEffect(() => {
     getItem();
+    console.log(url);
   }, []);
   return (
     <section>
@@ -142,11 +147,18 @@ const AddForm = (props) => {
           <div className="addForm">
             <header>
               <div className="flex-center">
-                {/* <img
-                  src={require(`../img/icons8/${id}.png`)}
-                  className="product-icon"
-                /> */}
-                <h4 className="cart-headline-bold">Lägg till</h4>
+                {order === "edit" && (
+                  <h4 className="cart-headline-bold">Ändra</h4>
+                )}
+                {!order && (
+                  <>
+                    <img
+                      src={require(`../img/icons8/${id}.png`)}
+                      className="product-icon"
+                    />
+                    <h4 className="cart-headline-bold">Lägg till {id}</h4>
+                  </>
+                )}
               </div>
               <img
                 className="closeBTN"
@@ -178,7 +190,10 @@ const AddForm = (props) => {
                   }}
                 >
                   <option value="kg">kg</option>
+                  <option value="kg">kg</option>
                   <option value="st">st</option>
+                  <option value="paket">paket</option>
+                  <option value="liter">liter</option>
                 </select>
                 <label>Note</label>
                 <textarea placeholder="Note"></textarea>
