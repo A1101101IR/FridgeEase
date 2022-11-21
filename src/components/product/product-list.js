@@ -5,8 +5,6 @@ const ProductList = (props) => {
   const { data: productTypes } = useFatch("/type");
   const { id } = useParams();
   const url = props.url;
-
-  console.log(url);
   return (
     <section className="product-list">
       {productTypes &&

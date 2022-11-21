@@ -7,6 +7,7 @@ const Account = () => {
   const { data } = useFatch(`user/${user}`);
   const logout = () => {
     localStorage.removeItem("user");
+    window.location.reload(false);
   };
 
   return (

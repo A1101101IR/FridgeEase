@@ -73,6 +73,15 @@ const ItemList = (props) => {
     }
   };
 
+  /* ränkar ut utgångs datum  */
+  const CountExpirationDate = (expirationDate) => {
+    let currentDate = new Date();
+    let difference =
+      new Date(expirationDate).getTime() - new Date(currentDate).getTime();
+    let TotalDays = Math.ceil(difference / (1000 * 3600 * 24));
+    return TotalDays;
+  };
+
   useEffect(() => {
     getItems();
   }, []);
@@ -95,7 +104,7 @@ const ItemList = (props) => {
                 <div className="right-box">
                   {url === "fridge" && (
                     <span className="expiration-date">
-                      {item.Expiration_date + " dagar"}
+                      {CountExpirationDate(item.Expiration_date) + " dagar"}
                     </span>
                   )}
                   {more !== item._id && (

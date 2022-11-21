@@ -16,6 +16,8 @@ const AddForm = (props) => {
   const [notfication, setNotfication] = useState(false);
   const [msg, setMsg] = useState();
   const [msgImg, setMsgImg] = useState();
+  const { data: itemTime } = useFatch(`/time?name=${id}`);
+
   /* function to add item */
   async function addItem() {
     if (!name) {
@@ -37,13 +39,22 @@ const AddForm = (props) => {
         Weight: weight,
       });
     }
+
+    /* lägger till ett (ca antal dagar) som ett product håller! */
+    const date = new Date();
+    Date.prototype.addDays = function (days) {
+      const date = new Date(this.valueOf());
+      date.setDate(date.getDate() + days);
+      return date;
+    };
+
     if (url === "fridge") {
       var raw = JSON.stringify({
         Name: name,
         Quantity: quantity,
         Weight: weight,
         Category: "mjölk",
-        Expiration_date: 5,
+        Expiration_date: date.addDays(itemTime),
         Notes: "Note",
       });
     }
@@ -130,7 +141,6 @@ const AddForm = (props) => {
 
   useEffect(() => {
     getItem();
-    console.log(url);
   }, []);
   return (
     <section>
