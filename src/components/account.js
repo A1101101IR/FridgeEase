@@ -15,28 +15,33 @@ const Account = () => {
       {!user && <Login />}
       {user && (
         <section>
-          {data && (
-            <div className="account-page">
-              <img src={UserImg} alt="" />
-              <h4>
-                {"Du är inloggad som " + data.firstname + " " + data.lastname}
-              </h4>
+          <div className="account-page">
+            {data && (
+              <header>
+                <img src={UserImg} alt="" />
+                <h4>
+                  {"Du är inloggad som " + data.firstname + " " + data.lastname}
+                </h4>
+              </header>
+            )}
+
+            <div className="btn-box">
+              <div className="fakeBTN elementBTN">
+                <p></p>
+                <h4>Recept favoriter</h4>
+                <p></p>
+              </div>
+              <div className="fakeBTN elementBTN">
+                <p></p>
+                <h4>Diet</h4>
+                <p></p>
+              </div>
+              <div className="fakeBTN elementBTN" onClick={() => logout()}>
+                <p></p>
+                <h4>Logga ut</h4>
+                <p></p>
+              </div>
             </div>
-          )}
-          <div className="fakeBTN elementBTN">
-            <p></p>
-            <h4>Recept favoriter</h4>
-            <p></p>
-          </div>
-          <div className="fakeBTN elementBTN">
-            <p></p>
-            <h4>Diet</h4>
-            <p></p>
-          </div>
-          <div className="fakeBTN elementBTN" onClick={() => logout()}>
-            <p></p>
-            <h4>Logga ut</h4>
-            <p></p>
           </div>
         </section>
       )}

@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Close from "../img/close.png";
 import { useEffect, useState } from "react";
 import Success from "../img/success.png";
 import MoreIcon from "../img/more.png";
+import useFatch from "./customHooks/useFetch";
 const ItemList = (props) => {
   const url = props.url;
   const [notfication, setNotfication] = useState(false);
@@ -10,6 +11,8 @@ const ItemList = (props) => {
   const [data, setData] = useState();
   const [more, setMore] = useState(null);
   const [isMore, setIsMore] = useState(false);
+  const { id } = useParams();
+  const [itemTime, setItemTime] = useState();
 
   async function getItems() {
     const res = await fetch(`/${url}`);
@@ -34,24 +37,39 @@ const ItemList = (props) => {
     }
   }
 
-  const addItemToFridge = (item) => {
+  const addItemToFridge = async (item) => {
+    /* lägger till ett (ca antal dagar) som ett product håller! */
+    const date = new Date();
+    Date.prototype.addDays = function (days) {
+      const date = new Date(this.valueOf());
+      date.setDate(date.getDate() + days);
+      return date;
+    };
+
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
+
+    /* hämtar information om hur länge just den product håller */
+    const response = await fetch(`/time?name=${item.Category}`);
+    const time = await response.json();
+    /*  */
+
     var raw = JSON.stringify({
       Name: item.Name,
       Quantity: item.Quantity,
       Weight: item.Weight,
-      Category: "mjölk",
-      Expiration_date: 5,
+      Category: item.Category,
+      Expiration_date: date.addDays(time),
       Notes: "Note",
     });
+
     fetch("/fridge", {
       method: "POST",
       headers: myHeaders,
       body: raw,
       redirect: "follow",
     })
-      .then((response) => response.text())
+      .then((response) => response.json())
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
 

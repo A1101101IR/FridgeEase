@@ -17,7 +17,7 @@ const AddForm = (props) => {
   const [msg, setMsg] = useState();
   const [msgImg, setMsgImg] = useState();
   const { data: itemTime } = useFatch(`/time?name=${id}`);
-
+  console.log(id);
   /* function to add item */
   async function addItem() {
     if (!name) {
@@ -37,6 +37,7 @@ const AddForm = (props) => {
         Name: name,
         Quantity: quantity,
         Weight: weight,
+        Category: id,
       });
     }
 
@@ -53,7 +54,7 @@ const AddForm = (props) => {
         Name: name,
         Quantity: quantity,
         Weight: weight,
-        Category: "mjölk",
+        Category: id,
         Expiration_date: date.addDays(itemTime),
         Notes: "Note",
       });
@@ -199,11 +200,12 @@ const AddForm = (props) => {
                     setQuantity(enhet);
                   }}
                 >
-                  <option value="kg">kg</option>
-                  <option value="kg">kg</option>
-                  <option value="st">st</option>
-                  <option value="paket">paket</option>
-                  <option value="liter">liter</option>
+                  <option value="kg">Kg</option>
+                  <option value="gram">Gram</option>
+                  <option value="kg">Kilo</option>
+                  <option value="st">St</option>
+                  <option value="paket">Paket</option>
+                  <option value="liter">Liter</option>
                 </select>
                 <label>Note</label>
                 <textarea placeholder="Note"></textarea>
