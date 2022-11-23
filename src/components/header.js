@@ -15,7 +15,7 @@ const Header = () => {
         FridgeEase
       </Link>
       <div className="btn-box">
-        <img src={Notification} onClick={() => navigate(-1)} alt="" />
+        <img src={Notification} alt="" />
       </div>
     </div>
   );
