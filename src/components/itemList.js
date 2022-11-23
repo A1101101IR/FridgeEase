@@ -52,7 +52,7 @@ const ItemList = (props) => {
     };
 
     /* hämtar information om hur länge just den product håller beroende på productType */
-    const response = await fetch(`/time?name=${item.Category}`);
+    const response = await fetch(`/type?name=${item.Category}`);
     const time = await response.json();
 
     /* skickar post req till server och visar notfication på det vid 200 status */
@@ -79,6 +79,15 @@ const ItemList = (props) => {
     setMsg(`${item.Name} lades till kylskåp!`);
     displayMore(item._id);
     setNotfication(true);
+    /* tar bort item från listan då den är i fridge nu */
+    const res = await fetch(`/${url}/${item._id}`, {
+      method: "DELETE",
+      redirect: "follow",
+    });
+    const result = await res.json();
+    if (res.status === 200) {
+      getItems();
+    }
     setTimeout(() => {
       setNotfication(false);
     }, 2000);
@@ -104,9 +113,6 @@ const ItemList = (props) => {
     return TotalDays;
   };
 
-  function test(item) {
-    console.log(item);
-  }
   useEffect(() => {
     getItems();
   }, []);

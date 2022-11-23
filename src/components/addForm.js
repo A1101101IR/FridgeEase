@@ -20,7 +20,7 @@ const AddForm = (props) => {
   const [notfication, setNotfication] = useState(false);
   const [msg, setMsg] = useState();
   const [msgImg, setMsgImg] = useState();
-  const { data: itemTime } = useFatch(`/time?name=${id}`);
+  const { data: itemTime } = useFatch(`/type?name=${id}`);
 
   /* funktion för att lägga till item till shoppinglist eller fridge */
   async function addItem() {
