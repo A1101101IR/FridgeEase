@@ -8,3 +8,7 @@ This project is built in [React](https://github.com/facebook/react) with [SASS](
 ```bash
 npm start
 ```
+
+# Screenshot
+
+![Search Page](https://user-images.githubusercontent.com/46032124/203633418-0ba4e073-7370-46ae-910e-6791926682db.png)
