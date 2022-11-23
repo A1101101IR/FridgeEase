@@ -41,6 +41,9 @@ $c3: #0540F2;
     min-width: 330px;
     min-height: 100%;
     width: 100%;
+    @media only screen and (min-width: 600px) {
+      width: 98%;
+    }
     height: 100%;
   }
 }
@@ -141,7 +144,10 @@ main {
   bottom: 0;
 }
 .alert {
-  @include element-width();
+  /* @include element-width(); */
+  min-width: 350px;
+  max-width: 420px;
+  width: 100%;
   height: 330px;
   @include Flex(column, center, center);
   background-color: #F0F2F2;
@@ -217,14 +223,6 @@ main {
     h4 {
       margin-left: 0px;
     }
-    @media only screen and (min-width: 600px) {
-      min-height: 150px;
-      @include Flex(row, center, center );
-      img {
-        margin-bottom: 0px;
-        margin-right: 25px
-      }
-    }
   }
   .btn-box {
     @include element-width();
@@ -249,6 +247,8 @@ main {
 
 
 .addForm-body {
+  min-width: 350px;
+  max-width: 400px;
   width: 100%;
   height: 100%;
   @include Flex(column,center,center);
@@ -266,7 +266,7 @@ main {
   .form {
     @include element-width();
     @media only screen and (min-width: 930px) {
-      max-width: 98%;
+      max-width: 95%;
     }
     @include Flex(column,none,none);
     label {
@@ -319,6 +319,9 @@ main {
   border-radius: 15px;
   background-color: white;
   @include Flex(column,none,none);
+  @media only screen and (min-width: 600px) {
+    @include Flex(row,flex-start,none);
+  }
   .recipe-img {
     width: 100%;
     border-top-left-radius: 15px;
@@ -329,7 +332,31 @@ main {
     @include Flex(row,none,center);
     margin-left: 10px;
   }
+  @media only screen and (min-width: 600px) {
+    header {
+      display: none;
+    }
+    .recipe-img {
+      width: 260px;
+      height: 260px;
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+      border-top-right-radius: 0px;
+    }
+    @media only screen and (min-width: 700px) {
+      .recipe-img {
+        width: 300px;
+        height: 300px;
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+
+      }
+    }
+  }
   .recipe-cart-body {
+    .on-res {
+      display: none;
+    }
     .rating-time-portions {
       height: 65px;
       margin-bottom: 10px;
@@ -347,6 +374,26 @@ main {
     p {
       margin: 0 10px;
       margin-bottom: 10px;
+    }
+    @media only screen and (min-width: 600px) {
+      @include Flex(column,space-evenly,center);
+      .on-res {
+        display: block;
+      }
+      .cart-headline-bold {
+        font-size: 16px;
+        @media only screen and (min-width: 700px) {
+          font-size: 18px;
+        }
+      }
+      .rating-time-portions {
+        width: 94%;
+        border-radius: 5px;
+      }
+      p {
+        text-align: center;
+
+      }
     }
   }
 }
@@ -369,11 +416,60 @@ main {
       border-top-right-radius: 25px;
     }
     .cart-headline-bold {
-      font-size: 20px;
+      font-size: 16px;
       margin: 10px 10px;
     }
     .short-info {
       margin: 0 10px;
+    }
+    .rating-time-portions {
+      display: none;
+    }
+    @media only screen and (min-width: 600px) {
+      @include Flex(row,none,none);
+      .recipe-img-box {
+        width: 300px;
+        height: 300px;
+        border-top-left-radius: 15px;
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 0px;
+      }
+      .cart-headline-bold {
+        font-size: 16px;
+        margin-bottom: 15px;
+        @media only screen and (min-width: 700px) {
+          font-size: 20px;
+          margin-bottom: 25px;
+        }
+        margin: 10px 10px;
+      }
+      .short-info {
+        margin: 0 10px;
+        text-align: center
+      }
+      .info-box {
+        @include Flex(column,space-between,center);
+        .text-box {
+          @include Flex(column,space-between,center);
+        }
+        .rating-time-portions {
+          display: block;
+          width: 98%;
+          height: 65px;
+          @include Flex(row,space-evenly,center);
+          background-color: $c2;
+          border-radius: 5px;
+          span {
+            height: 45px;
+            img {
+              height: 25px;
+              width: 25px;
+            }
+            @include Flex(row,space-between,center);
+            flex-direction: column;
+          }
+        }
+      }
     }
   }
   .recipe-details-body {
@@ -393,11 +489,18 @@ main {
         @include Flex(row,space-between,center);
         flex-direction: column;
       }
+      @media only screen and (min-width: 600px) {
+      display: none;
+      }
     }
     .ingredients {
+      h4 {
+        margin-top: 20px;
+        margin-left: 0px;
+      }
       .portion-info {
         margin-bottom: 10px;
-        margin-top: 50px;
+        margin-top: 10px;
         font-size: 16px;
         font-weight: 600;
         span {
@@ -433,6 +536,12 @@ main {
     .cooking-steps {
       form {
         @include Flex(column,none,none);
+        p {
+          margin-bottom: 10px;
+          margin-top: 10px;
+          font-size: 16px;
+          font-weight: 600;
+        }
         .step {
           height: auto;
           @include Flex(row,flex-start,center);
@@ -467,13 +576,12 @@ main {
   overflow-y: scroll;
   header {
     .expiration-date {
-      background-color: red;
-      border: 1px solid black;
+      background-color: $c1;
       padding: 5px 15px;
       border-radius: 15px;
       font-size: 12px;
       @include Flex(row,none,center);
-      color: white;
+      color: black;
     }
   }
   .item-cart {
@@ -517,6 +625,23 @@ main {
           @include Flex(row, space-between, center);
           width: 100%;
           button {
+            min-width: 100px;
+            @media only screen and (min-width: 330px) {
+              min-width: 85px;
+              height: 30px;
+            }
+            @media only screen and (min-width: 400px) {
+              min-width: 120px;
+              height: 34px;
+            }
+            @media only screen and (min-width: 400px) {
+              min-width: 120px;
+              height: 36px;
+            }
+            @media only screen and (min-width: 600px) {
+              min-width: 150px;
+              height: 36px;
+            }
             height: 30px;
             padding: 0px 15px;
             border: none;
@@ -533,7 +658,6 @@ main {
 
 .search-box {
   @include element-width();
-  max-width: 96%;
   input {
     width: calc(100% - 16px);
     height: 50px;
@@ -541,6 +665,9 @@ main {
     border: none;
     padding-left: 15px;
     border: 1px solid black;
+    @media only screen and (min-width: 600px) {
+      border: none;
+    }
   }
   input[type=text]:focus {
     outline: none;
@@ -598,10 +725,12 @@ main {
 .fakeBTN {
   @include Flex(row,space-between,center);
   @include element-width();
-  
   min-height: 50px;
   margin-bottom: 15px;
   border: 1px solid black;
+  @media only screen and (min-width: 600px) {
+    border: none;
+  }
   border-radius: 10px;
   background-color: white;
   color: black;
@@ -648,3 +777,36 @@ h4 {
 	}
 }
 
+
+/* #color-7 {
+  background-color: #16f207;
+  color: white;
+}
+#color-6 {
+  background-color: #12cf06;
+  color: white;
+}
+#color-5 {
+  background-color: #0c8a04;
+  color: white;
+}
+#color-4 {
+  background-color: #064502;
+  color: white;
+}
+#color-3 {
+  background-color: #af3002;
+  color: white;
+}
+#color-2 {
+  background-color: #8c2702;
+  color: white;
+}
+#color-1 {
+  background-color: #691d01;
+  color: white;
+}
+#color-0 {
+  background-color: #461200;
+  color: white;
+} */

@@ -61,6 +61,9 @@ const Recipe = () => {
                       <h4 className="cart-headline-bold">{item.Title}</h4>
                     </header>
                     <div className="recipe-cart-body">
+                      <h4 className="on-res cart-headline-bold">
+                        {item.Title}
+                      </h4>
                       <div className="rating-time-portions">
                         <span className="rating">
                           <img src={Rating} alt="rating icon" />

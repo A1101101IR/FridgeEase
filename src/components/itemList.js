@@ -52,7 +52,7 @@ const ItemList = (props) => {
     };
 
     /* hämtar information om hur länge just den product håller beroende på productType */
-    const response = await fetch(`/type?name=${item.Category}`);
+    const response = await fetch(`/typeee?name=${item.Category}`);
     const time = await response.json();
 
     /* skickar post req till server och visar notfication på det vid 200 status */
@@ -134,9 +134,16 @@ const ItemList = (props) => {
                 <h4>{item.Name}</h4>
                 <div className="right-box">
                   {url === "fridge" && (
-                    <span className="expiration-date">
-                      {CountExpirationDate(item.Expiration_date) + " dagar"}
-                    </span>
+                    <>
+                      <span
+                        className="expiration-date"
+                        id={
+                          "color-" + CountExpirationDate(item.Expiration_date)
+                        }
+                      >
+                        {CountExpirationDate(item.Expiration_date) + " dagar"}
+                      </span>
+                    </>
                   )}
                   {more !== item._id && (
                     <>

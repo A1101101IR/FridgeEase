@@ -20,7 +20,7 @@ const AddForm = (props) => {
   const [notfication, setNotfication] = useState(false);
   const [msg, setMsg] = useState();
   const [msgImg, setMsgImg] = useState();
-  const { data: itemTime } = useFatch(`/type?name=${id}`);
+  const { data: itemTime } = useFatch(`/typeee?name=${id}`);
 
   /* funktion för att lägga till item till shoppinglist eller fridge */
   async function addItem() {
@@ -247,8 +247,12 @@ const AddForm = (props) => {
                         setQuantity(enhet);
                       }}
                     >
-                      <option value="kg">kg</option>
-                      <option value="st">st</option>
+                      <option>Välj enhet</option>
+                      <option value="st">St</option>
+                      <option value="kg">Kilo</option>
+                      <option value="gram">Gram</option>
+                      <option value="paket">Paket</option>
+                      <option value="liter">Liter</option>
                     </select>
                     <label>Note</label>
                     <textarea placeholder="Note"></textarea>

@@ -7,7 +7,7 @@ import User from "../../img/user.png";
 const RecipeDetails = () => {
   const { id } = useParams();
   const { data: recipe, isLoading, error } = useFatch(`/recipe/details/${id}`);
-
+  console.log(recipe);
   return (
     <section>
       {isLoading && (
@@ -20,10 +20,28 @@ const RecipeDetails = () => {
       {recipe && (
         <article className="recipe-details-page">
           <header>
-            {/* <div></div> */}
             <img src={recipe.ImageUrl} className="recipe-img-box" alt="" />
-            <h4 className="cart-headline-bold">{recipe.Title}</h4>
-            <p className="short-info">{recipe.PreambleHTML}</p>
+            <div className="info-box">
+              <span></span>
+              <div className="text-box">
+                <h4 className="cart-headline-bold">{recipe.Title}</h4>
+                <p className="short-info">{recipe.PreambleHTML}</p>
+              </div>
+              <div className="rating-time-portions">
+                <span className="rating">
+                  <img src={Rating} alt="rating icon" />
+                  <pre>{recipe.AverageRating}</pre>
+                </span>
+                <span className="time">
+                  <img src={Time} alt="timer icon" />
+                  <pre>{recipe.CookingTimeAbbreviated}</pre>
+                </span>
+                <span className="portions">
+                  <img src={User} alt="user icon" />
+                  <pre>{recipe.Portions}</pre>
+                </span>
+              </div>
+            </div>
           </header>
           <div className="recipe-details-body">
             <div className="rating-time-portions">
@@ -53,12 +71,16 @@ const RecipeDetails = () => {
                       <label>{Ingredient.Text}</label>
                     </div>
                   ))}
-                  <button>Lagg till inköplista</button>
+                  <button>Lägg till inköplista</button>
                 </form>
               </div>
             ))}
             <div className="cooking-steps">
               <form>
+                <p className="portion-info">
+                  {recipe.CookingStepsWithTimers.length} steg för att laga
+                  rätten {recipe.CookingTime}
+                </p>
                 {recipe.CookingStepsWithTimers.map((item) => (
                   <div className="step">
                     <input type="checkbox" />
