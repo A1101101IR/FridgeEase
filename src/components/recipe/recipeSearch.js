@@ -1,8 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-/* import useFatch from "../customHooks/useFetch";
-import Favorite from "../../img/favorite.png"; */
 import loadingImg from "../../img/loading.png";
 import Rating from "../../img/rating.png";
 import Time from "../../img/time.png";
@@ -12,16 +10,7 @@ const RecipeSearch = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [searchResult, setSearchResult] = useState();
-  /* const [productName, setProductName] = useState(id); */
-  /* Just nu det är fast url för att fetcha data fixa senare */
-  /* const fetchData = async (url) => {
-    const res = await fetch(url);
-    const result = await res.json();
-    setProductName(result.Name);
-  }; */
-  console.log(id);
   useEffect(() => {
-    /* fetchData("/shoppinglist/634d4af714a6d36c1ef974af"); */
     if (id) {
       fetch(`/recipe/byname/?phrase=${id}`)
         .then((res) => res.json())

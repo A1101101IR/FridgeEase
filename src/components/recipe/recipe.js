@@ -5,14 +5,19 @@ import Rating from "../../img/rating.png";
 import Time from "../../img/time.png";
 import User from "../../img/user.png";
 import { useEffect, useState } from "react";
+
+/* visar random recipe när user öppnar recipe sidan. */
+/* fetchar info om ord som skrivs i sökfält */
+
 const Recipe = () => {
   const [searchWord, setSearchWord] = useState(null);
   const {
     data: randomRecipe,
     isLoading,
     error,
-  } = useFatch("recipe/random?numberofrecipes=5");
+  } = useFatch("recipe/random?numberofrecipes=8");
   const [recipeData, setRecipeData] = useState(randomRecipe);
+
   useEffect(() => {
     fetch(`/recipe/byname/?phrase=${searchWord}`)
       .then((res) => res.json())
@@ -23,6 +28,7 @@ const Recipe = () => {
         console.log(err);
       });
   }, [searchWord]);
+
   return (
     <section>
       <div className="search-box">
@@ -66,7 +72,7 @@ const Recipe = () => {
                         </span>
                         <span className="portions">
                           <img src={User} alt="user icon" />
-                          <pre>{item.Portions}</pre>
+                          <pre>{item.Portions}4</pre>
                         </span>
                       </div>
                       <p>{item.PreambleHTML}</p>

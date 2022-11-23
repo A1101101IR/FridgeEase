@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const user = localStorage.getItem("user");
@@ -7,6 +8,8 @@ const Login = () => {
   const [lastname, setLastname] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+
+  /* funktion för att skapa konto */
   async function createUser() {
     const res = await fetch("/user", {
       method: "POST",
@@ -35,6 +38,8 @@ const Login = () => {
       console.log(data.status);
     }
   }
+
+  /* function för att logga in på kontot */
   async function loginUser() {
     const res = await fetch("/login", {
       method: "POST",
@@ -63,6 +68,7 @@ const Login = () => {
     }
   }
 
+  /* funktion för att byta login till singin och tvättom */
   const displayLogin = () => {
     setLogin(false);
   };
@@ -70,9 +76,13 @@ const Login = () => {
     setLogin(true);
   };
 
+  /* Om det inte finns user inloggad! då visas login sidan. */
   return (
     <>
       <section className="login">
+        <Link to="/" className="logo link">
+          FridgeEase
+        </Link>
         {!user && (
           <>
             {!login && (

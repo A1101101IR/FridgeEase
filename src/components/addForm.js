@@ -4,6 +4,10 @@ import { useEffect, useState } from "react";
 import Success from "../img/success.png";
 import ErrorIcon from "../img/error.png";
 import useFatch from "./customHooks/useFetch";
+
+/* addForm är en multifunktionell komponenet som används för två olika ändamål */
+/* 1 lägga till item till shoppinglist, 2 lägga till item till fridge  */
+
 const AddForm = (props) => {
   const navigate = useNavigate();
   const url = props.url;
@@ -17,9 +21,10 @@ const AddForm = (props) => {
   const [msg, setMsg] = useState();
   const [msgImg, setMsgImg] = useState();
   const { data: itemTime } = useFatch(`/time?name=${id}`);
-  console.log(id);
-  /* function to add item */
+
+  /* funktion för att lägga till item till shoppinglist eller fridge */
   async function addItem() {
+    /* kommer att jobba med bättre error :) */
     if (!name) {
       console.log("obs");
     }
@@ -30,17 +35,6 @@ const AddForm = (props) => {
       console.log("obs");
     }
 
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-    if (url === "list") {
-      var raw = JSON.stringify({
-        Name: name,
-        Quantity: quantity,
-        Weight: weight,
-        Category: id,
-      });
-    }
-
     /* lägger till ett (ca antal dagar) som ett product håller! */
     const date = new Date();
     Date.prototype.addDays = function (days) {
@@ -49,6 +43,18 @@ const AddForm = (props) => {
       return date;
     };
 
+    /*  */
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    if (url === "list") {
+      var raw = JSON.stringify({
+        Name: name,
+        Quantity: quantity,
+        Weight: weight,
+        Category: id,
+      });
+    }
     if (url === "fridge") {
       var raw = JSON.stringify({
         Name: name,
@@ -59,12 +65,14 @@ const AddForm = (props) => {
         Notes: "Note",
       });
     }
+
     var requestOptions = {
       method: "POST",
       headers: myHeaders,
       body: raw,
       redirect: "follow",
     };
+
     const res = await fetch(`/${url}`, requestOptions);
     const result = await res.json();
     console.log(result);
@@ -95,20 +103,18 @@ const AddForm = (props) => {
     }
   }
 
-  /* function to getting item */
+  /* funktion för att hämta info om produkt när användare vill ändra en produkt */
   async function getItem() {
     const res = await fetch(`/${url}/${id}`);
     const data = await res.json();
-    console.log(data);
     setItemData(data);
     setName(data.Name);
     setQuantity(data.Quantity);
     setWeight(data.Weight);
   }
 
-  /* function to edit item */
+  /* funktion för att ändra information om en produkt */
   async function editItem(id) {
-    console.log(name, weight, quantity);
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     var raw = JSON.stringify({
@@ -123,7 +129,8 @@ const AddForm = (props) => {
       redirect: "follow",
     });
     const data = await res.json();
-    console.log(data.modifiedCount);
+
+    /* om det ändringen lyckas får user en notfication om det! */
     if (data.modifiedCount === 1) {
       setMsg(`${name} updaterades!`);
       setMsgImg(Success);
@@ -200,10 +207,10 @@ const AddForm = (props) => {
                     setQuantity(enhet);
                   }}
                 >
-                  <option value="kg">Kg</option>
-                  <option value="gram">Gram</option>
-                  <option value="kg">Kilo</option>
+                  <option>Välj enhet</option>
                   <option value="st">St</option>
+                  <option value="kg">Kilo</option>
+                  <option value="gram">Gram</option>
                   <option value="paket">Paket</option>
                   <option value="liter">Liter</option>
                 </select>

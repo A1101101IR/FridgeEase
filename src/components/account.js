@@ -24,7 +24,6 @@ const Account = () => {
                 </h4>
               </header>
             )}
-
             <div className="btn-box">
               <div className="fakeBTN elementBTN">
                 <p></p>

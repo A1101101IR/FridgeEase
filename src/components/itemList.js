@@ -3,7 +3,10 @@ import Close from "../img/close.png";
 import { useEffect, useState } from "react";
 import Success from "../img/success.png";
 import MoreIcon from "../img/more.png";
-import useFatch from "./customHooks/useFetch";
+
+/* itemlist är en multifunktionell komponenet som visar olika item */
+/* varje item innehåller vis funtion beroende på vilken sida de är i */
+
 const ItemList = (props) => {
   const url = props.url;
   const [notfication, setNotfication] = useState(false);
@@ -12,14 +15,15 @@ const ItemList = (props) => {
   const [more, setMore] = useState(null);
   const [isMore, setIsMore] = useState(false);
   const { id } = useParams();
-  const [itemTime, setItemTime] = useState();
 
+  /* hämtar data från olika källor beroende på url */
   async function getItems() {
     const res = await fetch(`/${url}`);
     const result = await res.json();
     setData(result);
   }
 
+  /* tar bort items vid klick */
   async function deleteItem(item) {
     const res = await fetch(`/${url}/${item._id}`, {
       method: "DELETE",
@@ -37,8 +41,9 @@ const ItemList = (props) => {
     }
   }
 
+  /* lägger till item från shoppinglist till fridge */
   const addItemToFridge = async (item) => {
-    /* lägger till ett (ca antal dagar) som ett product håller! */
+    /* När user lägger till en produkt till fridge konverterar tiden (se nästa kommentar) till en string */
     const date = new Date();
     Date.prototype.addDays = function (days) {
       const date = new Date(this.valueOf());
@@ -46,14 +51,13 @@ const ItemList = (props) => {
       return date;
     };
 
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-
-    /* hämtar information om hur länge just den product håller */
+    /* hämtar information om hur länge just den product håller beroende på productType */
     const response = await fetch(`/time?name=${item.Category}`);
     const time = await response.json();
-    /*  */
 
+    /* skickar post req till server och visar notfication på det vid 200 status */
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
     var raw = JSON.stringify({
       Name: item.Name,
       Quantity: item.Quantity,
@@ -62,7 +66,6 @@ const ItemList = (props) => {
       Expiration_date: date.addDays(time),
       Notes: "Note",
     });
-
     fetch("/fridge", {
       method: "POST",
       headers: myHeaders,
@@ -81,6 +84,7 @@ const ItemList = (props) => {
     }, 2000);
   };
 
+  /* visar mer info om en item när användare klickar på ...icon */
   const displayMore = (id) => {
     if (!isMore) {
       setMore(id);
@@ -91,7 +95,7 @@ const ItemList = (props) => {
     }
   };
 
-  /* ränkar ut utgångs datum  */
+  /* ränkar ut produktens ca utgångs datum  */
   const CountExpirationDate = (expirationDate) => {
     let currentDate = new Date();
     let difference =
@@ -100,6 +104,9 @@ const ItemList = (props) => {
     return TotalDays;
   };
 
+  function test(item) {
+    console.log(item);
+  }
   useEffect(() => {
     getItems();
   }, []);
@@ -150,18 +157,7 @@ const ItemList = (props) => {
               </header>
               {more === item._id && (
                 <div className="more">
-                  <div className="input-body">
-                    <div className="input-box">
-                      <p>Mängd</p>
-                      <input type="numner" placeholder={item.Weight} />
-                    </div>
-                    <div className="input-box select">
-                      <p>Enhet</p>
-                      <select>
-                        <option>{item.Quantity}</option>
-                      </select>
-                    </div>
-                  </div>
+                  <h4>{item.Weight + " " + item.Quantity + " " + item.Name}</h4>
                   <p className="note">
                     Lorem Ipsum is simply dummy text of the printing and
                     typesetting industry. Lorem Ipsum has been the industry's
@@ -173,7 +169,9 @@ const ItemList = (props) => {
                     <Link to={`/${url}/${item._id}`}>
                       <button>Ändra</button>
                     </Link>
-                    <button onClick={() => deleteItem(item)}>Ta bort</button>
+                    <button className="red" onClick={() => deleteItem(item)}>
+                      Ta bort
+                    </button>
                     {url === "list" && (
                       <button onClick={() => addItemToFridge(item)}>
                         Lägg till kylskåp

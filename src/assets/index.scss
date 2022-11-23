@@ -88,7 +88,7 @@ $c3: #0540F2;
     @include element-width();
     @include Flex(row,space-between,center);
     .logo {
-      font-size: 32px;
+      font-size: 28px;
       font-weight: 700;
     }
     .btn-box {
@@ -165,7 +165,12 @@ main {
 }
 
 .login {
-  @include Flex(column,center,center);
+  @include Flex(column,space-evenly,center);
+  .logo {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 100px
+  }
   .form {
     @include Flex(column,none,none);
     @include element-width();
@@ -479,7 +484,6 @@ main {
     .small-cart{
       header {
         @include Flex(row,space-between,center);
-        /* @include element-width(); */
         min-height: 45px;
         color: black;
         h4 {
@@ -500,33 +504,14 @@ main {
         background-color: white;
         border-bottom-left-radius: 25px;
         border-bottom-right-radius: 25px;
-        @include Flex(column, space-between, center);
+        @include Flex(column, space-between, none);
         padding: 10px;
-        .input-body {
-          width: 100%;
-          @include Flex(row, space-between, center);
-          .input-box {
-            /* @include Flex(column, center, flex-start); */
-            width: 100%;
-            p {
-              margin-bottom: 5px;
-            }
-            input, select, option {
-              height: 40px;
-              width: 100%;
-              border: none;
-              background-color: $c2;
-              margin-bottom: 10px;
-              padding: 0 10px;
-              
-            }
-            select {
-              width: 100%;
-            }
-          }
-          .select {
-            border-left: 2px solid white
-          }
+        border-top: 1px solid $c1;
+        h4 {
+          margin-left: 0;
+          font-size: 18px;
+          margin-bottom: 10px;
+          
         }
         .btn-box {
           @include Flex(row, space-between, center);
@@ -535,7 +520,7 @@ main {
             height: 30px;
             padding: 0px 15px;
             border: none;
-            border-radius: 15px;
+            border-radius: 5px;
             margin-top: 10px;
             background-color: $c1;
           }
@@ -547,7 +532,6 @@ main {
 
 
 .search-box {
-  
   @include element-width();
   max-width: 96%;
   input {
