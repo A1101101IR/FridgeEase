@@ -25,17 +25,17 @@ const Account = () => {
               </header>
             )}
             <div className="btn-box">
-              <div className="fakeBTN elementBTN">
+              <div className="myBTN elementBTN">
                 <p></p>
                 <h4>Recept favoriter</h4>
                 <p></p>
               </div>
-              <div className="fakeBTN elementBTN">
+              <div className="myBTN elementBTN">
                 <p></p>
                 <h4>Diet</h4>
                 <p></p>
               </div>
-              <div className="fakeBTN elementBTN" onClick={() => logout()}>
+              <div className="myBTN elementBTN" onClick={() => logout()}>
                 <p></p>
                 <h4>Logga ut</h4>
                 <p></p>
